@@ -1,0 +1,13 @@
+
+modLoader="javafml"
+loaderVersion="[31,)"
+[[mods]]
+modId="vrm"
+version="${file.jarVersion}"
+displayName="Vulcan's Revenge Plus+ Mod"
+logoFile="title.png"
+credits="HoopAWolf, all of you who played the mod"
+authors="Pauljoda(creator), HoopAWolf"
+description='''
+A mod which adds in vulcan's sword and other mythical stuff
+'''
