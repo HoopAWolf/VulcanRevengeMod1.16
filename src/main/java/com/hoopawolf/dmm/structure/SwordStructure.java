@@ -1,5 +1,6 @@
 package com.hoopawolf.dmm.structure;
 
+import com.hoopawolf.dmm.config.ConfigHandler;
 import com.hoopawolf.dmm.ref.Reference;
 import com.hoopawolf.dmm.structure.piece.SwordStructurePiece;
 import com.mojang.serialization.Codec;
@@ -37,8 +38,8 @@ public class SwordStructure extends Structure<NoFeatureConfig>
 
     protected ChunkPos getStartPositionForPosition(ChunkGenerator chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
     {
-        int maxDistance = 12;
-        int minDistance = 7;
+        int maxDistance = ConfigHandler.COMMON.minStructureAway.get();
+        int minDistance = ConfigHandler.COMMON.maxStructureAway.get();
 
         int xTemp = x + maxDistance * spacingOffsetsX;
         int ztemp = z + maxDistance * spacingOffsetsZ;
@@ -50,8 +51,8 @@ public class SwordStructure extends Structure<NoFeatureConfig>
         ((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(62353535, validChunkX, validChunkZ, 62226333);
         validChunkX = validChunkX * maxDistance;
         validChunkZ = validChunkZ * maxDistance;
-        validChunkX = validChunkX + random.nextInt(maxDistance - minDistance);
-        validChunkZ = validChunkZ + random.nextInt(maxDistance - minDistance);
+        validChunkX = validChunkX + random.nextInt(maxDistance + minDistance);
+        validChunkZ = validChunkZ + random.nextInt(maxDistance + minDistance);
 
         return new ChunkPos(validChunkX, validChunkZ);
     }
@@ -61,7 +62,7 @@ public class SwordStructure extends Structure<NoFeatureConfig>
     {
         ChunkPos chunkpos = this.getStartPositionForPosition(p_230363_1_, p_230363_5_, p_230363_6_, p_230363_7_, 0, 0);
 
-        if (p_230363_6_ == chunkpos.x && p_230363_7_ == chunkpos.z && p_230363_5_.nextInt(100) < 40)
+        if (p_230363_6_ == chunkpos.x && p_230363_7_ == chunkpos.z && p_230363_5_.nextInt(100) < ConfigHandler.COMMON.structureSpawnChance.get())
         {
             return p_230363_2_.hasStructure(this);
         }
