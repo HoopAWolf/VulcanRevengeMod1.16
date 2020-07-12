@@ -1,8 +1,11 @@
 package com.hoopawolf.dmm.util;
 
+import com.hoopawolf.dmm.data.EatItemData;
 import com.hoopawolf.dmm.entities.ai.AnimalAttackGoal;
 import com.hoopawolf.dmm.entities.ai.DazedGoal;
 import com.hoopawolf.dmm.entities.projectiles.PesArrowEntity;
+import com.hoopawolf.dmm.helper.VRMEatItemDataHandler;
+import com.hoopawolf.dmm.items.armors.SinsArmorItem;
 import com.hoopawolf.dmm.items.weapons.DeathSwordItem;
 import com.hoopawolf.dmm.network.VRMPacketHandler;
 import com.hoopawolf.dmm.network.packets.client.SpawnParticleMessage;
@@ -13,22 +16,30 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.Objects;
+
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
-public class VRMEventHandler
+public class VRMServerEventHandler
 {
     @SubscribeEvent
     public static void DeathEvent(LivingDeathEvent event)
@@ -174,5 +185,73 @@ public class VRMEventHandler
             }
         }
     }
+
+    @SubscribeEvent
+    public static void onEatFinish(LivingEntityUseItemEvent.Finish event)
+    {
+        if (!event.getEntityLiving().world.isRemote)
+        {
+            if (event.getItem().isFood() && event.getEntityLiving() instanceof PlayerEntity)
+            {
+                PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+
+                if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                {
+                    SinsArmorItem.increaseFulfilment(player.inventory.armorInventory.get(3), 10, SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRightClickWithItem(PlayerInteractEvent.RightClickItem event)
+    {
+        if (!event.getEntityLiving().world.isRemote)
+        {
+            PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+
+            if (player.isCrouching() && player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+            {
+                if (!player.getHeldItemMainhand().isEmpty())
+                {
+                    if (consumeItem(player, event.getItemStack()))
+                    {
+                        event.setCanceled(true);
+                    }
+                }
+            }
+        }
+    }
+
+    private static boolean consumeItem(PlayerEntity playerIn, ItemStack itemStackIn)
+    {
+        if (VRMEatItemDataHandler.INSTANCE.data.get(itemStackIn.getTranslationKey()) != null)
+        {
+            EatItemData data = VRMEatItemDataHandler.INSTANCE.data.get(itemStackIn.getTranslationKey());
+
+            if (itemStackIn.isDamageable())
+            {
+                itemStackIn.damageItem((int) (itemStackIn.getMaxDamage() * 0.3F), playerIn, (p_220287_1_) ->
+                {
+                    p_220287_1_.sendBreakAnimation(Hand.MAIN_HAND);
+                });
+            } else
+            {
+                itemStackIn.shrink(1);
+            }
+
+            playerIn.getFoodStats().setFoodLevel(MathHelper.clamp(playerIn.getFoodStats().getFoodLevel() + data.getFoodAmount(), 0, 20));
+            SinsArmorItem.increaseFulfilment(playerIn.inventory.armorInventory.get(3), data.getFoodAmount(), SinsArmorItem.getSin(playerIn.inventory.armorInventory.get(3)).getMaxUse());
+
+            for (Integer effects : data.getListOfEffects())
+            {
+                playerIn.addPotionEffect(new EffectInstance(Objects.requireNonNull(Effect.get(effects)), data.getDuration(), data.getAmplifier()));
+            }
+
+
+            return true;
+        }
+
+        return false;
+    }
 }
-//TODO STRUCTURE, TEXTURE TYPE

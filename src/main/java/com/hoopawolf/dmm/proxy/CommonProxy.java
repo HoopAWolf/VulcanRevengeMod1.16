@@ -1,5 +1,6 @@
 package com.hoopawolf.dmm.proxy;
 
+import com.hoopawolf.dmm.helper.VRMEatItemDataHandler;
 import com.hoopawolf.dmm.network.VRMPacketHandler;
 import com.hoopawolf.dmm.util.StructureRegistryHandler;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,6 +17,7 @@ public class CommonProxy
     public static void onCommonSetupEvent(FMLCommonSetupEvent event)
     {
         VRMPacketHandler.init();
+        VRMEatItemDataHandler.INSTANCE.initJSON();
     }
 
     @SubscribeEvent

@@ -3,6 +3,7 @@ package com.hoopawolf.dmm.network;
 import com.hoopawolf.dmm.network.packets.client.SpawnParticleMessage;
 import com.hoopawolf.dmm.network.packets.server.SetPotionEffectMessage;
 import com.hoopawolf.dmm.network.packets.server.SetPotionEffectMultipleMessage;
+import com.hoopawolf.dmm.network.packets.server.SinMaskActivateMessage;
 import com.hoopawolf.dmm.ref.Reference;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.RegistryKey;
@@ -31,6 +32,7 @@ public class VRMPacketHandler
         //SERVER
         channel.messageBuilder(SetPotionEffectMessage.class, id++).encoder(SetPotionEffectMessage::encode).decoder(SetPotionEffectMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
         channel.messageBuilder(SetPotionEffectMultipleMessage.class, id++).encoder(SetPotionEffectMultipleMessage::encode).decoder(SetPotionEffectMultipleMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
+        channel.messageBuilder(SinMaskActivateMessage.class, id++).encoder(SinMaskActivateMessage::encode).decoder(SinMaskActivateMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
 
         //CLIENT
         channel.messageBuilder(SpawnParticleMessage.class, id++).encoder(SpawnParticleMessage::encode).decoder(SpawnParticleMessage::decode).consumer(MessageHandlerOnClient::onMessageReceived).add();
@@ -39,6 +41,11 @@ public class VRMPacketHandler
     public void send(PacketTarget target, Object message)
     {
         channel.send(target, message);
+    }
+
+    public void sendToServer(PacketTarget target, Object message)
+    {
+        channel.sendToServer(message);
     }
 
     public void sendToPlayer(ServerPlayerEntity player, Object message)

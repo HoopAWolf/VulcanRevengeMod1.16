@@ -26,6 +26,7 @@ public class VulcanRevengeMod
         modEventBus.addListener(CommonProxy::onCommonSetupEvent);
 
         ItemBlockRegistryHandler.init(modEventBus);
+        ArmorRegistryHandler.init(modEventBus);
         EntityRegistryHandler.ENTITIES.register(modEventBus);
         TileEntityRegistryHandler.TILE_ENTITIES.register(modEventBus);
         ParticleRegistryHandler.PARTICLES.register(modEventBus);

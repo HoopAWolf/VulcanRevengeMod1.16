@@ -37,6 +37,13 @@ public class EntityHelper
         entityIn.sendMessage(new TranslationTextComponent(I18n.format(message) + ((cooldownIn > 0) ? " " + (cooldownIn / 20) + "s" : "")).func_240703_c_(field_240709_b_.func_240712_a_(TextFormatting.RED)), entityIn.getUniqueID());
     }
 
+    public static void sendMessage(PlayerEntity entityIn, String messageID, TextFormatting colorIn)
+    {
+        String message = "message.vrm." + messageID;
+
+        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message)).func_240703_c_(field_240709_b_.func_240712_a_(colorIn)), entityIn.getUniqueID());
+    }
+
     public static List<PlayerEntity> getPlayersNearby(Entity ent, double distanceX, double distanceY, double distanceZ, double radius)
     {
         List<Entity> nearbyEntities = ent.world.getEntitiesWithinAABBExcludingEntity(ent, ent.getBoundingBox().grow(distanceX, distanceY, distanceZ));

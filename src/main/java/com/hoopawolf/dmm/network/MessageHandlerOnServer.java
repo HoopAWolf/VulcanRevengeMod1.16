@@ -1,11 +1,14 @@
 package com.hoopawolf.dmm.network;
 
+import com.hoopawolf.dmm.items.armors.SinsArmorItem;
 import com.hoopawolf.dmm.network.packets.server.MessageToServer;
 import com.hoopawolf.dmm.network.packets.server.SetPotionEffectMessage;
 import com.hoopawolf.dmm.network.packets.server.SetPotionEffectMultipleMessage;
+import com.hoopawolf.dmm.network.packets.server.SinMaskActivateMessage;
 import com.hoopawolf.dmm.ref.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
@@ -86,6 +89,20 @@ public class MessageHandlerOnServer
                         {
                             ((LivingEntity) _entity).addPotionEffect(new EffectInstance(types[i], _message.getDuration(), _message.getAmplifier()));
                         }
+                    }
+                }
+            }
+            break;
+            case 2:
+            {
+                SinMaskActivateMessage _message = (SinMaskActivateMessage) message;
+                PlayerEntity _player = sendingPlayer.world.getPlayerByUuid(_message.getPlayerID());
+
+                if (_player != null)
+                {
+                    if (_player.isAlive())
+                    {
+                        SinsArmorItem.setActivated(_player.inventory.armorInventory.get(3), _message.isActivated());
                     }
                 }
             }
