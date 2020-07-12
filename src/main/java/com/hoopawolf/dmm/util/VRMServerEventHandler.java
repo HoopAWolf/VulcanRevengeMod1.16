@@ -238,6 +238,7 @@ public class VRMServerEventHandler
             } else
             {
                 itemStackIn.shrink(1);
+                playerIn.sendBreakAnimation(Hand.MAIN_HAND);
             }
 
             playerIn.getFoodStats().setFoodLevel(MathHelper.clamp(playerIn.getFoodStats().getFoodLevel() + data.getFoodAmount(), 0, 20));

@@ -12,7 +12,7 @@ import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
 import net.minecraftforge.forgespi.language.IModFileInfo;
 import net.minecraftforge.forgespi.language.IModInfo;
-import org.apache.commons.compress.utils.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.*;
@@ -38,8 +38,8 @@ public class VRMEatItemDataHandler
     }.getType();
     public final Map<String, EatItemData> data = new HashMap<>();
 
-    public static void findFiles(IModInfo mod, String base, Predicate<Path> rootFilter,
-                                 BiFunction<Path, Path, Boolean> processor, boolean visitAllFiles)
+    public void findFiles(IModInfo mod, String base, Predicate<Path> rootFilter,
+                          BiFunction<Path, Path, Boolean> processor, boolean visitAllFiles)
     {
         if (mod.getModId().equals("minecraft") || mod.getModId().equals("forge"))
         {
@@ -123,7 +123,7 @@ public class VRMEatItemDataHandler
                         }
 
                         return true;
-                    }, true);
+                    }, false);
         });
 
         foundData.forEach((pair, file) ->
