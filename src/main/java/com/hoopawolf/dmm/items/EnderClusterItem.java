@@ -12,6 +12,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -20,8 +21,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.List;
-
-import static net.minecraft.util.text.Style.field_240709_b_;
 
 public class EnderClusterItem extends Item
 {
@@ -61,6 +60,6 @@ public class EnderClusterItem extends Item
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:endercluster")).func_240703_c_(field_240709_b_.func_240712_a_(TextFormatting.DARK_GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:endercluster")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.DARK_GRAY)));
     }
 }

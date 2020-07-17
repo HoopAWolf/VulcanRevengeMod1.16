@@ -39,7 +39,7 @@ public class AnimalAttackGoal extends MeleeAttackGoal
             {
                 if (f1 > 0.0F && enemy instanceof LivingEntity)
                 {
-                    enemy.func_233627_a_(f1 * 0.5F, MathHelper.sin(host.rotationYaw * ((float) Math.PI / 180F)), -MathHelper.cos(host.rotationYaw * ((float) Math.PI / 180F)));
+                    enemy.applyKnockback(f1 * 0.5F, MathHelper.sin(host.rotationYaw * ((float) Math.PI / 180F)), -MathHelper.cos(host.rotationYaw * ((float) Math.PI / 180F)));
                     host.setMotion(host.getMotion().mul(0.6D, 1.0D, 0.6D));
                 }
 

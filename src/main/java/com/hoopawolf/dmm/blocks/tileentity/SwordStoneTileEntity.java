@@ -45,7 +45,7 @@ public class SwordStoneTileEntity extends TileEntity implements ITickableTileEnt
             {
                     EntityType.BLAZE,
                     EntityType.MAGMA_CUBE,
-                    EntityType.field_233592_ba_
+                    EntityType.ZOMBIFIED_PIGLIN
             };
 
     private static final EntityType[] heavyPhase =
@@ -239,9 +239,9 @@ public class SwordStoneTileEntity extends TileEntity implements ITickableTileEnt
     }
 
     @Override
-    public void func_230337_a_(BlockState blockState, CompoundNBT compound)
+    public void read(BlockState blockState, CompoundNBT compound)
     {
-        super.func_230337_a_(blockState, compound);
+        super.read(blockState, compound);
         activated = compound.getBoolean("activated");
         activatedDone = compound.getBoolean("activatedDone");
         timer = compound.getFloat("timer");
@@ -268,7 +268,7 @@ public class SwordStoneTileEntity extends TileEntity implements ITickableTileEnt
     @Override
     public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt)
     {
-        func_230337_a_(getBlockState(), pkt.getNbtCompound());
+        read(getBlockState(), pkt.getNbtCompound());
     }
 
     @Override

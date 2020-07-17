@@ -48,6 +48,7 @@
   "tooltip.vrm:fam1": "Absorbs nearby life force to fill hunger [if holding, absorbs from creatures]",
   "tooltip.vrm:fam2": "[On Hold] Make nearby animals crave for lust",
   "tooltip.vrm:fam3": "[On Hold] When attacked, have a chance to apply daze onto attacker",
+  "tooltip.vrm:fam4": "[Shift Right-Click] Sacrifice all hunger for full health",
   "tooltip.vrm:sinmask0": "Mask containing the power of a deadly sin",
   "tooltip.vrm:sinmask1": "[Shift Right-Click] Sacrifice all hunger for full health",
   "tooltip.vrm:sinmask2": "[Right-Click] Copy one of targeted entity's ability",

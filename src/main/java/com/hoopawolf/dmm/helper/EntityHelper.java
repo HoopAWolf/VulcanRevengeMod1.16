@@ -6,6 +6,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -13,7 +14,6 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static net.minecraft.util.text.Style.field_240709_b_;
 
 public class EntityHelper
 {
@@ -34,14 +34,14 @@ public class EntityHelper
             message = "message.vrm.error";
         }
 
-        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message) + ((cooldownIn > 0) ? " " + (cooldownIn / 20) + "s" : "")).func_240703_c_(field_240709_b_.func_240712_a_(TextFormatting.RED)), entityIn.getUniqueID());
+        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message) + ((cooldownIn > 0) ? " " + (cooldownIn / 20) + "s" : "")).func_240703_c_(Style.EMPTY.setFormatting(TextFormatting.RED)), entityIn.getUniqueID());
     }
 
     public static void sendMessage(PlayerEntity entityIn, String messageID, TextFormatting colorIn)
     {
         String message = "message.vrm." + messageID;
 
-        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message)).func_240703_c_(field_240709_b_.func_240712_a_(colorIn)), entityIn.getUniqueID());
+        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message)).func_240703_c_(Style.EMPTY.setFormatting(colorIn)), entityIn.getUniqueID());
     }
 
     public static List<PlayerEntity> getPlayersNearby(Entity ent, double distanceX, double distanceY, double distanceZ, double radius)

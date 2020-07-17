@@ -36,9 +36,9 @@ public abstract class RuneTileEntity extends TileEntity
     }
 
     @Override
-    public void func_230337_a_(BlockState blockState, CompoundNBT compound)
+    public void read(BlockState blockState, CompoundNBT compound)
     {
-        super.func_230337_a_(blockState, compound);
+        super.read(blockState, compound);
         isActivated = compound.getBoolean("activated");
     }
 
@@ -62,7 +62,7 @@ public abstract class RuneTileEntity extends TileEntity
     public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt)
     {
         CompoundNBT tag = pkt.getNbtCompound();
-        func_230337_a_(getBlockState(), tag);
+        read(getBlockState(), tag);
     }
 
     @Override
