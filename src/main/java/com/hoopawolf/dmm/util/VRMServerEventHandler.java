@@ -40,16 +40,21 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
-public class VRMServerEventHandler {
+public class VRMServerEventHandler
+{
     @SubscribeEvent
-    public static void DeathEvent(LivingDeathEvent event) {
-        if (!event.getEntity().world.isRemote) {
-            if (event.getEntity() instanceof PlayerEntity && event.getSource().getTrueSource() instanceof LivingEntity) {
+    public static void DeathEvent(LivingDeathEvent event)
+    {
+        if (!event.getEntity().world.isRemote)
+        {
+            if (event.getEntity() instanceof PlayerEntity && event.getSource().getTrueSource() instanceof LivingEntity)
+            {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
                 LivingEntity attacker = (LivingEntity) event.getSource().getTrueSource();
 
                 if (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.DEATH_SWORD.get()) &&
-                        DeathSwordItem.getDeathCoolDown(player.getHeldItemMainhand()) <= 0) {
+                        DeathSwordItem.getDeathCoolDown(player.getHeldItemMainhand()) <= 0)
+                {
                     event.setCanceled(true);
                     attacker.attackEntityFrom(new DamageSource("death"), attacker.getMaxHealth() * 0.5F);
                     player.setHealth(player.getMaxHealth() * 0.5F);
@@ -57,7 +62,8 @@ public class VRMServerEventHandler {
                     DeathSwordItem.setDeathCoolDown(player.getHeldItemMainhand(), 600);
                     player.playSound(SoundEvents.BLOCK_END_PORTAL_SPAWN, SoundCategory.BLOCKS, 5.0F, 0.1F);
 
-                    for (int i = 1; i <= 180; ++i) {
+                    for (int i = 1; i <= 180; ++i)
+                    {
                         double yaw = i * 360 / 180;
                         double speed = 0.3;
                         double xSpeed = speed * Math.cos(Math.toRadians(yaw));
@@ -69,12 +75,15 @@ public class VRMServerEventHandler {
                 }
             }
 
-            if (event.getEntity() instanceof LivingEntity) {
+            if (event.getEntity() instanceof LivingEntity)
+            {
                 LivingEntity target = (LivingEntity) event.getEntity();
 
-                if (target.isPotionActive(PotionRegistryHandler.PLAGUE_EFFECT.get()) || event.getSource().getImmediateSource() instanceof PesArrowEntity) {
+                if (target.isPotionActive(PotionRegistryHandler.PLAGUE_EFFECT.get()) || event.getSource().getImmediateSource() instanceof PesArrowEntity)
+                {
                     target.playSound(SoundEvents.ENTITY_PUFFER_FISH_BLOW_OUT, 0.5F, 0.1F);
-                    for (int i = 1; i <= 180; ++i) {
+                    for (int i = 1; i <= 180; ++i)
+                    {
                         double yaw = i * 360 / 180;
                         double speed = 0.7;
                         double xSpeed = speed * Math.cos(Math.toRadians(yaw));
@@ -89,28 +98,36 @@ public class VRMServerEventHandler {
     }
 
     @SubscribeEvent
-    public static void HurtEvent(LivingHurtEvent event) {
-        if (!event.getEntity().world.isRemote) {
-            if (event.getEntity() instanceof CreatureEntity) {
-                if (((CreatureEntity) event.getEntity()).isPotionActive(PotionRegistryHandler.DAZED_EFFECT.get())) {
+    public static void HurtEvent(LivingHurtEvent event)
+    {
+        if (!event.getEntity().world.isRemote)
+        {
+            if (event.getEntity() instanceof CreatureEntity)
+            {
+                if (((CreatureEntity) event.getEntity()).isPotionActive(PotionRegistryHandler.DAZED_EFFECT.get()))
+                {
                     ((CreatureEntity) event.getEntity()).removePotionEffect(PotionRegistryHandler.DAZED_EFFECT.get());
                 }
             }
 
-            if (event.getEntity() instanceof PlayerEntity) {
+            if (event.getEntity() instanceof PlayerEntity)
+            {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
 
                 if (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.DEATH_SWORD.get()) &&
                         DeathSwordItem.getVoodooID(player.getHeldItemMainhand()) != 0 &&
                         player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())) != null &&
-                        player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())).isAlive()) {
+                        player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())).isAlive())
+                {
                     event.setCanceled(true);
                     player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())).attackEntityFrom(new DamageSource("reaper"), event.getAmount());
                     player.playSound(SoundEvents.ENTITY_VEX_CHARGE, SoundCategory.BLOCKS, 5.0F, 0.1F);
                 }
 
-                if (player.world.rand.nextInt(100) < 40 && (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get()) || player.getHeldItemOffhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get()))) {
-                    if (event.getSource().getTrueSource() instanceof CreatureEntity) {
+                if (player.world.rand.nextInt(100) < 40 && (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get()) || player.getHeldItemOffhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get())))
+                {
+                    if (event.getSource().getTrueSource() instanceof CreatureEntity)
+                    {
                         ((CreatureEntity) event.getSource().getTrueSource()).addPotionEffect(new EffectInstance(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 100)));
                         SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(event.getSource().getTrueSource().getPosX(), event.getSource().getTrueSource().getPosY() + 0.5F, event.getSource().getTrueSource().getPosZ()), new Vector3d(0.0F, 0.0D, 0.0F), 3, 9, event.getSource().getTrueSource().getWidth());
                         VRMPacketHandler.packetHandler.sendToDimension(event.getSource().getTrueSource().world.func_234923_W_(), spawnParticleMessage);
@@ -120,7 +137,8 @@ public class VRMServerEventHandler {
                 }
 
                 if (player.getHealth() < player.getMaxHealth() * 0.3F && player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.WAR_SWORD.get()) &&
-                        event.getSource().getTrueSource() instanceof LivingEntity) {
+                        event.getSource().getTrueSource() instanceof LivingEntity)
+                {
                     event.getSource().getTrueSource().setFire(10);
                     player.playSound(SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 5.0F, 0.1F);
                 }
@@ -129,13 +147,18 @@ public class VRMServerEventHandler {
     }
 
     @SubscribeEvent
-    public static void ApplyPotionEvent(PotionEvent.PotionApplicableEvent event) {
-        if (!event.getEntity().world.isRemote) {
-            if (event.getEntity() instanceof PlayerEntity) {
+    public static void ApplyPotionEvent(PotionEvent.PotionApplicableEvent event)
+    {
+        if (!event.getEntity().world.isRemote)
+        {
+            if (event.getEntity() instanceof PlayerEntity)
+            {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
 
-                if (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.PES_BOW.get())) {
-                    if (!event.getPotionEffect().getPotion().isBeneficial()) {
+                if (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.PES_BOW.get()))
+                {
+                    if (!event.getPotionEffect().getPotion().isBeneficial())
+                    {
                         event.setResult(Event.Result.DENY);
                     }
                 }
@@ -144,29 +167,37 @@ public class VRMServerEventHandler {
     }
 
     @SubscribeEvent
-    public static void onJoinWorld(EntityJoinWorldEvent event) {
+    public static void onJoinWorld(EntityJoinWorldEvent event)
+    {
         Entity entity = event.getEntity();
 
         World world = entity.world;
 
-        if (!world.isRemote) {
-            if (entity instanceof CreatureEntity) {
+        if (!world.isRemote)
+        {
+            if (entity instanceof CreatureEntity)
+            {
                 ((CreatureEntity) entity).goalSelector.addGoal(0, new DazedGoal(((CreatureEntity) entity)));
             }
 
-            if (entity instanceof CowEntity || entity instanceof RabbitEntity || entity instanceof SheepEntity || entity instanceof AbstractHorseEntity || entity instanceof PigEntity || entity instanceof ChickenEntity) {
+            if (entity instanceof CowEntity || entity instanceof RabbitEntity || entity instanceof SheepEntity || entity instanceof AbstractHorseEntity || entity instanceof PigEntity || entity instanceof ChickenEntity)
+            {
                 ((AnimalEntity) entity).goalSelector.addGoal(1, new AnimalAttackGoal(((AnimalEntity) entity), 1.0D, true, 2, 1));
             }
         }
     }
 
     @SubscribeEvent
-    public static void onEatFinish(LivingEntityUseItemEvent.Finish event) {
-        if (!event.getEntityLiving().world.isRemote) {
-            if (event.getItem().isFood() && event.getEntityLiving() instanceof PlayerEntity) {
+    public static void onEatFinish(LivingEntityUseItemEvent.Finish event)
+    {
+        if (!event.getEntityLiving().world.isRemote)
+        {
+            if (event.getItem().isFood() && event.getEntityLiving() instanceof PlayerEntity)
+            {
                 PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 
-                if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3))) {
+                if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                {
                     SinsArmorItem.increaseFulfilment(player.inventory.armorInventory.get(3), event.getItem().getItem().getFood().getHealing(), SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
                 }
             }
@@ -174,13 +205,18 @@ public class VRMServerEventHandler {
     }
 
     @SubscribeEvent
-    public static void onRightClickWithItem(PlayerInteractEvent.RightClickItem event) {
-        if (!event.getEntityLiving().world.isRemote) {
+    public static void onRightClickWithItem(PlayerInteractEvent.RightClickItem event)
+    {
+        if (!event.getEntityLiving().world.isRemote)
+        {
             PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 
-            if (player.isCrouching() && player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3))) {
-                if (!player.getHeldItemMainhand().isEmpty() && !player.getHeldItemMainhand().isFood()) {
-                    if (consumeItem(player, event.getItemStack())) {
+            if (player.isCrouching() && player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+            {
+                if (!player.getHeldItemMainhand().isEmpty() && !player.getHeldItemMainhand().isFood())
+                {
+                    if (consumeItem(player, event.getItemStack()))
+                    {
                         event.setCanceled(true);
                     }
                 }
@@ -188,16 +224,20 @@ public class VRMServerEventHandler {
         }
     }
 
-    private static boolean consumeItem(PlayerEntity playerIn, ItemStack itemStackIn) {
-        if (VRMEatItemDataHandler.INSTANCE.data.get(itemStackIn.getTranslationKey()) != null) {
+    private static boolean consumeItem(PlayerEntity playerIn, ItemStack itemStackIn)
+    {
+        if (VRMEatItemDataHandler.INSTANCE.data.get(itemStackIn.getTranslationKey()) != null)
+        {
             EatItemData data = VRMEatItemDataHandler.INSTANCE.data.get(itemStackIn.getTranslationKey());
 
-            if (itemStackIn.isDamageable()) {
+            if (itemStackIn.isDamageable())
+            {
                 itemStackIn.damageItem((int) (itemStackIn.getMaxDamage() * 0.3F), playerIn, (p_220287_1_) ->
                 {
                     p_220287_1_.sendBreakAnimation(Hand.MAIN_HAND);
                 });
-            } else {
+            } else
+            {
                 itemStackIn.shrink(1);
                 playerIn.sendBreakAnimation(Hand.MAIN_HAND);
             }
@@ -205,8 +245,10 @@ public class VRMServerEventHandler {
             playerIn.getFoodStats().setFoodLevel(MathHelper.clamp(playerIn.getFoodStats().getFoodLevel() + data.getFoodAmount(), 0, 20));
             SinsArmorItem.increaseFulfilment(playerIn.inventory.armorInventory.get(3), data.getFoodAmount(), SinsArmorItem.getSin(playerIn.inventory.armorInventory.get(3)).getMaxUse());
 
-            for (Integer effects : data.getListOfEffects()) {
-                if (Effect.get(effects) != null) {
+            for (Integer effects : data.getListOfEffects())
+            {
+                if (Effect.get(effects) != null)
+                {
                     playerIn.addPotionEffect(new EffectInstance(Objects.requireNonNull(Effect.get(effects)), (Effect.get(effects).equals(Effects.INSTANT_DAMAGE) || Effect.get(effects).equals(Effects.INSTANT_HEALTH)) ? 1 : data.getDuration(), data.getAmplifier()));
                 }
             }

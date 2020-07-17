@@ -57,6 +57,7 @@
   "tooltip.vrm:sinmask6": "[Right-Click] Angry stuff",
   "tooltip.vrm:sinmask7": "[Shift Right-Click] Sacrifice all hunger for full health",
   "tooltip.vrm:sinmask8": "[Shift Right-Click] Sacrifice all hunger for full health",
+  "tooltip.vrm:endercluster": "[Right-Click] Throws the bundle",
   "death.attack.reaper": "%1$s was reaped",
   "death.attack.animal": "%1$s was nibbled to death",
   "effect.vrm.plagueeffect": "Plague",

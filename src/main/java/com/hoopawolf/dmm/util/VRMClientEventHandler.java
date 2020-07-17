@@ -8,7 +8,6 @@ import com.hoopawolf.dmm.network.packets.server.SinMaskActivateMessage;
 import com.hoopawolf.dmm.ref.Reference;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.api.distmarker.Dist;

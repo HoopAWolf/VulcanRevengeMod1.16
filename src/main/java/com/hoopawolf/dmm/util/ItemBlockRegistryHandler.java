@@ -1,6 +1,7 @@
 package com.hoopawolf.dmm.util;
 
 import com.hoopawolf.dmm.blocks.*;
+import com.hoopawolf.dmm.items.EnderClusterItem;
 import com.hoopawolf.dmm.items.RuneItem;
 import com.hoopawolf.dmm.items.weapons.*;
 import com.hoopawolf.dmm.ref.Reference;
@@ -37,7 +38,7 @@ public class ItemBlockRegistryHandler
     public static final RegistryObject<Item> PES_BOW = ITEMS.register("pes", () -> new PesBowItem(new Item.Properties().maxStackSize(1).maxDamage(1000)));
     public static final RegistryObject<Item> FAM_SCALE = ITEMS.register("fam", () -> new FamScaleItem(new Item.Properties().maxStackSize(1).maxDamage(1000)));
     public static final RegistryObject<Item> RUNE_ITEM = ITEMS.register("rune", () -> new RuneItem(new Item.Properties().maxStackSize(1).group(VRMItemGroup.instance)));
-    public static final RegistryObject<Item> ENDER_CLUSTER_ITEM = ITEMS.register("endercluster", () -> new Item(new Item.Properties().group(VRMItemGroup.instance)));
+    public static final RegistryObject<Item> ENDER_CLUSTER_ITEM = ITEMS.register("endercluster", () -> new EnderClusterItem(new Item.Properties().group(VRMItemGroup.instance)));
     public static final RegistryObject<Item> ENDERDLE_ITEM = ITEMS.register("enderdle", () -> new Item(new Item.Properties().group(VRMItemGroup.instance)));
 
     public static final RegistryObject<BlockItem> SWORD_STONE = ITEMS.register("swordstone",

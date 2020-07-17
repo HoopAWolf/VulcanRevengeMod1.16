@@ -1107,171 +1107,255 @@
   },
   {
     "itemID": "item.minecraft.bone",
+    "duration": 300,
+    "amplifier": 1,
+    "foodAmount": 5,
+    "listOfEffects": [10, 31]
+  },
+  {
+    "itemID": "block.minecraft.bone_block",
     "duration": 500,
     "amplifier": 1,
     "foodAmount": 15,
+    "listOfEffects": [10, 31]
+  },
+  {
+    "itemID": "item.minecraft.bone_meal",
+    "duration": 100,
+    "amplifier": 1,
+    "foodAmount": 2,
+    "listOfEffects": [10]
+  },
+  {
+    "itemID": "item.minecraft.book",
+    "duration": 500,
+    "amplifier": 1,
+    "foodAmount": 5,
+    "listOfEffects": []
+  },
+  {
+    "itemID": "block.minecraft.bookshelf",
+    "duration": 500,
+    "amplifier": 1,
+    "foodAmount": 15,
+    "listOfEffects": []
+  },
+  {
+    "itemID": "item.minecraft.bow",
+    "duration": 300,
+    "amplifier": 1,
+    "foodAmount": 15,
+    "listOfEffects": [1, 8]
+  },
+  {
+    "itemID": "item.minecraft.bowl",
+    "duration": 500,
+    "amplifier": 1,
+    "foodAmount": 5,
+    "listOfEffects": []
+  },
+  {
+    "itemID": "item.minecraft.brain_coral",
+    "duration": 200,
+    "amplifier": 1,
+    "foodAmount": 3,
+    "listOfEffects": [13]
+  },
+  {
+    "itemID": "block.minecraft.brain_coral_block",
+    "duration": 300,
+    "amplifier": 1,
+    "foodAmount": 10,
+    "listOfEffects": [13]
+  },
+  {
+    "itemID": "item.minecraft.brain_coral_fan",
+    "duration": 200,
+    "amplifier": 1,
+    "foodAmount": 5,
+    "listOfEffects": [13]
+  },
+  {
+    "itemID": "block.minecraft.brewing_stand",
+    "duration": 500,
+    "amplifier": 1,
+    "foodAmount": 15,
+    "listOfEffects": [1, 2, 3, 4, 5, 18]
+  },
+  {
+    "itemID": "block.minecraft.brick",
+    "duration": 100,
+    "amplifier": 1,
+    "foodAmount": 15,
+    "listOfEffects": [7]
+  },
+  {
+    "itemID": "block.minecraft.brick_slab",
+    "duration": 100,
+    "amplifier": 1,
+    "foodAmount": 8,
+    "listOfEffects": [7]
+  },
+  {
+    "itemID": "block.minecraft.brick_wall",
+    "duration": 500,
+    "amplifier": 1,
+    "foodAmount": 10,
     "listOfEffects": [13, 30]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.bricks",
+    "duration": 100,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 5,
+    "listOfEffects": [7]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.broken_elytra",
+    "duration": 200,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 10,
+    "listOfEffects": [28]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.brown_banner",
+    "duration": 100,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 5,
+    "listOfEffects": [15]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.brown_bed",
+    "duration": 100,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 10,
+    "listOfEffects": [15]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.brown_carpet",
+    "duration": 100,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 3,
+    "listOfEffects": [15]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.brown_concrete",
+    "duration": 100,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 10,
+    "listOfEffects": [15]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.brown_concrete_powder",
+    "duration": 50,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 2,
+    "listOfEffects": [15]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.brown_dye",
+    "duration": 50,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 2,
+    "listOfEffects": [15]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.brown_glazed_terracotta",
+    "duration": 100,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 10,
+    "listOfEffects": [15]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.brown_shulker_box",
     "duration": 500,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 10,
+    "listOfEffects": [22, 17]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.brown_stained_glass",
     "duration": 500,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 5,
+    "listOfEffects": [7, 18]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.brown_stained_glass_pane",
+    "duration": 200,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 5,
+    "listOfEffects": [7, 18]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.brown_terracotta",
+    "duration": 100,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 10,
+    "listOfEffects": [15]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.brown_wool",
+    "duration": 300,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 7,
+    "listOfEffects": [2, 22]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.brown_mushroom",
+    "duration": 100,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 5,
+    "listOfEffects": [10]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.brown_mushroom_block",
     "duration": 500,
     "amplifier": 1,
     "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "listOfEffects": [10]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.bubble_coral_block",
     "duration": 500,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 10,
+    "listOfEffects": [13]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.bubble_coral",
+    "duration": 200,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 3,
+    "listOfEffects": [13]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.bubble_coral_fan",
+    "duration": 300,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 5,
+    "listOfEffects": [13]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.bucket",
     "duration": 500,
     "amplifier": 1,
     "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "listOfEffects": [17]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.cactus",
+    "duration": 300,
     "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "foodAmount": 5,
+    "listOfEffects": [10, 7]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.cake",
     "duration": 500,
     "amplifier": 1,
     "foodAmount": 15,
-    "listOfEffects": [13, 30]
-  },
-  {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
-    "amplifier": 1,
-    "foodAmount": 15,
-    "listOfEffects": [13, 30]
+    "listOfEffects": [26, 10, 8, 1]
   },
   {
     "itemID": "item.minecraft.acacia_boat",

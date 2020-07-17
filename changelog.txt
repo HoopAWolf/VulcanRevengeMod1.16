@@ -1,3 +1,46 @@
+Build: 1.16.1-32.0.68 - Thu Jul 16 21:56:30 GMT 2020
+	lex:
+		Fixed Forge commands. Closes #6973 Closes #6974 Closes #6976
+
+=========
+Build: 1.16.1-32.0.67 - Wed Jul 15 19:30:53 GMT 2020
+	jaredlll08:
+		Added an event for registering commands. closes #6968 (#6969)
+
+=========
+Build: 1.16.1-32.0.66 - Tue Jul 14 00:15:41 GMT 2020
+	darklime:
+		Make all functions in Style common. (#6931)
+
+=========
+Build: 1.16.1-32.0.65 - Mon Jul 13 22:44:53 GMT 2020
+	55965249+seymourimadeit:
+		Mark Raid.WaveMembers as an extensible enum. (#6878)
+
+=========
+Build: 1.16.1-32.0.64 - Mon Jul 13 22:17:58 GMT 2020
+	lex:
+		Fix checkPatches task. Closes #6956
+		Fix patched in method using srg name. Closes #6965
+		Fix capabilities not being collected for ClientWorld. Closes #6966
+		Fix TagEmptyCondition using client side copy of tags instead of server. Closes #6949
+		Fix ExtendedButton using narrator text. Closes #6958, Closes #6959
+		Fix misaligned patch in RepairContainer. Closes #6950, Closes #6953
+		Fix LivingJumpEvent not being fired for players jumping horses. Closes #6929
+		Remove extra getToughness method in ArmorItem. Closes #6970
+		Remove GetCollisionBoxesEvent. Closes #6921
+
+=========
+Build: 1.16.1-32.0.63 - Fri Jul 10 22:28:22 GMT 2020
+	richard:
+		Fix race condition with DeferredRegister for custom registries (#6951)
+
+=========
+Build: 1.16.1-32.0.62 - Fri Jul 10 17:49:51 GMT 2020
+	arnoldnunag12+github:
+		Remove hooks into beacon base/payments. Vanilla uses tags now for extensibility. (#6948)
+
+=========
 Build: 1.16.1-32.0.61 - Wed Jul 08 21:33:38 GMT 2020
 	jaredlll08:
 		Expose the DataPackRegistries instance to the AddReloadListenerEvent (#6933)
@@ -298,6 +341,34 @@ Build: 1.16.1-32.0.7 - Fri Jun 26 02:30:54 GMT 2020
 
 =========
 Build: 1.16.1-32.0.6 - Fri Jun 26 01:52:19 GMT 2020
+	thpetuaudletang:
+		Fix locate command (#6811)
+
+	thpetuaudletang:
+		Fix block drops (#6810)
+
+	contact:
+		Add missing patch to ScreenShotHelper (#6809)
+		
+		Adds the missed patch back
+
+	Yunus1903:
+		Updated MDK mods.toml versions (#6808)
+
+	thpetuaudletang:
+		Fix locate command (#6811)
+
+	thpetuaudletang:
+		Fix block drops (#6810)
+
+	contact:
+		Add missing patch to ScreenShotHelper (#6809)
+		
+		Adds the missed patch back
+
+	Yunus1903:
+		Updated MDK mods.toml versions (#6808)
+
 	thpetuaudletang:
 		Fix locate command (#6811)
 

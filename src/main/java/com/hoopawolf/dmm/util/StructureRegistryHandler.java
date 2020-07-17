@@ -27,6 +27,7 @@ public class StructureRegistryHandler
 
     public static void generateStructureWorldSpawn()
     {
+        Structure.field_236365_a_.put(SWORD_STONE_STRUCTURE.get().getStructureName(), SWORD_STONE_STRUCTURE.get());
         registerStructureWorldSpawn(SWORD_STONE_STRUCTURE.get().func_236391_a_(NoFeatureConfig.field_236559_b_),
                 new Biome[]{Biomes.FOREST, Biomes.TALL_BIRCH_FOREST, Biomes.TALL_BIRCH_FOREST, Biomes.JUNGLE, Biomes.DARK_FOREST, Biomes.FLOWER_FOREST, Biomes.WOODED_HILLS, Biomes.TAIGA, Biomes.PLAINS});
     }

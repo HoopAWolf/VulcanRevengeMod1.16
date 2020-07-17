@@ -33,27 +33,23 @@ public class SwordStructure extends Structure<NoFeatureConfig>
     @Override
     public String getStructureName()
     {
-        return Reference.MOD_ID + ":swordstructure";
+        return SwordStructurePiece.SWORD_STRUCTURE_LOC.toString();
     }
 
     protected ChunkPos getStartPositionForPosition(ChunkGenerator chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
     {
-        int maxDistance = ConfigHandler.COMMON.minStructureAway.get();
-        int minDistance = ConfigHandler.COMMON.maxStructureAway.get();
+        int featureDistance = ConfigHandler.COMMON.maxStructureAway.get();
+        int featureSeparation = ConfigHandler.COMMON.minStructureAway.get();
 
-        int xTemp = x + maxDistance * spacingOffsetsX;
-        int ztemp = z + maxDistance * spacingOffsetsZ;
-        int xTemp2 = xTemp < 0 ? xTemp - maxDistance + 1 : xTemp;
-        int zTemp2 = ztemp < 0 ? ztemp - maxDistance + 1 : ztemp;
-        int validChunkX = xTemp2 / maxDistance;
-        int validChunkZ = zTemp2 / maxDistance;
-
-        ((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(62353535, validChunkX, validChunkZ, 62226333);
-        validChunkX = validChunkX * maxDistance;
-        validChunkZ = validChunkZ * maxDistance;
-        validChunkX = validChunkX + random.nextInt(maxDistance + minDistance);
-        validChunkZ = validChunkZ + random.nextInt(maxDistance + minDistance);
-
+        int xTemp = x + featureDistance * spacingOffsetsX;
+        int zTemp = z + featureDistance * spacingOffsetsZ;
+        int validChunkX = (xTemp < 0 ? xTemp - featureDistance + 1 : xTemp) / featureDistance;
+        int validChunkZ = (zTemp < 0 ? zTemp - featureDistance + 1 : zTemp) / featureDistance;
+        ((SharedSeedRandom) random).setLargeFeatureSeedWithSalt(62353535, x, z, 62226333);
+        validChunkX *= featureDistance;
+        validChunkZ *= featureDistance;
+        validChunkX += random.nextInt(featureDistance - featureSeparation) + random.nextInt(featureDistance - featureSeparation) / 2;
+        validChunkZ += random.nextInt(featureDistance - featureSeparation) + random.nextInt(featureDistance - featureSeparation) / 2;
         return new ChunkPos(validChunkX, validChunkZ);
     }
 
