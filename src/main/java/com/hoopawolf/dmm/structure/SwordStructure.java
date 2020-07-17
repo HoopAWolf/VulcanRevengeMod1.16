@@ -33,7 +33,7 @@ public class SwordStructure extends Structure<NoFeatureConfig>
     @Override
     public String getStructureName()
     {
-        return Reference.MOD_ID + ":structuresword";
+        return Reference.MOD_ID + ":swordstructure";
     }
 
     protected ChunkPos getStartPositionForPosition(ChunkGenerator chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)

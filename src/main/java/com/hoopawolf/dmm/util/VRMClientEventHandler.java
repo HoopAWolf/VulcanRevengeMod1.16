@@ -52,7 +52,7 @@ public class VRMClientEventHandler
 
             if (player.isCrouching() && player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
             {
-                if (!player.getHeldItemMainhand().isEmpty())
+                if (!player.getHeldItemMainhand().isEmpty() && !player.getHeldItemMainhand().isFood())
                 {
                     if (consumeItem(player, event.getItemStack()))
                     {
