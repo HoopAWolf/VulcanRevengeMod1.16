@@ -54,6 +54,7 @@ public final class ConfigHandler
 
         public final ForgeConfigSpec.BooleanValue slothMaskTurnNight;
         public final ForgeConfigSpec.BooleanValue slothMaskTurnDay;
+        public final ForgeConfigSpec.BooleanValue greedDoubleDrop;
 
         public Common(ForgeConfigSpec.Builder builder)
         {
@@ -76,6 +77,10 @@ public final class ConfigHandler
             slothMaskTurnDay = builder
                     .comment("Sloth Mask allow setting to day when sleep in night")
                     .define("sinmask.sloth.changeToDay", true);
+
+            greedDoubleDrop = builder
+                    .comment("Greed Mask allowed to double drops")
+                    .define("sinmask.greed.allowDoubleDrop", true);
         }
     }
 }

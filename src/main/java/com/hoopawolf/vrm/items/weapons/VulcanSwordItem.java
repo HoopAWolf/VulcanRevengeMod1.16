@@ -83,7 +83,7 @@ public class VulcanSwordItem extends SwordItem
                 break;
 
             case 3:
-                target.addPotionEffect(new EffectInstance(Effects.WITHER, 140, 10));
+                target.addPotionEffect(new EffectInstance(Effects.WITHER, 140, 0));
                 stack.damageItem(2, target, (p_220009_1_) -> p_220009_1_.sendBreakAnimation(target.getActiveHand()));
                 break;
         }

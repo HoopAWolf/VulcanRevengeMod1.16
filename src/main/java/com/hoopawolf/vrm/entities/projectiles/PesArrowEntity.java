@@ -78,7 +78,7 @@ public class PesArrowEntity extends AbstractArrowEntity
         super.arrowHit(living);
         if (!this.world.isRemote)
         {
-            living.addPotionEffect(new EffectInstance(PotionRegistryHandler.PLAGUE_EFFECT.get(), 1000, 1));
+            living.addPotionEffect(new EffectInstance(PotionRegistryHandler.PLAGUE_EFFECT.get(), 1000, 0));
         }
     }
 

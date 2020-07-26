@@ -21,8 +21,6 @@ public class RuneItem extends Item
     public RuneItem(Properties properties)
     {
         super(properties);
-
-        //  this.addPropertyOverride(new ResourceLocation("type"), (p_210310_0_, p_210310_1_, p_210310_2_) -> getType(p_210310_0_));
     }
 
     public static int getType(ItemStack stack)

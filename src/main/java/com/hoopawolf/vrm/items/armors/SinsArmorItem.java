@@ -136,7 +136,48 @@ public class SinsArmorItem extends ArmorItem
                 case LUST:
                     break;
                 case GREED:
-                    break;
+                {
+                    if (!worldIn.isRemote)
+                    {
+                        if (entityIn.ticksExisted % 10 == 0)
+                        {
+                            int totalItems = 0;
+                            for (ItemStack itemstack : entityIn.inventory.mainInventory)
+                            {
+                                totalItems += itemstack.getCount();
+                            }
+
+                            setFulfilment(stack, (int) (100.0F - (((float) totalItems / (float) (entityIn.inventory.mainInventory.size() * 64)) * 100.0F)));
+                        }
+
+                        if (getDurabilityForDisplay(stack) > 0.9F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 10, 2));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, 10, 2));
+                        } else if (getDurabilityForDisplay(stack) > 0.7F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 10, 1));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, 10, 1));
+                        } else if (getDurabilityForDisplay(stack) > 0.5F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 10, 0));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, 10, 0));
+                        } else if (getDurabilityForDisplay(stack) < 0.1F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.SPEED, 10, 2));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.HASTE, 10, 2));
+                        } else if (getDurabilityForDisplay(stack) < 0.3F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.SPEED, 10, 1));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.HASTE, 10, 1));
+                        } else if (getDurabilityForDisplay(stack) < 0.5F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.SPEED, 10, 0));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.HASTE, 10, 0));
+                        }
+                    }
+                }
+                break;
                 case PRIDE:
                     break;
                 case SLOTH:
@@ -191,7 +232,7 @@ public class SinsArmorItem extends ArmorItem
 
                         if (getDurabilityForDisplay(stack) > 0.90F)
                         {
-                            entityIn.addPotionEffect(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 1, 3));
+                            entityIn.addPotionEffect(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 1, 0));
                             entityIn.startSleeping(new BlockPos(entityIn.getPositionVec()));
                         }
                     }
@@ -267,7 +308,7 @@ public class SinsArmorItem extends ArmorItem
         GLUTTONY(1, 40),
         ENVY(2, 40),
         LUST(3, 40),
-        GREED(4, 40),
+        GREED(4, 100),
         SLOTH(5, 40),
         WRATH(6, 40),
         PRIDE(7, 40);

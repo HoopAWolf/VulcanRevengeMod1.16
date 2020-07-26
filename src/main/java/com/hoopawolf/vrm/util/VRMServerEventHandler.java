@@ -37,6 +37,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.SleepingLocationCheckEvent;
 import net.minecraftforge.event.entity.player.SleepingTimeCheckEvent;
@@ -217,29 +218,29 @@ public class VRMServerEventHandler
                 if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
                 {
                     event.setResult(Event.Result.ALLOW);
-                }
 
-                if (player.getSleepTimer() >= 100)
-                {
-                    long i = event.getEntity().world.getDayTime() + 24000L;
-                    if (event.getEntity().world.getGameRules().getBoolean(GameRules.DO_DAYLIGHT_CYCLE))
+                    if (player.getSleepTimer() >= 100)
                     {
-                        if (event.getEntity().world.isDaytime())
+                        long i = event.getEntity().world.getDayTime() + 24000L;
+                        if (event.getEntity().world.getGameRules().getBoolean(GameRules.DO_DAYLIGHT_CYCLE))
                         {
-                            if (ConfigHandler.COMMON.slothMaskTurnNight.get())
+                            if (event.getEntity().world.isDaytime())
                             {
-                                ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L) - 11000L);
-                            }
-                        } else
-                        {
-                            if (ConfigHandler.COMMON.slothMaskTurnDay.get())
+                                if (ConfigHandler.COMMON.slothMaskTurnNight.get())
+                                {
+                                    ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L) - 11000L);
+                                }
+                            } else
                             {
-                                ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L));
+                                if (ConfigHandler.COMMON.slothMaskTurnDay.get())
+                                {
+                                    ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L));
+                                }
                             }
                         }
-                    }
 
-                    player.wakeUp();
+                        player.wakeUp();
+                    }
                 }
             }
         }
@@ -295,6 +296,37 @@ public class VRMServerEventHandler
                 if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
                 {
                     SinsArmorItem.increaseFulfilment(player.inventory.armorInventory.get(3), event.getItem().getItem().getFood().getHealing(), SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onItemPickUp(PlayerEvent.ItemPickupEvent event)
+    {
+        if (!event.getEntityLiving().world.isRemote)
+        {
+            if (event.getEntityLiving() instanceof PlayerEntity)
+            {
+                PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+
+                if (ConfigHandler.COMMON.greedDoubleDrop.get() && event.getEntityLiving().world.rand.nextInt(50) < 10)
+                {
+                    if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GREED_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                    {
+                        if (event.getOriginalEntity().getOwnerId() == null && event.getOriginalEntity().getThrowerId() == null)
+                        {
+                            int additionalAmount = player.world.rand.nextInt((int) ((((100.0F - (float) SinsArmorItem.getFulfilment(player.inventory.armorInventory.get(3))) / 100.0F)) * 6));
+
+                            if (additionalAmount > 0)
+                            {
+                                PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 8, 1.0F, 1.0F);
+                                VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playDingSoundMessage);
+                                event.getOriginalEntity().getItem().setCount(event.getOriginalEntity().getItem().getCount() + additionalAmount);
+                            }
+                            event.getOriginalEntity().setOwnerId(player.getUniqueID());
+                        }
+                    }
                 }
             }
         }

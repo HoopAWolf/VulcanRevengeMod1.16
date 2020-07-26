@@ -83,5 +83,8 @@ public class ItemBlockRegistryHandler
 
         ItemModelsProperties.func_239418_a_(VULCAN_SWORD.get(), new ResourceLocation("type"),
                 (p_210310_0_, p_210310_1_, p_210310_2_) -> VulcanSwordItem.getType(p_210310_0_));
+
+        ItemModelsProperties.func_239418_a_(RUNE_ITEM.get(), new ResourceLocation("type"),
+                (p_210310_0_, p_210310_1_, p_210310_2_) -> RuneItem.getType(p_210310_0_));
     }
 }

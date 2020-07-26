@@ -99,7 +99,7 @@ public class DeathSwordItem extends SwordItem
                     setMarkCoolDown(playerIn.getHeldItem(handIn), 200);
                     for (LivingEntity entity : EntityHelper.getEntityLivingBaseNearby(playerIn, 5, 2, 5, 10))
                     {
-                        entity.addPotionEffect(new EffectInstance(Effects.GLOWING, 180, 1));
+                        entity.addPotionEffect(new EffectInstance(Effects.GLOWING, 180, 0));
                     }
                     playerIn.playSound(SoundEvents.ENTITY_SQUID_SQUIRT, SoundCategory.BLOCKS, 5.0F, 0.1F);
                 }
