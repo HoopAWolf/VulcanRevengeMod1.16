@@ -1,6 +1,8 @@
 package com.hoopawolf.vrm.util;
 
+import com.hoopawolf.vrm.config.ConfigHandler;
 import com.hoopawolf.vrm.data.EatItemData;
+import com.hoopawolf.vrm.entities.SlothPetEntity;
 import com.hoopawolf.vrm.entities.ai.AnimalAttackGoal;
 import com.hoopawolf.vrm.entities.ai.DazedGoal;
 import com.hoopawolf.vrm.entities.projectiles.PesArrowEntity;
@@ -8,29 +10,33 @@ import com.hoopawolf.vrm.helper.VRMEatItemDataHandler;
 import com.hoopawolf.vrm.items.armors.SinsArmorItem;
 import com.hoopawolf.vrm.items.weapons.DeathSwordItem;
 import com.hoopawolf.vrm.network.VRMPacketHandler;
+import com.hoopawolf.vrm.network.packets.client.PlaySoundEffectMessage;
+import com.hoopawolf.vrm.network.packets.client.SendPlayerMessageMessage;
 import com.hoopawolf.vrm.network.packets.client.SpawnParticleMessage;
 import com.hoopawolf.vrm.ref.Reference;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.SleepingLocationCheckEvent;
 import net.minecraftforge.event.entity.player.SleepingTimeCheckEvent;
@@ -62,7 +68,8 @@ public class VRMServerEventHandler
                     player.setHealth(player.getMaxHealth() * 0.5F);
                     player.getFoodStats().setFoodLevel(20);
                     DeathSwordItem.setDeathCoolDown(player.getHeldItemMainhand(), 600);
-                    player.playSound(SoundEvents.BLOCK_END_PORTAL_SPAWN, SoundCategory.BLOCKS, 5.0F, 0.1F);
+                    PlaySoundEffectMessage playVexSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 5, 5.0F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playVexSoundMessage);
 
                     for (int i = 1; i <= 180; ++i)
                     {
@@ -83,7 +90,8 @@ public class VRMServerEventHandler
 
                 if (target.isPotionActive(PotionRegistryHandler.PLAGUE_EFFECT.get()) || event.getSource().getImmediateSource() instanceof PesArrowEntity)
                 {
-                    target.playSound(SoundEvents.ENTITY_PUFFER_FISH_BLOW_OUT, 0.5F, 0.1F);
+                    PlaySoundEffectMessage playVexSoundMessage = new PlaySoundEffectMessage(target.getEntityId(), 6, 0.5F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(target.world.func_234923_W_(), playVexSoundMessage);
                     for (int i = 1; i <= 180; ++i)
                     {
                         double yaw = i * 360 / 180;
@@ -95,6 +103,20 @@ public class VRMServerEventHandler
                         VRMPacketHandler.packetHandler.sendToDimension(target.world.func_234923_W_(), spawnParticleMessage);
                     }
                 }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingJump(LivingEvent.LivingJumpEvent event)
+    {
+        if (event.getEntity() instanceof LivingEntity)
+        {
+            LivingEntity entity = (LivingEntity) event.getEntity();
+
+            if (entity.isPotionActive(PotionRegistryHandler.DAZED_EFFECT.get()) && entity.collidedVertically)
+            {
+                entity.setMotion(entity.getMotion().getX(), 0, entity.getMotion().getZ());
             }
         }
     }
@@ -123,7 +145,8 @@ public class VRMServerEventHandler
                 {
                     event.setCanceled(true);
                     player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())).attackEntityFrom(new DamageSource("reaper"), event.getAmount());
-                    player.playSound(SoundEvents.ENTITY_VEX_CHARGE, SoundCategory.BLOCKS, 5.0F, 0.1F);
+                    PlaySoundEffectMessage playVexSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 4, 1.0F, 0.2F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playVexSoundMessage);
                 }
 
                 if (player.world.rand.nextInt(100) < 40 && (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get()) || player.getHeldItemOffhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get())))
@@ -135,14 +158,28 @@ public class VRMServerEventHandler
                         VRMPacketHandler.packetHandler.sendToDimension(event.getSource().getTrueSource().world.func_234923_W_(), spawnParticleMessage);
                     }
 
-                    player.playSound(SoundEvents.BLOCK_NOTE_BLOCK_BANJO, SoundCategory.BLOCKS, 5.0F, 0.1F);
+                    PlaySoundEffectMessage playBanjoSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 3, 1.0F, 1.0F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playBanjoSoundMessage);
                 }
 
                 if (player.getHealth() < player.getMaxHealth() * 0.3F && player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.WAR_SWORD.get()) &&
                         event.getSource().getTrueSource() instanceof LivingEntity)
                 {
                     event.getSource().getTrueSource().setFire(10);
-                    player.playSound(SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 5.0F, 0.1F);
+                    PlaySoundEffectMessage playCrackleSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 2, 1.0F, 1.0F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playCrackleSoundMessage);
+                }
+
+                if (player.world.rand.nextInt(100) < 40 && player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                {
+                    SinsArmorItem.increaseFulfilment(player.inventory.armorInventory.get(3), (int) event.getAmount() * 2, SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
+                    player.getFoodStats().setFoodLevel(MathHelper.clamp(player.getFoodStats().getFoodLevel() + (int) event.getAmount(), 0, 20));
+                    PlaySoundEffectMessage playEatSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 0, 1.0F, 1.0F);
+                    PlaySoundEffectMessage playBurpSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 1, 1.0F, 1.0F);
+
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playEatSoundMessage);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playBurpSoundMessage);
+                    event.setCanceled(true);
                 }
             }
         }
@@ -169,7 +206,7 @@ public class VRMServerEventHandler
     }
 
     @SubscribeEvent
-    public static void CheckSleeping(SleepingTimeCheckEvent event)
+    public static void CheckSleepingTime(SleepingTimeCheckEvent event)
     {
         if (!event.getEntity().world.isRemote)
         {
@@ -184,15 +221,21 @@ public class VRMServerEventHandler
 
                 if (player.getSleepTimer() >= 100)
                 {
+                    long i = event.getEntity().world.getDayTime() + 24000L;
                     if (event.getEntity().world.getGameRules().getBoolean(GameRules.DO_DAYLIGHT_CYCLE))
                     {
-                        long i = event.getEntity().world.getDayTime() + 24000L;
                         if (event.getEntity().world.isDaytime())
                         {
-                            ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L) - 11000L);
+                            if (ConfigHandler.COMMON.slothMaskTurnNight.get())
+                            {
+                                ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L) - 11000L);
+                            }
                         } else
                         {
-                            ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L));
+                            if (ConfigHandler.COMMON.slothMaskTurnDay.get())
+                            {
+                                ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L));
+                            }
                         }
                     }
 
@@ -266,12 +309,65 @@ public class VRMServerEventHandler
 
             if (player.isCrouching() && player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
             {
-                if (!player.getHeldItemMainhand().isEmpty() && !player.getHeldItemMainhand().isFood())
+                if (!event.getItemStack().isEmpty() && !player.getHeldItemMainhand().isFood())
                 {
                     if (consumeItem(player, event.getItemStack()))
                     {
                         event.setCanceled(true);
+                    } else
+                    {
+                        SendPlayerMessageMessage message = new SendPlayerMessageMessage(player.getUniqueID(), "cannoteat", TextFormatting.GRAY.getColorIndex());
+                        VRMPacketHandler.packetHandler.sendToPlayer((ServerPlayerEntity) player, message);
                     }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void RightClickEntity(PlayerInteractEvent.EntityInteract event)
+    {
+        if (!event.getEntityLiving().world.isRemote)
+        {
+            if (event.getItemStack().isEmpty())
+            {
+                if (event.getEntityLiving() instanceof PlayerEntity)
+                {
+                    PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+
+                    if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                    {
+                        if (SinsArmorItem.getSlothPetID(player.inventory.armorInventory.get(3)) != 0)
+                        {
+                            if (event.getTarget() instanceof CreatureEntity && !(event.getTarget() instanceof SlothPetEntity))
+                            {
+                                if (player.world.getEntityByID(SinsArmorItem.getSlothPetID(player.inventory.armorInventory.get(3))) instanceof SlothPetEntity)
+                                {
+                                    PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 7, 2.0F, 1.0F);
+                                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playDingSoundMessage);
+
+                                    ((SlothPetEntity) player.world.getEntityByID(SinsArmorItem.getSlothPetID(player.inventory.armorInventory.get(3)))).setAttackTarget((CreatureEntity) event.getTarget());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void OnLivingDrop(LivingDropsEvent event)
+    {
+        if (!event.getEntityLiving().world.isRemote)
+        {
+            if (event.getSource().getImmediateSource() instanceof SlothPetEntity)
+            {
+                for (ItemEntity drop : event.getDrops())
+                {
+                    drop.setLocationAndAngles(((SlothPetEntity) event.getSource().getImmediateSource()).getOwner().getPosX(),
+                            ((SlothPetEntity) event.getSource().getImmediateSource()).getOwner().getPosY(),
+                            ((SlothPetEntity) event.getSource().getImmediateSource()).getOwner().getPosZ(), drop.rotationYaw, drop.rotationPitch);
                 }
             }
         }
@@ -282,6 +378,12 @@ public class VRMServerEventHandler
         if (VRMEatItemDataHandler.INSTANCE.data.get(itemStackIn.getTranslationKey()) != null)
         {
             EatItemData data = VRMEatItemDataHandler.INSTANCE.data.get(itemStackIn.getTranslationKey());
+
+            PlaySoundEffectMessage playEatSoundMessage = new PlaySoundEffectMessage(playerIn.getEntityId(), 0, 1.0F, 1.0F);
+            PlaySoundEffectMessage playBurpSoundMessage = new PlaySoundEffectMessage(playerIn.getEntityId(), 1, 1.0F, 1.0F);
+
+            VRMPacketHandler.packetHandler.sendToDimension(playerIn.world.func_234923_W_(), playEatSoundMessage);
+            VRMPacketHandler.packetHandler.sendToDimension(playerIn.world.func_234923_W_(), playBurpSoundMessage);
 
             if (itemStackIn.isDamageable())
             {

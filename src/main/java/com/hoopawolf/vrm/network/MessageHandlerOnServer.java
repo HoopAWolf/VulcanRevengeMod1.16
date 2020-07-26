@@ -3,6 +3,7 @@ package com.hoopawolf.vrm.network;
 import com.hoopawolf.vrm.items.armors.SinsArmorItem;
 import com.hoopawolf.vrm.network.packets.server.*;
 import com.hoopawolf.vrm.ref.Reference;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -115,6 +116,23 @@ public class MessageHandlerOnServer
                     if (_player.isAlive())
                     {
                         _player.startSleeping(new BlockPos(_player.getPositionVec()));
+                    }
+                }
+            }
+            break;
+            case 4:
+            {
+                SetAttackTargetMessage _message = (SetAttackTargetMessage) message;
+
+                if (sendingPlayer.world.getEntityByID(_message.getAttackerID()) instanceof CreatureEntity &&
+                        sendingPlayer.world.getEntityByID(_message.getTargetID()) instanceof CreatureEntity)
+                {
+                    CreatureEntity attacker = (CreatureEntity) sendingPlayer.world.getEntityByID(_message.getAttackerID());
+                    CreatureEntity target = (CreatureEntity) sendingPlayer.world.getEntityByID(_message.getTargetID());
+
+                    if (attacker.isAlive() && target.isAlive())
+                    {
+                        attacker.setAttackTarget(target);
                     }
                 }
             }

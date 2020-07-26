@@ -67,5 +67,9 @@
   "message.vrm.error": "Unable to use skill",
   "message.vrm.sinactivate": "You feel a sinister magic flowing through you",
   "message.vrm.sindeactivate": "You resists the urge of temptation",
-  "message.vrm.cannoteat": "I can't seem to stomach this..."
+  "message.vrm.cannoteat": "I can't seem to stomach this...",
+  "gui.text.urge": "'s Urge Is ",
+  "gui.text.urgelow": "Low",
+  "gui.text.urgeaverage": "Pretty High",
+  "gui.text.urgehigh": "Dangerously High"
 }

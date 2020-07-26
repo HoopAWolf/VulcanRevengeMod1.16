@@ -1,6 +1,9 @@
 package com.hoopawolf.vrm.items.armors;
 
+import com.hoopawolf.vrm.entities.SlothPetEntity;
 import com.hoopawolf.vrm.ref.Reference;
+import com.hoopawolf.vrm.util.EntityRegistryHandler;
+import com.hoopawolf.vrm.util.PotionRegistryHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -52,6 +55,14 @@ public class SinsArmorItem extends ArmorItem
         return stack.getTag().getInt("fulfil");
     }
 
+    public static int getSlothPetID(ItemStack stack)
+    {
+        if (!stack.hasTag())
+            stack.getOrCreateTag().putInt("slothpet", 0);
+
+        return stack.getTag().getInt("slothpet");
+    }
+
     public static BlockPos getLastPos(ItemStack stack)
     {
         if (!stack.hasTag())
@@ -67,6 +78,11 @@ public class SinsArmorItem extends ArmorItem
     public static void setFulfilment(ItemStack stack, int amount)
     {
         stack.getOrCreateTag().putInt("fulfil", amount);
+    }
+
+    public static void setSlothPetID(ItemStack stack, int id)
+    {
+        stack.getOrCreateTag().putInt("slothpet", id);
     }
 
     public static boolean isActivated(ItemStack stack)
@@ -113,77 +129,108 @@ public class SinsArmorItem extends ArmorItem
     {
         if (isActivated(stack))
         {
-            if (!entityIn.isCreative())
+            switch (getSin(stack))
             {
-                switch (getSin(stack))
+                case ENVY:
+                    break;
+                case LUST:
+                    break;
+                case GREED:
+                    break;
+                case PRIDE:
+                    break;
+                case SLOTH:
                 {
-                    case ENVY:
-                        break;
-                    case LUST:
-                        break;
-                    case GREED:
-                        break;
-                    case PRIDE:
-                        break;
-                    case SLOTH:
+                    if (!worldIn.isRemote)
                     {
-                        if (!worldIn.isRemote)
+                        if (entityIn.ticksExisted % 12 == 0)
                         {
-                            if (entityIn.ticksExisted % 12 == 0)
+                            setLastPos(stack, new BlockPos((int) entityIn.getPosX(), (int) entityIn.getPosY(), (int) entityIn.getPosZ()));
+                        }
+
+                        if (getLastPos(stack).getX() == (int) entityIn.getPosX() && getLastPos(stack).getY() == (int) entityIn.getPosY() &&
+                                getLastPos(stack).getZ() == (int) entityIn.getPosZ())
+                        {
+                            if (entityIn.ticksExisted % 10 == 0)
                             {
-                                setLastPos(stack, new BlockPos((int) entityIn.getPosX(), (int) entityIn.getPosY(), (int) entityIn.getPosZ()));
+                                if (getFulfilment(stack) > 0)
+                                {
+                                    setFulfilment(stack, getFulfilment(stack) - 1);
+                                }
                             }
 
-                            if (getLastPos(stack).getX() == (int) entityIn.getPosX() && getLastPos(stack).getY() == (int) entityIn.getPosY() &&
-                                    getLastPos(stack).getZ() == (int) entityIn.getPosZ())
+                            if (getSlothPetID(stack) == 0)
                             {
-                                if (entityIn.ticksExisted % 10 == 0)
-                                {
-                                    if (getFulfilment(stack) > 0)
-                                    {
-                                        setFulfilment(stack, getFulfilment(stack) - 1);
-                                    }
-                                }
+                                SlothPetEntity slothpetentity = EntityRegistryHandler.SLOTH_PET_ENTITY.get().create(entityIn.world);
+                                slothpetentity.setLocationAndAngles(entityIn.getPosX(), entityIn.getPosY() + 2, entityIn.getPosZ(), entityIn.rotationYaw, entityIn.rotationPitch);
+                                slothpetentity.setOwner(entityIn);
+                                slothpetentity.setBoundOrigin(new BlockPos((int) entityIn.getPosX(), (int) entityIn.getPosY(), (int) entityIn.getPosZ()));
+                                slothpetentity.setGlowing(true);
+                                entityIn.world.addEntity(slothpetentity);
+
+                                setSlothPetID(stack, slothpetentity.getEntityId());
                             } else
                             {
-                                if (entityIn.ticksExisted % 10 == 0)
+                                if (entityIn.world.getEntityByID(getSlothPetID(stack)) == null ||
+                                        !(entityIn.world.getEntityByID(getSlothPetID(stack)) instanceof SlothPetEntity))
                                 {
-                                    if (getFulfilment(stack) < maxUse)
-                                    {
-                                        setFulfilment(stack, getFulfilment(stack) + 1);
-                                    }
+                                    setSlothPetID(stack, 0);
                                 }
                             }
-                        }
-                    }
-                    break;
-                    case WRATH:
-                        break;
-                    case GLUTTONY:
-                    {
-                        if (!worldIn.isRemote)
+
+                        } else
                         {
                             if (entityIn.ticksExisted % 10 == 0)
                             {
                                 if (getFulfilment(stack) < maxUse)
                                 {
-                                    setFulfilment(stack, getFulfilment(stack) + 1);
+                                    setFulfilment(stack, getFulfilment(stack) + 2);
                                 }
                             }
                         }
 
-                        if (!entityIn.getFoodStats().needFood())
+                        if (getDurabilityForDisplay(stack) > 0.90F)
                         {
-                            entityIn.getFoodStats().setFoodLevel(19);
-                        }
-
-                        if (getDurabilityForDisplay(stack) > 0.5F)
-                        {
-                            entityIn.addPotionEffect(new EffectInstance(Effects.HUNGER, 1, 3));
+                            entityIn.addPotionEffect(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 1, 3));
+                            entityIn.startSleeping(new BlockPos(entityIn.getPositionVec()));
                         }
                     }
-                    break;
                 }
+                break;
+                case WRATH:
+                    break;
+                case GLUTTONY:
+                {
+                    if (!worldIn.isRemote)
+                    {
+                        if (entityIn.ticksExisted % 10 == 0)
+                        {
+                            if (getFulfilment(stack) < maxUse)
+                            {
+                                setFulfilment(stack, getFulfilment(stack) + 1);
+                            }
+                        }
+                    }
+
+                    if (!entityIn.getFoodStats().needFood())
+                    {
+                        entityIn.getFoodStats().setFoodLevel(19);
+                    }
+
+                    if (getDurabilityForDisplay(stack) > 0.5F)
+                    {
+                        entityIn.addPotionEffect(new EffectInstance(Effects.HUNGER, 1, 3));
+
+                        if (getDurabilityForDisplay(stack) > 0.90F)
+                        {
+                            if (entityIn.getFoodStats().getFoodLevel() > 1)
+                            {
+                                entityIn.getFoodStats().setFoodLevel(1);
+                            }
+                        }
+                    }
+                }
+                break;
             }
         }
     }

@@ -1,10 +1,9 @@
 package com.hoopawolf.vrm.network;
 
+import com.hoopawolf.vrm.network.packets.client.PlaySoundEffectMessage;
+import com.hoopawolf.vrm.network.packets.client.SendPlayerMessageMessage;
 import com.hoopawolf.vrm.network.packets.client.SpawnParticleMessage;
-import com.hoopawolf.vrm.network.packets.server.SetPotionEffectMessage;
-import com.hoopawolf.vrm.network.packets.server.SetPotionEffectMultipleMessage;
-import com.hoopawolf.vrm.network.packets.server.SinMaskActivateMessage;
-import com.hoopawolf.vrm.network.packets.server.SleepMessage;
+import com.hoopawolf.vrm.network.packets.server.*;
 import com.hoopawolf.vrm.ref.Reference;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.RegistryKey;
@@ -35,9 +34,12 @@ public class VRMPacketHandler
         channel.messageBuilder(SetPotionEffectMultipleMessage.class, id++).encoder(SetPotionEffectMultipleMessage::encode).decoder(SetPotionEffectMultipleMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
         channel.messageBuilder(SinMaskActivateMessage.class, id++).encoder(SinMaskActivateMessage::encode).decoder(SinMaskActivateMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
         channel.messageBuilder(SleepMessage.class, id++).encoder(SleepMessage::encode).decoder(SleepMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
+        channel.messageBuilder(SetAttackTargetMessage.class, id++).encoder(SetAttackTargetMessage::encode).decoder(SetAttackTargetMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
 
         //CLIENT
         channel.messageBuilder(SpawnParticleMessage.class, id++).encoder(SpawnParticleMessage::encode).decoder(SpawnParticleMessage::decode).consumer(MessageHandlerOnClient::onMessageReceived).add();
+        channel.messageBuilder(PlaySoundEffectMessage.class, id++).encoder(PlaySoundEffectMessage::encode).decoder(PlaySoundEffectMessage::decode).consumer(MessageHandlerOnClient::onMessageReceived).add();
+        channel.messageBuilder(SendPlayerMessageMessage.class, id++).encoder(SendPlayerMessageMessage::encode).decoder(SendPlayerMessageMessage::decode).consumer(MessageHandlerOnClient::onMessageReceived).add();
     }
 
     public void send(PacketTarget target, Object message)

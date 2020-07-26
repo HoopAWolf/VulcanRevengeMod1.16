@@ -2,6 +2,7 @@ package com.hoopawolf.vrm.proxy;
 
 import com.hoopawolf.vrm.helper.VRMEatItemDataHandler;
 import com.hoopawolf.vrm.network.VRMPacketHandler;
+import com.hoopawolf.vrm.util.EntityRegistryHandler;
 import com.hoopawolf.vrm.util.StructureRegistryHandler;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -24,5 +25,6 @@ public class CommonProxy
     {
         DeferredWorkQueue.runLater(StructureRegistryHandler::generateStructureWorldSpawn);
         DeferredWorkQueue.runLater(VRMEatItemDataHandler.INSTANCE::initJSON);
+        DeferredWorkQueue.runLater(EntityRegistryHandler::registerEntityAttributes);
     }
 }
