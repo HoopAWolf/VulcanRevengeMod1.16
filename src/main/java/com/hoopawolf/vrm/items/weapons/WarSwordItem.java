@@ -197,9 +197,9 @@ public class WarSwordItem extends SwordItem
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:war1")).func_240703_c_(Style.EMPTY.applyFormatting(TextFormatting.LIGHT_PURPLE)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:war2") + ((getWarCryCoolDown(stack) > 0) ? " [" + (getWarCryCoolDown(stack) / 20) + "s]" : "")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(((getWarCryCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:war3") + ((getRageCoolDown(stack) > 0) ? " [" + (getRageCoolDown(stack) / 20) + "s]" : "")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(((getRageCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:war4")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:war1")).mergeStyle(Style.EMPTY.applyFormatting(TextFormatting.LIGHT_PURPLE)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:war2") + ((getWarCryCoolDown(stack) > 0) ? " [" + (getWarCryCoolDown(stack) / 20) + "s]" : "")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(((getWarCryCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:war3") + ((getRageCoolDown(stack) > 0) ? " [" + (getRageCoolDown(stack) / 20) + "s]" : "")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(((getRageCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:war4")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
     }
 }

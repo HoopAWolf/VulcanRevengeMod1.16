@@ -192,9 +192,9 @@ public class PesBowItem extends BowItem
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:pes1")).func_240703_c_(Style.EMPTY.setFormatting(TextFormatting.LIGHT_PURPLE)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:pes2")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:pes3")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:pes4")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:pes1")).mergeStyle(Style.EMPTY.setFormatting(TextFormatting.LIGHT_PURPLE)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:pes2")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:pes3")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:pes4")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
     }
 }

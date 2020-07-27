@@ -52,6 +52,7 @@ public class MessageHandlerOnClient
                     SoundEvents.ENTITY_PUFFER_FISH_BLOW_OUT, //6
                     SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, //7
                     SoundEvents.BLOCK_NOTE_BLOCK_CHIME, //8
+                    SoundEvents.ENTITY_FOX_SCREECH, //9
             };
 
     public static void onMessageReceived(final MessageToClient message, Supplier<NetworkEvent.Context> ctxSupplier)

@@ -42,6 +42,6 @@ public class EntityRegistryHandler
 
     public static void registerEntityAttributes()
     {
-        GlobalEntityTypeAttributes.put(SLOTH_PET_ENTITY.get(), SlothPetEntity.func_234321_m_().func_233813_a_());
+        GlobalEntityTypeAttributes.put(SLOTH_PET_ENTITY.get(), SlothPetEntity.func_234321_m_().create());
     }
 }

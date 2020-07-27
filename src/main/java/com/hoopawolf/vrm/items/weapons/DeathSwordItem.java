@@ -220,9 +220,9 @@ public class DeathSwordItem extends SwordItem
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:death1")).func_240703_c_(Style.EMPTY.setFormatting(TextFormatting.LIGHT_PURPLE)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:death2") + ((getMarkCoolDown(stack) > 0) ? " [" + (getMarkCoolDown(stack) / 20) + "s]" : "")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(((getMarkCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:death3") + ((getVoodooCoolDown(stack) > 0) ? " [" + (getVoodooCoolDown(stack) / 20) + "s]" : "")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(((getVoodooCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:death4") + ((getDeathCoolDown(stack) > 0) ? " [" + (getDeathCoolDown(stack) / 20) + "s]" : "")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(((getDeathCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:death1")).mergeStyle(Style.EMPTY.setFormatting(TextFormatting.LIGHT_PURPLE)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:death2") + ((getMarkCoolDown(stack) > 0) ? " [" + (getMarkCoolDown(stack) / 20) + "s]" : "")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(((getMarkCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:death3") + ((getVoodooCoolDown(stack) > 0) ? " [" + (getVoodooCoolDown(stack) / 20) + "s]" : "")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(((getVoodooCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:death4") + ((getDeathCoolDown(stack) > 0) ? " [" + (getDeathCoolDown(stack) / 20) + "s]" : "")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(((getDeathCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
     }
 }

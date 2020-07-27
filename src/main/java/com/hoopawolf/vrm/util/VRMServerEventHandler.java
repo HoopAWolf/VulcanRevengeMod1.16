@@ -5,8 +5,11 @@ import com.hoopawolf.vrm.data.EatItemData;
 import com.hoopawolf.vrm.entities.SlothPetEntity;
 import com.hoopawolf.vrm.entities.ai.AnimalAttackGoal;
 import com.hoopawolf.vrm.entities.ai.DazedGoal;
+import com.hoopawolf.vrm.entities.ai.FearPanicGoal;
+import com.hoopawolf.vrm.entities.ai.LustSinTemptGoal;
 import com.hoopawolf.vrm.entities.projectiles.PesArrowEntity;
 import com.hoopawolf.vrm.helper.VRMEatItemDataHandler;
+import com.hoopawolf.vrm.helper.VRMGreedItemDataHandler;
 import com.hoopawolf.vrm.items.armors.SinsArmorItem;
 import com.hoopawolf.vrm.items.weapons.DeathSwordItem;
 import com.hoopawolf.vrm.network.VRMPacketHandler;
@@ -18,8 +21,8 @@ import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.passive.horse.AbstractHorseEntity;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -36,6 +39,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -46,6 +50,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
@@ -133,54 +138,81 @@ public class VRMServerEventHandler
                 {
                     ((CreatureEntity) event.getEntity()).removePotionEffect(PotionRegistryHandler.DAZED_EFFECT.get());
                 }
+
+                if (event.getSource().getImmediateSource() instanceof PlayerEntity)
+                {
+                    PlayerEntity player = (PlayerEntity) event.getSource().getImmediateSource();
+
+                    if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.WRATH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                    {
+                        SinsArmorItem.increaseFulfilment(player.inventory.armorInventory.get(3), 2, SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
+
+                        if (player.inventory.armorInventory.get(3).getItem().getDurabilityForDisplay(player.inventory.armorInventory.get(3)) < 0.2D)
+                        {
+                            event.getEntityLiving().setFire(100);
+                        }
+                    }
+                }
             }
 
             if (event.getEntity() instanceof PlayerEntity)
             {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
 
-                if (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.DEATH_SWORD.get()) &&
-                        DeathSwordItem.getVoodooID(player.getHeldItemMainhand()) != 0 &&
-                        player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())) != null &&
-                        player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())).isAlive())
+                if (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.DEATH_SWORD.get()))
                 {
-                    event.setCanceled(true);
-                    player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())).attackEntityFrom(new DamageSource("reaper"), event.getAmount());
-                    PlaySoundEffectMessage playVexSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 4, 1.0F, 0.2F);
-                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playVexSoundMessage);
-                }
-
-                if (player.world.rand.nextInt(100) < 40 && (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get()) || player.getHeldItemOffhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get())))
-                {
-                    if (event.getSource().getTrueSource() instanceof CreatureEntity)
+                    if (DeathSwordItem.getVoodooID(player.getHeldItemMainhand()) != 0 &&
+                            player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())) != null &&
+                            player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())).isAlive())
                     {
-                        ((CreatureEntity) event.getSource().getTrueSource()).addPotionEffect(new EffectInstance(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 100)));
-                        SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(event.getSource().getTrueSource().getPosX(), event.getSource().getTrueSource().getPosY() + 0.5F, event.getSource().getTrueSource().getPosZ()), new Vector3d(0.0F, 0.0D, 0.0F), 3, 9, event.getSource().getTrueSource().getWidth());
-                        VRMPacketHandler.packetHandler.sendToDimension(event.getSource().getTrueSource().world.func_234923_W_(), spawnParticleMessage);
+                        event.setCanceled(true);
+                        player.world.getEntityByID(DeathSwordItem.getVoodooID(player.getHeldItemMainhand())).attackEntityFrom(new DamageSource("reaper"), event.getAmount());
+                        PlaySoundEffectMessage playVexSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 4, 1.0F, 0.2F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playVexSoundMessage);
                     }
+                } else if ((player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get()) || player.getHeldItemOffhand().getItem().equals(ItemBlockRegistryHandler.FAM_SCALE.get())))
+                {
+                    if (player.world.rand.nextInt(100) < 40)
+                    {
+                        if (event.getSource().getTrueSource() instanceof CreatureEntity)
+                        {
+                            ((CreatureEntity) event.getSource().getTrueSource()).addPotionEffect(new EffectInstance(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 100)));
+                            SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(event.getSource().getTrueSource().getPosX(), event.getSource().getTrueSource().getPosY() + 0.5F, event.getSource().getTrueSource().getPosZ()), new Vector3d(0.0F, 0.0D, 0.0F), 3, 9, event.getSource().getTrueSource().getWidth());
+                            VRMPacketHandler.packetHandler.sendToDimension(event.getSource().getTrueSource().world.func_234923_W_(), spawnParticleMessage);
+                        }
 
-                    PlaySoundEffectMessage playBanjoSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 3, 1.0F, 1.0F);
-                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playBanjoSoundMessage);
+                        PlaySoundEffectMessage playBanjoSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 3, 1.0F, 1.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playBanjoSoundMessage);
+                    }
+                } else if (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.WAR_SWORD.get()))
+                {
+                    if (player.getHealth() < player.getMaxHealth() * 0.3F && event.getSource().getTrueSource() instanceof LivingEntity)
+                    {
+                        event.getSource().getTrueSource().setFire(10);
+                        PlaySoundEffectMessage playCrackleSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 2, 1.0F, 1.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playCrackleSoundMessage);
+                    }
                 }
 
-                if (player.getHealth() < player.getMaxHealth() * 0.3F && player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.WAR_SWORD.get()) &&
-                        event.getSource().getTrueSource() instanceof LivingEntity)
+                if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
                 {
-                    event.getSource().getTrueSource().setFire(10);
-                    PlaySoundEffectMessage playCrackleSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 2, 1.0F, 1.0F);
-                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playCrackleSoundMessage);
-                }
+                    if (player.world.rand.nextInt(100) < 40)
+                    {
+                        SinsArmorItem.increaseFulfilment(player.inventory.armorInventory.get(3), (int) event.getAmount() * 2, SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
+                        player.getFoodStats().setFoodLevel(MathHelper.clamp(player.getFoodStats().getFoodLevel() + (int) event.getAmount(), 0, 20));
+                        PlaySoundEffectMessage playEatSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 0, 1.0F, 1.0F);
+                        PlaySoundEffectMessage playBurpSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 1, 1.0F, 1.0F);
 
-                if (player.world.rand.nextInt(100) < 40 && player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playEatSoundMessage);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playBurpSoundMessage);
+                        event.setCanceled(true);
+                    }
+                } else if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.WRATH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
                 {
-                    SinsArmorItem.increaseFulfilment(player.inventory.armorInventory.get(3), (int) event.getAmount() * 2, SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
-                    player.getFoodStats().setFoodLevel(MathHelper.clamp(player.getFoodStats().getFoodLevel() + (int) event.getAmount(), 0, 20));
-                    PlaySoundEffectMessage playEatSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 0, 1.0F, 1.0F);
-                    PlaySoundEffectMessage playBurpSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 1, 1.0F, 1.0F);
-
-                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playEatSoundMessage);
-                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playBurpSoundMessage);
-                    event.setCanceled(true);
+                    SinsArmorItem.increaseFulfilment(player.inventory.armorInventory.get(3), 2, SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
+                } else if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.PRIDE_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                {
+                    SinsArmorItem.decreaseFulfilment(player.inventory.armorInventory.get(3), 5, SinsArmorItem.getSin(player.inventory.armorInventory.get(3)).getMaxUse());
                 }
             }
         }
@@ -272,14 +304,20 @@ public class VRMServerEventHandler
 
         if (!world.isRemote)
         {
-            if (entity instanceof CreatureEntity)
+            if (entity instanceof CreatureEntity && !(entity instanceof SlothPetEntity))
             {
                 ((CreatureEntity) entity).goalSelector.addGoal(0, new DazedGoal(((CreatureEntity) entity)));
             }
 
-            if (entity instanceof CowEntity || entity instanceof RabbitEntity || entity instanceof SheepEntity || entity instanceof AbstractHorseEntity || entity instanceof PigEntity || entity instanceof ChickenEntity)
+            if (entity instanceof MonsterEntity)
+            {
+                ((MonsterEntity) entity).goalSelector.addGoal(0, new FearPanicGoal((MonsterEntity) entity, 1.5D));
+            }
+
+            if (entity instanceof AnimalEntity)
             {
                 ((AnimalEntity) entity).goalSelector.addGoal(1, new AnimalAttackGoal(((AnimalEntity) entity), 1.0D, true, 2, 1));
+                ((AnimalEntity) entity).goalSelector.addGoal(1, new LustSinTemptGoal(((AnimalEntity) entity), 1.0D));
             }
         }
     }
@@ -312,23 +350,42 @@ public class VRMServerEventHandler
 
                 if (ConfigHandler.COMMON.greedDoubleDrop.get() && event.getEntityLiving().world.rand.nextInt(50) < 10)
                 {
-                    if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GREED_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
-                    {
-                        if (event.getOriginalEntity().getOwnerId() == null && event.getOriginalEntity().getThrowerId() == null)
-                        {
-                            int additionalAmount = player.world.rand.nextInt((int) ((((100.0F - (float) SinsArmorItem.getFulfilment(player.inventory.armorInventory.get(3))) / 100.0F)) * 6));
+                    ArrayList<String> blackList = VRMGreedItemDataHandler.INSTANCE.blackList;
 
-                            if (additionalAmount > 0)
+                    if (!blackList.contains(event.getStack().getItem().getTranslationKey()))
+                    {
+                        if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GREED_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                        {
+                            if (event.getOriginalEntity().getOwnerId() == null && event.getOriginalEntity().getThrowerId() == null)
                             {
-                                PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 8, 1.0F, 1.0F);
-                                VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playDingSoundMessage);
-                                event.getOriginalEntity().getItem().setCount(event.getOriginalEntity().getItem().getCount() + additionalAmount);
+                                int calculatedAmount = (int) ((1.0D - (float) player.inventory.armorInventory.get(3).getItem().getDurabilityForDisplay(player.inventory.armorInventory.get(3))) * 6);
+
+                                if (calculatedAmount > 0)
+                                {
+                                    int additionalAmount = player.world.rand.nextInt(calculatedAmount);
+
+                                    if (additionalAmount > 0)
+                                    {
+                                        PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 8, 1.0F, 1.0F);
+                                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playDingSoundMessage);
+                                        event.getOriginalEntity().getItem().setCount(event.getOriginalEntity().getItem().getCount() + additionalAmount);
+                                    }
+                                    event.getOriginalEntity().setOwnerId(player.getUniqueID());
+                                }
                             }
-                            event.getOriginalEntity().setOwnerId(player.getUniqueID());
                         }
                     }
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onItemTossed(ItemTossEvent event)
+    {
+        if (event.getEntityItem().getThrowerId() == null)
+        {
+            event.getEntityItem().setThrowerId(event.getPlayer().getUniqueID());
         }
     }
 
@@ -359,28 +416,37 @@ public class VRMServerEventHandler
     @SubscribeEvent
     public static void RightClickEntity(PlayerInteractEvent.EntityInteract event)
     {
-        if (!event.getEntityLiving().world.isRemote)
+        if (!event.getPlayer().world.isRemote)
         {
             if (event.getItemStack().isEmpty())
             {
-                if (event.getEntityLiving() instanceof PlayerEntity)
+                if (event.getPlayer().inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)))
                 {
-                    PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-
-                    if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                    if (SinsArmorItem.getSlothPetID(event.getPlayer().inventory.armorInventory.get(3)) != 0)
                     {
-                        if (SinsArmorItem.getSlothPetID(player.inventory.armorInventory.get(3)) != 0)
+                        if (event.getTarget() instanceof CreatureEntity && !(event.getTarget() instanceof SlothPetEntity))
                         {
-                            if (event.getTarget() instanceof CreatureEntity && !(event.getTarget() instanceof SlothPetEntity))
+                            if (event.getPlayer().world.getEntityByID(SinsArmorItem.getSlothPetID(event.getPlayer().inventory.armorInventory.get(3))) instanceof SlothPetEntity)
                             {
-                                if (player.world.getEntityByID(SinsArmorItem.getSlothPetID(player.inventory.armorInventory.get(3))) instanceof SlothPetEntity)
-                                {
-                                    PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 7, 2.0F, 1.0F);
-                                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playDingSoundMessage);
+                                PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(event.getPlayer().getEntityId(), 7, 2.0F, 1.0F);
+                                VRMPacketHandler.packetHandler.sendToDimension(event.getPlayer().world.func_234923_W_(), playDingSoundMessage);
 
-                                    ((SlothPetEntity) player.world.getEntityByID(SinsArmorItem.getSlothPetID(player.inventory.armorInventory.get(3)))).setAttackTarget((CreatureEntity) event.getTarget());
-                                }
+                                ((SlothPetEntity) event.getPlayer().world.getEntityByID(SinsArmorItem.getSlothPetID(event.getPlayer().inventory.armorInventory.get(3)))).setAttackTarget((CreatureEntity) event.getTarget());
                             }
+                        }
+                    }
+                } else if (event.getPlayer().inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.LUST_MASK_ARMOR.get()) && SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)))
+                {
+                    SinsArmorItem.increaseFulfilment(event.getPlayer().inventory.armorInventory.get(3), 5, SinsArmorItem.getSin(event.getPlayer().inventory.armorInventory.get(3)).getMaxUse());
+
+                    if (event.getTarget() instanceof AnimalEntity)
+                    {
+                        if (!((AnimalEntity) event.getTarget()).isChild() && !((AnimalEntity) event.getTarget()).isInLove())
+                        {
+                            ((AnimalEntity) event.getTarget()).setInLove(600);
+                            ((AnimalEntity) event.getTarget()).setGrowingAge(0);
+                            SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(event.getTarget().getPosX(), event.getTarget().getPosY() + 0.85F, event.getTarget().getPosZ()), new Vector3d(0.0F, 0.0D, 0.0F), 3, 7, event.getTarget().getWidth());
+                            VRMPacketHandler.packetHandler.sendToDimension(event.getTarget().world.func_234923_W_(), spawnParticleMessage);
                         }
                     }
                 }

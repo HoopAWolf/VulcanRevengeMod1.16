@@ -42,7 +42,7 @@ public class SlothPetEntity extends CreatureEntity
 
     public static AttributeModifierMap.MutableAttribute func_234321_m_()
     {
-        return MonsterEntity.func_234295_eP_().func_233815_a_(Attributes.MAX_HEALTH, 1.0D).func_233815_a_(Attributes.ATTACK_DAMAGE, 4.0D);
+        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, 1.0D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 4.0D);
     }
 
     @Override
@@ -327,7 +327,7 @@ public class SlothPetEntity extends CreatureEntity
             BlockPos blockpos = SlothPetEntity.this.getBoundOrigin();
             if (blockpos == null)
             {
-                blockpos = SlothPetEntity.this.func_233580_cy_();
+                blockpos = SlothPetEntity.this.getPosition();
             }
 
             for (int i = 0; i < 3; ++i)

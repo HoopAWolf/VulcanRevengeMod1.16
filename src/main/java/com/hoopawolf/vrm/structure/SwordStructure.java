@@ -94,7 +94,7 @@ public class SwordStructure extends Structure<NoFeatureConfig>
             int x = (chunkX << 4);
             int z = (chunkZ << 4);
 
-            int surfaceY = generator.func_222532_b(x, z, Heightmap.Type.WORLD_SURFACE_WG) - 1;
+            int surfaceY = generator.getNoiseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) - 1;
             BlockPos blockpos = new BlockPos(x, surfaceY, z);
 
             SwordStructurePiece.start(templateManagerIn, blockpos, rotation, this.components, this.rand);

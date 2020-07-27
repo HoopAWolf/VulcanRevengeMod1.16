@@ -63,6 +63,7 @@
   "death.attack.animal": "%1$s was nibbled to death",
   "effect.vrm.plagueeffect": "Plague",
   "effect.vrm.dazedeffect": "Dazed",
+  "effect.vrm.feareffect": "Fear",
   "message.vrm.cooldown": "Skill on cooldown for",
   "message.vrm.error": "Unable to use skill",
   "message.vrm.sinactivate": "You feel a sinister magic flowing through you",

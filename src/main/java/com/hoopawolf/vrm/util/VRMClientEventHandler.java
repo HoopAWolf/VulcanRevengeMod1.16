@@ -10,11 +10,16 @@ import com.hoopawolf.vrm.network.packets.server.SetAttackTargetMessage;
 import com.hoopawolf.vrm.network.packets.server.SinMaskActivateMessage;
 import com.hoopawolf.vrm.network.packets.server.SleepMessage;
 import com.hoopawolf.vrm.ref.Reference;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.api.distmarker.Dist;
@@ -29,6 +34,8 @@ import org.lwjgl.glfw.GLFW;
 public class VRMClientEventHandler
 {
     private static final SinArmorFulfilmentGui armorGui = new SinArmorFulfilmentGui();
+    private static final ResourceLocation FEAR_OVERLAY = new ResourceLocation(Reference.MOD_ID, "textures/gui/fearoverlay.png");
+    private static boolean isMoving;
 
     @SubscribeEvent
     public static void LeftClickAirWithEmpty(PlayerInteractEvent.LeftClickEmpty event)
@@ -96,19 +103,45 @@ public class VRMClientEventHandler
     public static void renderOverlay(RenderGameOverlayEvent.Post event)
     {
         Minecraft mc = Minecraft.getInstance();
-        if (event.getType() == RenderGameOverlayEvent.ElementType.EXPERIENCE && ConfigHandler.CLIENT.sinMaskWarning.get())
+        if (event.getType() == RenderGameOverlayEvent.ElementType.EXPERIENCE)
         {
-            if (mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem && SinsArmorItem.isActivated(mc.player.inventory.armorInventory.get(3)))
+            if (ConfigHandler.CLIENT.sinMaskWarning.get())
             {
-                float percentage = (float) SinsArmorItem.getFulfilment(mc.player.inventory.armorInventory.get(3)) / (float) SinsArmorItem.getSin(mc.player.inventory.armorInventory.get(3)).getMaxUse();
-                if (percentage >= 0.2F)
+                if ((mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem && SinsArmorItem.isActivated(mc.player.inventory.armorInventory.get(3))) || isMoving)
                 {
-                    String fulfilment = mc.player.inventory.armorInventory.get(3).getDisplayName().getString() + I18n.format("gui.text.urge") + ((percentage >= 0.8F) ?
-                            I18n.format("gui.text.urgehigh") : ((percentage >= 0.5F) ?
-                            I18n.format("gui.text.urgeaverage") : I18n.format("gui.text.urgelow")));
+                    float percentage = (float) mc.player.inventory.armorInventory.get(3).getItem().getDurabilityForDisplay(mc.player.inventory.armorInventory.get(3));
+                    if (percentage >= 0.2F || isMoving)
+                    {
+                        String fulfilment = mc.player.inventory.armorInventory.get(3).getDisplayName().getString() + I18n.format("gui.text.urge") + ((percentage >= 0.8F) ?
+                                I18n.format("gui.text.urgehigh") : ((percentage >= 0.5F) ?
+                                I18n.format("gui.text.urgeaverage") : I18n.format("gui.text.urgelow")));
 
-                    armorGui.draw(mc, fulfilment, event.getMatrixStack(), ((percentage >= 0.8F) ? "FF2222" : ((percentage >= 0.5F) ? "FF7909" : "55D100")));
+                        armorGui.draw(mc, fulfilment, event.getMatrixStack(), ((percentage >= 0.8F) ? "FF2222" : ((percentage >= 0.5F) ? "FF7909" : "55D100")));
+                    }
                 }
+            }
+        } else if (event.getType() == RenderGameOverlayEvent.ElementType.PORTAL)
+        {
+            if (mc.player.isPotionActive(PotionRegistryHandler.FEAR_EFFECT.get()))
+            {
+                RenderSystem.disableDepthTest();
+                RenderSystem.depthMask(false);
+                RenderSystem.defaultBlendFunc();
+                RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+                RenderSystem.disableAlphaTest();
+                mc.getTextureManager().bindTexture(FEAR_OVERLAY);
+                Tessellator tessellator = Tessellator.getInstance();
+                BufferBuilder bufferbuilder = tessellator.getBuffer();
+                bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+                bufferbuilder.pos(-mc.world.rand.nextInt(10), mc.getMainWindow().getScaledHeight() + mc.world.rand.nextInt(10), -90.0D).tex(0.0F, 1.0F).endVertex();
+                bufferbuilder.pos(mc.getMainWindow().getScaledWidth() + mc.world.rand.nextInt(10), mc.getMainWindow().getScaledHeight() + mc.world.rand.nextInt(10), -90.0D).tex(1.0F, 1.0F).endVertex();
+                bufferbuilder.pos(mc.getMainWindow().getScaledWidth() + mc.world.rand.nextInt(10), -mc.world.rand.nextInt(10), -90.0D).tex(1.0F, 0.0F).endVertex();
+                bufferbuilder.pos(-mc.world.rand.nextInt(10), -mc.world.rand.nextInt(10), -90.0D).tex(0.0F, 0.0F).endVertex();
+                tessellator.draw();
+                RenderSystem.depthMask(true);
+                RenderSystem.enableDepthTest();
+                RenderSystem.enableAlphaTest();
+                RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
             }
         }
     }
@@ -116,6 +149,7 @@ public class VRMClientEventHandler
     @SubscribeEvent
     public static void onKeyPressed(InputEvent.KeyInputEvent event)
     {
+        isMoving = false;
         Minecraft mc = Minecraft.getInstance();
         if (event.getAction() == GLFW.GLFW_REPEAT || event.getAction() == GLFW.GLFW_PRESS)
         {
@@ -124,28 +158,32 @@ public class VRMClientEventHandler
                 switch (event.getKey())
                 {
                     case GLFW.GLFW_KEY_COMMA:
-                        if (ConfigHandler.CLIENT.sinMaskWarning.get() && mc.player.isCrouching() && mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem && SinsArmorItem.isActivated(mc.player.inventory.armorInventory.get(3)))
+                        if (ConfigHandler.CLIENT.sinMaskWarning.get() && mc.player.isCrouching() && mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem)
                         {
                             ConfigHandler.CLIENT.sinMaskWarningHeightOffset.set(ConfigHandler.CLIENT.sinMaskWarningHeightOffset.get() - 5);
+                            isMoving = true;
                         }
                         break;
                     case GLFW.GLFW_KEY_PERIOD:
-                        if (ConfigHandler.CLIENT.sinMaskWarning.get() && mc.player.isCrouching() && mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem && SinsArmorItem.isActivated(mc.player.inventory.armorInventory.get(3)))
+                        if (ConfigHandler.CLIENT.sinMaskWarning.get() && mc.player.isCrouching() && mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem)
                         {
                             ConfigHandler.CLIENT.sinMaskWarningHeightOffset.set(ConfigHandler.CLIENT.sinMaskWarningHeightOffset.get() + 5);
+                            isMoving = true;
                         }
                         break;
 
                     case GLFW.GLFW_KEY_SEMICOLON:
-                        if (ConfigHandler.CLIENT.sinMaskWarning.get() && mc.player.isCrouching() && mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem && SinsArmorItem.isActivated(mc.player.inventory.armorInventory.get(3)))
+                        if (ConfigHandler.CLIENT.sinMaskWarning.get() && mc.player.isCrouching() && mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem)
                         {
                             ConfigHandler.CLIENT.sinMaskWarningWidthOffset.set(ConfigHandler.CLIENT.sinMaskWarningWidthOffset.get() - 5);
+                            isMoving = true;
                         }
                         break;
                     case GLFW.GLFW_KEY_APOSTROPHE:
-                        if (ConfigHandler.CLIENT.sinMaskWarning.get() && mc.player.isCrouching() && mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem && SinsArmorItem.isActivated(mc.player.inventory.armorInventory.get(3)))
+                        if (ConfigHandler.CLIENT.sinMaskWarning.get() && mc.player.isCrouching() && mc.player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem)
                         {
                             ConfigHandler.CLIENT.sinMaskWarningWidthOffset.set(ConfigHandler.CLIENT.sinMaskWarningWidthOffset.get() + 5);
+                            isMoving = true;
                         }
                         break;
                 }

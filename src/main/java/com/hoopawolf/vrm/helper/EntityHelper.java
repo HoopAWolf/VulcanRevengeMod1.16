@@ -34,14 +34,14 @@ public class EntityHelper
             message = "message.vrm.error";
         }
 
-        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message) + ((cooldownIn > 0) ? " " + (cooldownIn / 20) + "s" : "")).func_240703_c_(Style.EMPTY.setFormatting(TextFormatting.RED)), entityIn.getUniqueID());
+        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message) + ((cooldownIn > 0) ? " " + (cooldownIn / 20) + "s" : "")).mergeStyle(Style.EMPTY.setFormatting(TextFormatting.RED)), entityIn.getUniqueID());
     }
 
     public static void sendMessage(PlayerEntity entityIn, String messageID, TextFormatting colorIn)
     {
         String message = "message.vrm." + messageID;
 
-        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message)).func_240703_c_(Style.EMPTY.setFormatting(colorIn)), entityIn.getUniqueID());
+        entityIn.sendMessage(new TranslationTextComponent(I18n.format(message)).mergeStyle(Style.EMPTY.setFormatting(colorIn)), entityIn.getUniqueID());
     }
 
     public static List<PlayerEntity> getPlayersNearby(Entity ent, double distanceX, double distanceY, double distanceZ, double radius)

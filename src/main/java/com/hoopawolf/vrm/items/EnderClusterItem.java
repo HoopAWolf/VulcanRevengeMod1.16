@@ -60,6 +60,6 @@ public class EnderClusterItem extends Item
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:endercluster")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.DARK_GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:endercluster")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.DARK_GRAY)));
     }
 }

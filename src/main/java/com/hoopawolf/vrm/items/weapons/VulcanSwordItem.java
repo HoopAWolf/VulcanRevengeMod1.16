@@ -123,7 +123,7 @@ public class VulcanSwordItem extends SwordItem
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:vulcansrevenge") + getType(stack)).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.LIGHT_PURPLE)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:vulcansrevengeinfo")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:vulcansrevenge") + getType(stack)).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.LIGHT_PURPLE)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:vulcansrevengeinfo")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
     }
 }

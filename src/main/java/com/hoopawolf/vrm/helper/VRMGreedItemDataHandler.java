@@ -3,7 +3,7 @@ package com.hoopawolf.vrm.helper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hoopawolf.vrm.data.EatItemData;
+import com.hoopawolf.vrm.data.GreedItemData;
 import com.hoopawolf.vrm.ref.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModContainer;
@@ -26,17 +26,19 @@ import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-public class VRMEatItemDataHandler
+public class VRMGreedItemDataHandler
 {
-    public static final VRMEatItemDataHandler INSTANCE = new VRMEatItemDataHandler();
-    public static final String EAT_DATA_LOCATION = Reference.MOD_ID + "_data";
+    public static final VRMGreedItemDataHandler INSTANCE = new VRMGreedItemDataHandler();
+    public static final String GREED_DATA_LOCATION = Reference.MOD_ID + "_data";
     public static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(ResourceLocation.class, new ResourceLocation.Serializer())
             .create();
-    private static final Type ITEM_DATA_TYPE = new TypeToken<List<EatItemData>>()
+    private static final Type ITEM_DATA_TYPE = new TypeToken<GreedItemData>()
     {
     }.getType();
-    public final Map<String, EatItemData> data = new HashMap<>();
+
+    public ArrayList<GreedItemData> data = new ArrayList<>();
+    public ArrayList<String> blackList = new ArrayList<>();
 
     public void findFiles(IModInfo mod, String base, Predicate<Path> rootFilter,
                           BiFunction<Path, Path, Boolean> processor, boolean visitAllFiles)
@@ -108,14 +110,14 @@ public class VRMEatItemDataHandler
         mods.forEach(mod ->
         {
             String id = mod.getModId();
-            findFiles(mod, String.format("data/%s/%s", id, EAT_DATA_LOCATION), (path) -> Files.exists(path),
+            findFiles(mod, String.format("data/%s/%s", id, GREED_DATA_LOCATION), (path) -> Files.exists(path),
                     (path, file) ->
                     {
-                        if (file.toString().endsWith("eatdata.json"))
+                        if (file.toString().endsWith("greeditemblacklist.json"))
                         {
                             String fileStr = file.toString().replaceAll("\\\\", "/");
                             String relPath = fileStr
-                                    .substring(fileStr.indexOf(EAT_DATA_LOCATION) + EAT_DATA_LOCATION.length() + 1);
+                                    .substring(fileStr.indexOf(GREED_DATA_LOCATION) + GREED_DATA_LOCATION.length() + 1);
 
                             String assetPath = fileStr.substring(fileStr.indexOf("/data"));
                             ResourceLocation bookId = new ResourceLocation(id, relPath);
@@ -140,21 +142,26 @@ public class VRMEatItemDataHandler
                     saveData(stream);
                 } catch (Exception e)
                 {
-                    Reference.LOGGER.error("Failed to load eatdata {} defined by mod {}, skipping",
+                    Reference.LOGGER.error("Failed to load greeditemdata {} defined by mod {}, skipping",
                             res, c.getModInfo().getModId(), e);
                 }
             });
         });
+
+        for (GreedItemData dataList : data)
+        {
+            for (String name : dataList.getListItems())
+            {
+                blackList.addAll(dataList.getListItems());
+            }
+        }
     }
 
     public void saveData(InputStream stream)
     {
         Reader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
-        List<EatItemData> dataList = GSON.fromJson(reader, ITEM_DATA_TYPE);
+        GreedItemData dataList = GSON.fromJson(reader, ITEM_DATA_TYPE);
 
-        for (EatItemData itemData : dataList)
-        {
-            data.put(itemData.getItemID(), itemData);
-        }
+        data.add(dataList);
     }
 }

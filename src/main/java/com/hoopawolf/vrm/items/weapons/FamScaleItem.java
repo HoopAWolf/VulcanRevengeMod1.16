@@ -115,7 +115,7 @@ public class FamScaleItem extends Item
                                 {
                                     ((AnimalEntity) entity).setInLove(600);
                                     ((AnimalEntity) entity).setGrowingAge(0);
-                                    SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(entity.getPosX(), entity.getPosY() + 0.5F, entity.getPosZ()), new Vector3d(0.0F, 0.0D, 0.0F), 3, 7, entity.getWidth());
+                                    SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(entity.getPosX(), entity.getPosY() + 0.85F, entity.getPosZ()), new Vector3d(0.0F, 0.0D, 0.0F), 3, 7, entity.getWidth());
                                     VRMPacketHandler.packetHandler.sendToDimension(playerIn.world.func_234923_W_(), spawnParticleMessage);
                                 }
                             }
@@ -176,9 +176,9 @@ public class FamScaleItem extends Item
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:fam1")).func_240703_c_(Style.EMPTY.setFormatting(TextFormatting.LIGHT_PURPLE)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:fam2")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:fam3")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:fam4") + ((getSacrificeCoolDown(stack) > 0) ? " [" + (getSacrificeCoolDown(stack) / 20) + "s]" : "")).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(((getSacrificeCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:fam1")).mergeStyle(Style.EMPTY.setFormatting(TextFormatting.LIGHT_PURPLE)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:fam2")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:fam3")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:fam4") + ((getSacrificeCoolDown(stack) > 0) ? " [" + (getSacrificeCoolDown(stack) / 20) + "s]" : "")).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(((getSacrificeCoolDown(stack) > 0) ? TextFormatting.DARK_GRAY : TextFormatting.GRAY))));
     }
 }

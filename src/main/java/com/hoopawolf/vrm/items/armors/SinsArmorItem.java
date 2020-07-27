@@ -1,13 +1,18 @@
 package com.hoopawolf.vrm.items.armors;
 
 import com.hoopawolf.vrm.entities.SlothPetEntity;
+import com.hoopawolf.vrm.helper.EntityHelper;
+import com.hoopawolf.vrm.network.VRMPacketHandler;
+import com.hoopawolf.vrm.network.packets.client.PlaySoundEffectMessage;
 import com.hoopawolf.vrm.ref.Reference;
 import com.hoopawolf.vrm.util.EntityRegistryHandler;
 import com.hoopawolf.vrm.util.PotionRegistryHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
@@ -110,6 +115,11 @@ public class SinsArmorItem extends ArmorItem
         setFulfilment(stack, MathHelper.clamp(getFulfilment(stack) - amount, 0, maxAmount));
     }
 
+    public static void decreaseFulfilment(ItemStack stack, int amount, int maxAmount)
+    {
+        setFulfilment(stack, MathHelper.clamp(getFulfilment(stack) + amount, 0, maxAmount));
+    }
+
     public static void setSin(ItemStack stack, SINS sinIn)
     {
         stack.getOrCreateTag().putInt("sin", sinIn.getValue());
@@ -132,8 +142,27 @@ public class SinsArmorItem extends ArmorItem
             switch (getSin(stack))
             {
                 case ENVY:
+                    if (!worldIn.isRemote)
+                    {
+                        
+                    }
                     break;
                 case LUST:
+                    if (!worldIn.isRemote)
+                    {
+                        if (entityIn.ticksExisted % 10 == 0)
+                        {
+                            if (getFulfilment(stack) < maxUse)
+                            {
+                                decreaseFulfilment(stack, 1, maxUse);
+                            }
+                        }
+
+                        if (getDurabilityForDisplay(stack) > 0.8F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 50, 0));
+                        }
+                    }
                     break;
                 case GREED:
                 {
@@ -179,6 +208,62 @@ public class SinsArmorItem extends ArmorItem
                 }
                 break;
                 case PRIDE:
+                    if (!worldIn.isRemote)
+                    {
+                        if (entityIn.ticksExisted % 10 == 0)
+                        {
+                            if (getFulfilment(stack) > 0)
+                            {
+                                increaseFulfilment(stack, 1, maxUse);
+                            }
+                        }
+
+                        if (entityIn.ticksExisted % 5 == 0)
+                        {
+                            for (Entity entity : EntityHelper.getEntitiesNearby(entityIn, Entity.class, 5, 5, 5, 20))
+                            {
+                                if (entity instanceof CreatureEntity)
+                                {
+                                    if (!((CreatureEntity) entity).isPotionActive(Effects.WEAKNESS))
+                                    {
+                                        ((CreatureEntity) entity).addPotionEffect(new EffectInstance(Effects.WEAKNESS, 400, 0));
+
+                                        if (entity.world.rand.nextInt(100) < 50)
+                                        {
+                                            ((CreatureEntity) entity).addPotionEffect(new EffectInstance(PotionRegistryHandler.FEAR_EFFECT.get(), 200, 0));
+                                            PlaySoundEffectMessage playFearSoundMessage = new PlaySoundEffectMessage(entity.getEntityId(), 9, 1.0F, 1.0F);
+                                            VRMPacketHandler.packetHandler.sendToDimension(entity.world.func_234923_W_(), playFearSoundMessage);
+                                        }
+                                    }
+                                } else if (entity instanceof ProjectileEntity)
+                                {
+                                    if (!entity.velocityChanged)
+                                    {
+                                        if (entity.world.rand.nextInt(100) < 50)
+                                        {
+                                            if (((ProjectileEntity) entity).func_234616_v_() != null)
+                                            {
+                                                if (!(((ProjectileEntity) entity).func_234616_v_() instanceof PlayerEntity && ((ProjectileEntity) entity).func_234616_v_().getUniqueID().equals(entityIn.getUniqueID())))
+                                                {
+                                                    entity.setMotion(entity.getMotion().inverse().scale(1.2D));
+                                                    ((ProjectileEntity) entity).setShooter(entityIn);
+                                                    entity.velocityChanged = true;
+                                                }
+                                            } else
+                                            {
+                                                entity.setMotion(entity.getMotion().inverse().scale(1.2D));
+                                                ((ProjectileEntity) entity).setShooter(entityIn);
+                                                entity.velocityChanged = true;
+                                            }
+                                        } else
+                                        {
+                                            entity.velocityChanged = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                     break;
                 case SLOTH:
                 {
@@ -196,7 +281,7 @@ public class SinsArmorItem extends ArmorItem
                             {
                                 if (getFulfilment(stack) > 0)
                                 {
-                                    setFulfilment(stack, getFulfilment(stack) - 1);
+                                    increaseFulfilment(stack, 1, maxUse);
                                 }
                             }
 
@@ -225,20 +310,57 @@ public class SinsArmorItem extends ArmorItem
                             {
                                 if (getFulfilment(stack) < maxUse)
                                 {
-                                    setFulfilment(stack, getFulfilment(stack) + 2);
+                                    decreaseFulfilment(stack, 2, maxUse);
                                 }
                             }
                         }
 
                         if (getDurabilityForDisplay(stack) > 0.90F)
                         {
-                            entityIn.addPotionEffect(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 1, 0));
+                            entityIn.addPotionEffect(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 10, 0));
                             entityIn.startSleeping(new BlockPos(entityIn.getPositionVec()));
                         }
                     }
                 }
                 break;
                 case WRATH:
+                    if (!worldIn.isRemote)
+                    {
+                        if (entityIn.ticksExisted % 10 == 0)
+                        {
+                            if (getFulfilment(stack) < maxUse)
+                            {
+                                decreaseFulfilment(stack, 1, maxUse);
+                            }
+                        }
+
+                        if (getDurabilityForDisplay(stack) < 0.2F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 10, 4));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 4));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 10, 4));
+                        } else if (getDurabilityForDisplay(stack) < 0.3F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 10, 3));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 3));
+                        } else if (getDurabilityForDisplay(stack) < 0.5F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 10, 2));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 2));
+
+                        } else if (getDurabilityForDisplay(stack) < 0.7F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 10, 1));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 1));
+                        } else if (getDurabilityForDisplay(stack) < 0.85F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 10, 0));
+                            entityIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 10, 0));
+                        } else
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 10, 0));
+                        }
+                    }
                     break;
                 case GLUTTONY:
                 {
@@ -248,7 +370,7 @@ public class SinsArmorItem extends ArmorItem
                         {
                             if (getFulfilment(stack) < maxUse)
                             {
-                                setFulfilment(stack, getFulfilment(stack) + 1);
+                                decreaseFulfilment(stack, 1, maxUse);
                             }
                         }
                     }
@@ -299,7 +421,7 @@ public class SinsArmorItem extends ArmorItem
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:sinmask") + getSin(stack).getValue()).func_240703_c_(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.DARK_GRAY)));
+        tooltip.add(new TranslationTextComponent(I18n.format("tooltip.vrm:sinmask") + getSin(stack).getValue()).mergeStyle(Style.EMPTY.setItalic(true).setFormatting(TextFormatting.DARK_GRAY)));
     }
 
     public enum SINS
@@ -310,8 +432,8 @@ public class SinsArmorItem extends ArmorItem
         LUST(3, 40),
         GREED(4, 100),
         SLOTH(5, 40),
-        WRATH(6, 40),
-        PRIDE(7, 40);
+        WRATH(6, 50),
+        PRIDE(7, 50);
 
         private final int value, maxUse;
 
