@@ -9,6 +9,7 @@ import com.hoopawolf.vrm.network.VRMPacketHandler;
 import com.hoopawolf.vrm.network.packets.server.SetAttackTargetMessage;
 import com.hoopawolf.vrm.network.packets.server.SinMaskActivateMessage;
 import com.hoopawolf.vrm.network.packets.server.SleepMessage;
+import com.hoopawolf.vrm.network.packets.server.TeleportMessage;
 import com.hoopawolf.vrm.ref.Reference;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
@@ -18,9 +19,9 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
@@ -40,22 +41,17 @@ public class VRMClientEventHandler
     @SubscribeEvent
     public static void LeftClickAirWithEmpty(PlayerInteractEvent.LeftClickEmpty event)
     {
-        if (event.getEntityLiving().world.isRemote)
+        if (event.getPlayer().world.isRemote)
         {
             if (event.getItemStack().isEmpty())
             {
-                if (event.getEntityLiving() instanceof PlayerEntity)
+                if (event.getPlayer().isCrouching() && event.getPlayer().inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem)
                 {
-                    PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+                    SinMaskActivateMessage _message = new SinMaskActivateMessage(event.getPlayer().getUniqueID(), !SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)));
+                    VRMPacketHandler.channel.sendToServer(_message);
 
-                    if (player.isCrouching() && player.inventory.armorInventory.get(3).getItem() instanceof SinsArmorItem)
-                    {
-                        SinMaskActivateMessage _message = new SinMaskActivateMessage(player.getUniqueID(), !SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)));
-                        VRMPacketHandler.channel.sendToServer(_message);
-
-                        EntityHelper.sendMessage(player, (!SinsArmorItem.isActivated(player.inventory.armorInventory.get(3))) ? "sinactivate" : "sindeactivate", TextFormatting.RED);
-                        player.playSound((!SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)) ? SoundEvents.ENTITY_EVOKER_PREPARE_SUMMON : SoundEvents.ENTITY_EVOKER_PREPARE_ATTACK), 1.0F, 0.1F);
-                    }
+                    EntityHelper.sendMessage(event.getPlayer(), (!SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3))) ? "sinactivate" : "sindeactivate", TextFormatting.RED);
+                    event.getPlayer().playSound((!SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)) ? SoundEvents.ENTITY_EVOKER_PREPARE_SUMMON : SoundEvents.ENTITY_EVOKER_PREPARE_ATTACK), 1.0F, 0.1F);
                 }
             }
         }
@@ -64,36 +60,55 @@ public class VRMClientEventHandler
     @SubscribeEvent
     public static void RightClickAirWithEmpty(PlayerInteractEvent.RightClickEmpty event)
     {
-        if (event.getEntityLiving().world.isRemote)
+        if (event.getPlayer().world.isRemote)
         {
             if (event.getItemStack().isEmpty())
             {
-                if (event.getEntityLiving() instanceof PlayerEntity)
+                if (event.getPlayer().isPotionActive(PotionRegistryHandler.SLEEP_EFFECT.get()))
                 {
-                    PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-
-                    if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                    if (event.getPlayer().isCrouching())
                     {
-                        if (player.isCrouching())
-                        {
-                            SleepMessage _message = new SleepMessage(player.getUniqueID());
-                            VRMPacketHandler.channel.sendToServer(_message);
-                        } else
-                        {
-                            if (SinsArmorItem.getSlothPetID(player.inventory.armorInventory.get(3)) != 0)
-                            {
-                                RayTracingHelper.INSTANCE.fire();
-                                Entity target = RayTracingHelper.INSTANCE.getTarget();
+                        SleepMessage _message = new SleepMessage(event.getPlayer().getUniqueID(), true);
+                        VRMPacketHandler.channel.sendToServer(_message);
+                    }
+                }
 
-                                if (target instanceof CreatureEntity)
-                                {
-                                    player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 2.0F, 1.0F);
-                                    SetAttackTargetMessage _message = new SetAttackTargetMessage(SinsArmorItem.getSlothPetID(player.inventory.armorInventory.get(3)), target.getEntityId());
-                                    VRMPacketHandler.channel.sendToServer(_message);
-                                }
+                if (event.getPlayer().inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)))
+                {
+                    if (event.getPlayer().isCrouching())
+                    {
+                        SleepMessage _message = new SleepMessage(event.getPlayer().getUniqueID(), false);
+                        VRMPacketHandler.channel.sendToServer(_message);
+                    } else
+                    {
+                        if (SinsArmorItem.getSlothPetID(event.getPlayer().inventory.armorInventory.get(3)) != 0)
+                        {
+                            RayTracingHelper.INSTANCE.fire();
+                            Entity target = RayTracingHelper.INSTANCE.getTarget();
+
+                            if (target instanceof CreatureEntity)
+                            {
+                                event.getPlayer().playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 2.0F, 1.0F);
+                                SetAttackTargetMessage _message = new SetAttackTargetMessage(SinsArmorItem.getSlothPetID(event.getPlayer().inventory.armorInventory.get(3)), target.getEntityId());
+                                VRMPacketHandler.channel.sendToServer(_message);
                             }
                         }
                     }
+                }
+            }
+
+            if (event.getPlayer().isPotionActive(PotionRegistryHandler.TELEPORTATION_EFFECT.get()))
+            {
+                RayTracingHelper.INSTANCE.fire();
+                BlockPos finalPos = RayTracingHelper.INSTANCE.getFinalPos();
+                if (finalPos != null)
+                {
+                    TeleportMessage _message = new TeleportMessage(new BlockPos(finalPos.getX(), finalPos.getY() + 1, finalPos.getZ()), event.getPlayer().getEntityId());
+                    VRMPacketHandler.channel.sendToServer(_message);
+                    event.getPlayer().playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 2.0F, 1.0F);
+                } else
+                {
+                    event.getPlayer().playSound(SoundEvents.BLOCK_NOTE_BLOCK_BASS, 2.0F, 1.0F);
                 }
             }
         }

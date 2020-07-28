@@ -35,6 +35,7 @@ public class VRMPacketHandler
         channel.messageBuilder(SinMaskActivateMessage.class, id++).encoder(SinMaskActivateMessage::encode).decoder(SinMaskActivateMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
         channel.messageBuilder(SleepMessage.class, id++).encoder(SleepMessage::encode).decoder(SleepMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
         channel.messageBuilder(SetAttackTargetMessage.class, id++).encoder(SetAttackTargetMessage::encode).decoder(SetAttackTargetMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
+        channel.messageBuilder(TeleportMessage.class, id++).encoder(TeleportMessage::encode).decoder(TeleportMessage::decode).consumer(MessageHandlerOnServer::onMessageReceived).add();
 
         //CLIENT
         channel.messageBuilder(SpawnParticleMessage.class, id++).encoder(SpawnParticleMessage::encode).decoder(SpawnParticleMessage::decode).consumer(MessageHandlerOnClient::onMessageReceived).add();

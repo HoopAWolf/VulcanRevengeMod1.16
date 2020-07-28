@@ -1,5 +1,6 @@
 package com.hoopawolf.vrm.entities.ai;
 
+import com.hoopawolf.vrm.util.PotionRegistryHandler;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
@@ -19,6 +20,18 @@ public class AnimalAttackGoal extends MeleeAttackGoal
         host = creature;
         damage = damageIn;
         knockBack = knockBackIn;
+    }
+
+    @Override
+    public boolean shouldExecute()
+    {
+        return host.isPotionActive(PotionRegistryHandler.RAGE_EFFECT.get()) && super.shouldExecute();
+    }
+
+    @Override
+    public boolean shouldContinueExecuting()
+    {
+        return host.isPotionActive(PotionRegistryHandler.RAGE_EFFECT.get()) && super.shouldContinueExecuting();
     }
 
     @Override

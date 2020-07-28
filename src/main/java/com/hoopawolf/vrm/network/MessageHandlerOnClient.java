@@ -39,6 +39,7 @@ public class MessageHandlerOnClient
                     ParticleTypes.HEART, //7
                     ParticleTypes.ANGRY_VILLAGER, //8
                     ParticleTypes.WITCH, //9
+                    ParticleTypes.SQUID_INK, //10
             };
 
     private static final SoundEvent[] sound_type =

@@ -115,7 +115,10 @@ public class MessageHandlerOnServer
                 {
                     if (_player.isAlive())
                     {
-                        _player.startSleeping(new BlockPos(_player.getPositionVec()));
+                        if (!_message.isAffectedByNight() || _player.world.isNightTime())
+                        {
+                            _player.startSleeping(new BlockPos(_player.getPositionVec()));
+                        }
                     }
                 }
             }
@@ -133,6 +136,21 @@ public class MessageHandlerOnServer
                     if (attacker.isAlive() && target.isAlive())
                     {
                         attacker.setAttackTarget(target);
+                    }
+                }
+            }
+            break;
+            case 5:
+            {
+                TeleportMessage _message = (TeleportMessage) message;
+
+                if (sendingPlayer.world.getEntityByID(_message.getHostID()) instanceof LivingEntity)
+                {
+                    LivingEntity host = (LivingEntity) sendingPlayer.world.getEntityByID(_message.getHostID());
+
+                    if (host.isAlive())
+                    {
+                        host.setPositionAndUpdate(_message.getTeleportPos().getX(), _message.getTeleportPos().getY(), _message.getTeleportPos().getZ());
                     }
                 }
             }

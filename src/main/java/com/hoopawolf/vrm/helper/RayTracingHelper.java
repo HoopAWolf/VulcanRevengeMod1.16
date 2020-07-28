@@ -15,6 +15,7 @@ public class RayTracingHelper
     public static final RayTracingHelper INSTANCE = new RayTracingHelper();
     private final Minecraft mc = Minecraft.getInstance();
     private Entity target = null;
+    private BlockPos endPos;
 
     private RayTracingHelper()
     {
@@ -45,6 +46,7 @@ public class RayTracingHelper
         traceEnd = new Vector3d((int) traceEnd.getX(), (int) traceEnd.getY(), (int) traceEnd.getZ());
         Vector3d checkPos = traceStart;
         float percentage = 0.0F;
+        endPos = null;
 
         while (checkPos.getX() != traceEnd.getX() || checkPos.getY() != traceEnd.getY() || checkPos.getZ() != traceEnd.getZ())
         {
@@ -52,6 +54,7 @@ public class RayTracingHelper
 
             if (entity.world.getBlockState(new BlockPos(checkPos)).isSolid() && !(entity.world.getBlockState(new BlockPos(checkPos)).getBlock() instanceof BushBlock))
             {
+                endPos = new BlockPos(checkPos);
                 // Reference.LOGGER.debug("Hit something solid: " + entity.world.getBlockState(new BlockPos(checkPos)));
                 break;
             }
@@ -61,12 +64,12 @@ public class RayTracingHelper
                     e -> e != entity && !(e instanceof SlothPetEntity)))
             {
                 // Reference.LOGGER.debug("Got something WOO: " + hit);
+                endPos = hit.getPosition();
                 return hit;
             }
             percentage += 0.01F;
             checkPos = VRMMathHelper.Lerp(traceStart, traceEnd, MathHelper.clamp(percentage, 0.0F, 1.0F));
         }
-
         // Reference.LOGGER.debug("Didn't get shit");
         return null;
     }
@@ -74,5 +77,10 @@ public class RayTracingHelper
     public Entity getTarget()
     {
         return this.target;
+    }
+
+    public BlockPos getFinalPos()
+    {
+        return this.endPos;
     }
 }

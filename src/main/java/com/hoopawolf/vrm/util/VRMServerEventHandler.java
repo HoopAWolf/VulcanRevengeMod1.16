@@ -26,6 +26,7 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -38,6 +39,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.*;
@@ -128,15 +130,43 @@ public class VRMServerEventHandler
     }
 
     @SubscribeEvent
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event)
+    {
+        if (event.player.isPotionActive(PotionRegistryHandler.FLIGHT_EFFECT.get()))
+        {
+            if (!event.player.abilities.allowFlying)
+            {
+                event.player.abilities.allowFlying = true;
+                event.player.abilities.isFlying = true;
+            }
+        } else
+        {
+            if (!event.player.abilities.isCreativeMode && !event.player.isSpectator())
+            {
+                event.player.abilities.allowFlying = false;
+                event.player.abilities.isFlying = false;
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void HurtEvent(LivingHurtEvent event)
     {
-        if (!event.getEntity().world.isRemote)
+        if (!event.getEntityLiving().world.isRemote)
         {
-            if (event.getEntity() instanceof CreatureEntity)
+            if (event.getSource().isExplosion())
             {
-                if (((CreatureEntity) event.getEntity()).isPotionActive(PotionRegistryHandler.DAZED_EFFECT.get()))
+                if (event.getEntityLiving().isPotionActive(PotionRegistryHandler.EXPLOSIVE_RESISTANCE_EFFECT.get()))
                 {
-                    ((CreatureEntity) event.getEntity()).removePotionEffect(PotionRegistryHandler.DAZED_EFFECT.get());
+                    event.setCanceled(true);
+                }
+            }
+
+            if (event.getEntityLiving() instanceof CreatureEntity)
+            {
+                if (event.getEntityLiving().isPotionActive(PotionRegistryHandler.DAZED_EFFECT.get()))
+                {
+                    event.getEntityLiving().removePotionEffect(PotionRegistryHandler.DAZED_EFFECT.get());
                 }
 
                 if (event.getSource().getImmediateSource() instanceof PlayerEntity)
@@ -152,12 +182,17 @@ public class VRMServerEventHandler
                             event.getEntityLiving().setFire(100);
                         }
                     }
+
+                    if (player.isPotionActive(PotionRegistryHandler.POISON_ATTACK_EFFECT.get()))
+                    {
+                        event.getEntityLiving().addPotionEffect(new EffectInstance(Effects.POISON, 200, 0));
+                    }
                 }
             }
 
-            if (event.getEntity() instanceof PlayerEntity)
+            if (event.getEntityLiving() instanceof PlayerEntity)
             {
-                PlayerEntity player = (PlayerEntity) event.getEntity();
+                PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 
                 if (player.getHeldItemMainhand().getItem().equals(ItemBlockRegistryHandler.DEATH_SWORD.get()))
                 {
@@ -234,6 +269,11 @@ public class VRMServerEventHandler
                         event.setResult(Event.Result.DENY);
                     }
                 }
+
+                if (event.getEntityLiving().isPotionActive(PotionRegistryHandler.MILK_EFFECT.get()))
+                {
+                    event.setResult(Event.Result.DENY);
+                }
             }
         }
     }
@@ -241,38 +281,34 @@ public class VRMServerEventHandler
     @SubscribeEvent
     public static void CheckSleepingTime(SleepingTimeCheckEvent event)
     {
-        if (!event.getEntity().world.isRemote)
+        if (!event.getPlayer().world.isRemote)
         {
-            if (event.getEntity() instanceof PlayerEntity)
+            if (event.getPlayer().inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)) ||
+                    event.getPlayer().isPotionActive(PotionRegistryHandler.SLEEP_EFFECT.get()))
             {
-                PlayerEntity player = (PlayerEntity) event.getEntity();
+                event.setResult(Event.Result.ALLOW);
 
-                if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                if (event.getPlayer().getSleepTimer() >= 100)
                 {
-                    event.setResult(Event.Result.ALLOW);
-
-                    if (player.getSleepTimer() >= 100)
+                    long i = event.getPlayer().world.getDayTime() + 24000L;
+                    if (event.getPlayer().world.getGameRules().getBoolean(GameRules.DO_DAYLIGHT_CYCLE))
                     {
-                        long i = event.getEntity().world.getDayTime() + 24000L;
-                        if (event.getEntity().world.getGameRules().getBoolean(GameRules.DO_DAYLIGHT_CYCLE))
+                        if (event.getPlayer().world.isDaytime())
                         {
-                            if (event.getEntity().world.isDaytime())
+                            if (ConfigHandler.COMMON.slothMaskTurnNight.get())
                             {
-                                if (ConfigHandler.COMMON.slothMaskTurnNight.get())
-                                {
-                                    ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L) - 11000L);
-                                }
-                            } else
+                                ((ServerWorld) event.getPlayer().world).func_241114_a_((i - i % 24000L) - 11000L);
+                            }
+                        } else
+                        {
+                            if (ConfigHandler.COMMON.slothMaskTurnDay.get())
                             {
-                                if (ConfigHandler.COMMON.slothMaskTurnDay.get())
-                                {
-                                    ((ServerWorld) event.getEntity().world).func_241114_a_((i - i % 24000L));
-                                }
+                                ((ServerWorld) event.getPlayer().world).func_241114_a_((i - i % 24000L));
                             }
                         }
-
-                        player.wakeUp();
                     }
+
+                    event.getPlayer().wakeUp();
                 }
             }
         }
@@ -287,7 +323,8 @@ public class VRMServerEventHandler
             {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
 
-                if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)) ||
+                        player.isPotionActive(PotionRegistryHandler.SLEEP_EFFECT.get()))
                 {
                     event.setResult(Event.Result.ALLOW);
                 }
@@ -342,36 +379,31 @@ public class VRMServerEventHandler
     @SubscribeEvent
     public static void onItemPickUp(PlayerEvent.ItemPickupEvent event)
     {
-        if (!event.getEntityLiving().world.isRemote)
+        if (!event.getPlayer().world.isRemote)
         {
-            if (event.getEntityLiving() instanceof PlayerEntity)
+            if (ConfigHandler.COMMON.greedDoubleDrop.get() && event.getEntityLiving().world.rand.nextInt(50) < 10)
             {
-                PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+                ArrayList<String> blackList = VRMGreedItemDataHandler.INSTANCE.blackList;
 
-                if (ConfigHandler.COMMON.greedDoubleDrop.get() && event.getEntityLiving().world.rand.nextInt(50) < 10)
+                if (!blackList.contains(event.getStack().getItem().getTranslationKey()))
                 {
-                    ArrayList<String> blackList = VRMGreedItemDataHandler.INSTANCE.blackList;
-
-                    if (!blackList.contains(event.getStack().getItem().getTranslationKey()))
+                    if (event.getPlayer().inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GREED_MASK_ARMOR.get()) && SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)))
                     {
-                        if (player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GREED_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+                        if (event.getOriginalEntity().getOwnerId() == null && event.getOriginalEntity().getThrowerId() == null)
                         {
-                            if (event.getOriginalEntity().getOwnerId() == null && event.getOriginalEntity().getThrowerId() == null)
+                            int calculatedAmount = (int) ((1.0D - (float) event.getPlayer().inventory.armorInventory.get(3).getItem().getDurabilityForDisplay(event.getPlayer().inventory.armorInventory.get(3))) * 6);
+
+                            if (calculatedAmount > 0)
                             {
-                                int calculatedAmount = (int) ((1.0D - (float) player.inventory.armorInventory.get(3).getItem().getDurabilityForDisplay(player.inventory.armorInventory.get(3))) * 6);
+                                int additionalAmount = event.getPlayer().world.rand.nextInt(calculatedAmount);
 
-                                if (calculatedAmount > 0)
+                                if (additionalAmount > 0)
                                 {
-                                    int additionalAmount = player.world.rand.nextInt(calculatedAmount);
-
-                                    if (additionalAmount > 0)
-                                    {
-                                        PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 8, 1.0F, 1.0F);
-                                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playDingSoundMessage);
-                                        event.getOriginalEntity().getItem().setCount(event.getOriginalEntity().getItem().getCount() + additionalAmount);
-                                    }
-                                    event.getOriginalEntity().setOwnerId(player.getUniqueID());
+                                    PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(event.getPlayer().getEntityId(), 8, 1.0F, 1.0F);
+                                    VRMPacketHandler.packetHandler.sendToDimension(event.getPlayer().world.func_234923_W_(), playDingSoundMessage);
+                                    event.getOriginalEntity().getItem().setCount(event.getOriginalEntity().getItem().getCount() + additionalAmount);
                                 }
+                                event.getOriginalEntity().setOwnerId(event.getPlayer().getUniqueID());
                             }
                         }
                     }
@@ -392,23 +424,33 @@ public class VRMServerEventHandler
     @SubscribeEvent
     public static void onRightClickWithItem(PlayerInteractEvent.RightClickItem event)
     {
-        if (!event.getEntityLiving().world.isRemote)
+        if (!event.getPlayer().world.isRemote)
         {
-            PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-
-            if (player.isCrouching() && player.inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(player.inventory.armorInventory.get(3)))
+            if (event.getPlayer().isCrouching() && event.getPlayer().inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)))
             {
-                if (!event.getItemStack().isEmpty() && !player.getHeldItemMainhand().isFood())
+                if (!event.getItemStack().isEmpty() && !event.getPlayer().getHeldItemMainhand().isFood())
                 {
-                    if (consumeItem(player, event.getItemStack()))
+                    if (consumeItem(event.getPlayer(), event.getItemStack()))
                     {
                         event.setCanceled(true);
                     } else
                     {
-                        SendPlayerMessageMessage message = new SendPlayerMessageMessage(player.getUniqueID(), "cannoteat", TextFormatting.GRAY.getColorIndex());
-                        VRMPacketHandler.packetHandler.sendToPlayer((ServerPlayerEntity) player, message);
+                        SendPlayerMessageMessage message = new SendPlayerMessageMessage(event.getPlayer().getUniqueID(), "cannoteat", TextFormatting.GRAY.getColorIndex());
+                        VRMPacketHandler.packetHandler.sendToPlayer((ServerPlayerEntity) event.getPlayer(), message);
                     }
                 }
+            }
+
+            if (event.getPlayer().isPotionActive(PotionRegistryHandler.MILK_EFFECT.get()) && event.getItemStack().getItem().equals(Items.BUCKET))
+            {
+                event.getItemStack().shrink(1);
+                event.getPlayer().dropItem(new ItemStack(Items.MILK_BUCKET), true);
+            }
+
+            if (event.getPlayer().isPotionActive(PotionRegistryHandler.STEW_EFFECT.get()) && event.getItemStack().getItem().equals(Items.BOWL))
+            {
+                event.getItemStack().shrink(1);
+                event.getPlayer().dropItem(new ItemStack(Items.SUSPICIOUS_STEW), true);
             }
         }
     }

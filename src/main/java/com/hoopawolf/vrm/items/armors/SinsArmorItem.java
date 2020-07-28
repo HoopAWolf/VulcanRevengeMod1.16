@@ -144,7 +144,7 @@ public class SinsArmorItem extends ArmorItem
                 case ENVY:
                     if (!worldIn.isRemote)
                     {
-                        
+
                     }
                     break;
                 case LUST:
@@ -262,6 +262,12 @@ public class SinsArmorItem extends ArmorItem
                                     }
                                 }
                             }
+                        }
+
+                        if (getDurabilityForDisplay(stack) > 0.90F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(PotionRegistryHandler.FEAR_EFFECT.get(), 10, 0));
+                            entityIn.startSleeping(new BlockPos(entityIn.getPositionVec()));
                         }
                     }
                     break;

@@ -4,6 +4,7 @@ import com.hoopawolf.vrm.helper.EntityHelper;
 import com.hoopawolf.vrm.network.VRMPacketHandler;
 import com.hoopawolf.vrm.network.packets.client.SpawnParticleMessage;
 import com.hoopawolf.vrm.tab.VRMItemGroup;
+import com.hoopawolf.vrm.util.PotionRegistryHandler;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.CreatureEntity;
@@ -106,6 +107,8 @@ public class WarSwordItem extends SwordItem
                                 } else
                                 {
                                     ((CreatureEntity) entity).setAttackTarget(temp);
+                                    temp.addPotionEffect(new EffectInstance(PotionRegistryHandler.RAGE_EFFECT.get(), 300, 0));
+                                    entity.addPotionEffect(new EffectInstance(PotionRegistryHandler.RAGE_EFFECT.get(), 300, 0));
                                     temp.setAttackTarget(entity);
                                     SpawnParticleMessage mob1 = new SpawnParticleMessage(new Vector3d(entity.getPosX(), entity.getPosY() + 0.5F, entity.getPosZ()), new Vector3d(0.0D, 0.0D, 0.0D), 3, 8, temp.getWidth());
                                     VRMPacketHandler.packetHandler.sendToDimension(playerIn.world.func_234923_W_(), mob1);

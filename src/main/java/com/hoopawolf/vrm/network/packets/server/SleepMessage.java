@@ -8,13 +8,15 @@ import java.util.UUID;
 public class SleepMessage extends MessageToServer
 {
     private UUID player_ID;
+    private boolean affectedByNight;
 
-    public SleepMessage(UUID playerIDIn)
+    public SleepMessage(UUID playerIDIn, boolean affectedByNightIn)
     {
         messageIsValid = true;
         messageType = 3;
 
         player_ID = playerIDIn;
+        affectedByNight = affectedByNightIn;
     }
 
     // for use by the message handler only.
@@ -26,10 +28,12 @@ public class SleepMessage extends MessageToServer
     public static SleepMessage decode(PacketBuffer buf)
     {
         UUID _playerID;
+        boolean _affectedByNight;
 
         try
         {
             _playerID = buf.readUniqueId();
+            _affectedByNight = buf.readBoolean();
 
             // these methods may also be of use for your code:
             // for Itemstacks - ByteBufUtils.readItemStack()
@@ -43,7 +47,7 @@ public class SleepMessage extends MessageToServer
             return new SleepMessage();
         }
 
-        return new SleepMessage(_playerID);
+        return new SleepMessage(_playerID, _affectedByNight);
     }
 
     public UUID getPlayerID()
@@ -51,11 +55,17 @@ public class SleepMessage extends MessageToServer
         return player_ID;
     }
 
+    public boolean isAffectedByNight()
+    {
+        return affectedByNight;
+    }
+
     @Override
     public void encode(PacketBuffer buf)
     {
         if (!messageIsValid) return;
         buf.writeUniqueId(player_ID);
+        buf.writeBoolean(affectedByNight);
     }
 
     @Override
