@@ -3,7 +3,7 @@ package com.hoopawolf.vrm.helper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hoopawolf.vrm.data.GreedItemData;
+import com.hoopawolf.vrm.data.EnvyEntityData;
 import com.hoopawolf.vrm.ref.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModContainer;
@@ -26,18 +26,16 @@ import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-public class VRMGreedItemDataHandler
+public class VRMEnvyEntityDataHandler
 {
-    public static final VRMGreedItemDataHandler INSTANCE = new VRMGreedItemDataHandler();
+    public static final VRMEnvyEntityDataHandler INSTANCE = new VRMEnvyEntityDataHandler();
     public static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(ResourceLocation.class, new ResourceLocation.Serializer())
             .create();
-    private static final Type ITEM_DATA_TYPE = new TypeToken<GreedItemData>()
+    private static final Type ENTITY_DATA_TYPE = new TypeToken<List<EnvyEntityData>>()
     {
     }.getType();
-
-    public final ArrayList<GreedItemData> data = new ArrayList<>();
-    public final ArrayList<String> blackList = new ArrayList<>();
+    public final Map<String, EnvyEntityData> data = new HashMap<>();
 
     public void findFiles(IModInfo mod, String base, Predicate<Path> rootFilter,
                           BiFunction<Path, Path, Boolean> processor, boolean visitAllFiles)
@@ -112,7 +110,7 @@ public class VRMGreedItemDataHandler
             findFiles(mod, String.format("data/%s/%s", id, Reference.VRM_DATA_LOCATION), (path) -> Files.exists(path),
                     (path, file) ->
                     {
-                        if (file.toString().endsWith("greeditemblacklist.json"))
+                        if (file.toString().endsWith("envyentitydata.json"))
                         {
                             String fileStr = file.toString().replaceAll("\\\\", "/");
                             String relPath = fileStr
@@ -141,23 +139,21 @@ public class VRMGreedItemDataHandler
                     saveData(stream);
                 } catch (Exception e)
                 {
-                    Reference.LOGGER.error("Failed to load greeditemdata {} defined by mod {}, skipping",
+                    Reference.LOGGER.error("Failed to load entitydata {} defined by mod {}, skipping",
                             res, c.getModInfo().getModId(), e);
                 }
             });
         });
-
-        for (GreedItemData dataList : data)
-        {
-            blackList.addAll(dataList.getListItems());
-        }
     }
 
     public void saveData(InputStream stream)
     {
         Reader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
-        GreedItemData dataList = GSON.fromJson(reader, ITEM_DATA_TYPE);
+        List<EnvyEntityData> dataList = GSON.fromJson(reader, ENTITY_DATA_TYPE);
 
-        data.add(dataList);
+        for (EnvyEntityData entityData : dataList)
+        {
+            data.put(entityData.getEntityID(), entityData);
+        }
     }
 }

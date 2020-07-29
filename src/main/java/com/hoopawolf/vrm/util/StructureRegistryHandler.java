@@ -23,7 +23,7 @@ public class StructureRegistryHandler
 
     public static final RegistryObject<Structure<NoFeatureConfig>> SWORD_STONE_STRUCTURE = STRUCTURES.register("swordstructure", () -> new SwordStructure(NoFeatureConfig.field_236558_a_));
 
-    public static IStructurePieceType SWORD_STRUCTURE_FEATURE = registerStructurePiece(SwordStructurePiece.Piece::new, SwordStructurePiece.SWORD_STRUCTURE_LOC);
+    public static final IStructurePieceType SWORD_STRUCTURE_FEATURE = registerStructurePiece(SwordStructurePiece.Piece::new, SwordStructurePiece.SWORD_STRUCTURE_LOC);
 
     public static void generateStructureWorldSpawn()
     {

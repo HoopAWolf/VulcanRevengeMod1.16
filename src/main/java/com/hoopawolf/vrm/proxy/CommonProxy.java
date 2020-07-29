@@ -1,6 +1,7 @@
 package com.hoopawolf.vrm.proxy;
 
 import com.hoopawolf.vrm.helper.VRMEatItemDataHandler;
+import com.hoopawolf.vrm.helper.VRMEnvyEntityDataHandler;
 import com.hoopawolf.vrm.helper.VRMGreedItemDataHandler;
 import com.hoopawolf.vrm.network.VRMPacketHandler;
 import com.hoopawolf.vrm.util.EntityRegistryHandler;
@@ -27,6 +28,7 @@ public class CommonProxy
         DeferredWorkQueue.runLater(StructureRegistryHandler::generateStructureWorldSpawn);
         DeferredWorkQueue.runLater(VRMEatItemDataHandler.INSTANCE::initJSON);
         DeferredWorkQueue.runLater(VRMGreedItemDataHandler.INSTANCE::initJSON);
+        DeferredWorkQueue.runLater(VRMEnvyEntityDataHandler.INSTANCE::initJSON);
         DeferredWorkQueue.runLater(EntityRegistryHandler::registerEntityAttributes);
     }
 }

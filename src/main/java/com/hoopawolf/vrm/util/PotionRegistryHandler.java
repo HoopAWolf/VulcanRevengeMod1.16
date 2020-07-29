@@ -24,6 +24,7 @@ public class PotionRegistryHandler
     public static final RegistryObject<Effect> ECHO_LOCATION_EFFECT = POTION_EFFECT.register("echolocationeffect", () -> new EchoLocationEffect(EffectType.BENEFICIAL, 2012801));
     public static final RegistryObject<Effect> POISON_ATTACK_EFFECT = POTION_EFFECT.register("poisonattackeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 4012801));
     public static final RegistryObject<Effect> FLAME_CHARGE_EFFECT = POTION_EFFECT.register("flamechargeeffect", () -> new FireChargeEffect(EffectType.BENEFICIAL, 1012801));
+    public static final RegistryObject<Effect> EXPLOSIVE_FLAME_CHARGE_EFFECT = POTION_EFFECT.register("explosivefirechargeeffect", () -> new ExplosiveFireChargeEffect(EffectType.BENEFICIAL, 1012801));
     public static final RegistryObject<Effect> FALL_RESISTANCE_EFFECT = POTION_EFFECT.register("fallresisteffect", () -> new FallResistanceEffect(EffectType.BENEFICIAL, 3232801));
     public static final RegistryObject<Effect> POISON_RESISTANCE_EFFECT = POTION_EFFECT.register("poisonresisteffect", () -> new PoisonResistanceEffect(EffectType.BENEFICIAL, 4122801));
     public static final RegistryObject<Effect> CLIMB_EFFECT = POTION_EFFECT.register("climbeffect", () -> new ClimbEffect(EffectType.BENEFICIAL, 3442801));
@@ -31,7 +32,7 @@ public class PotionRegistryHandler
     public static final RegistryObject<Effect> SWIMMING_SPEED_EFFECT = POTION_EFFECT.register("swimmingspeedeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 1112801).addAttributesModifier(ForgeMod.SWIM_SPEED.get(), "9898b50a-d0b6-11ea-87d0-0242ac130003", 1.5F, AttributeModifier.Operation.MULTIPLY_TOTAL));
     public static final RegistryObject<Effect> MILK_EFFECT = POTION_EFFECT.register("milkeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 4212801));
     public static final RegistryObject<Effect> RAGE_EFFECT = POTION_EFFECT.register("rageeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 4123801));
-    public static final RegistryObject<Effect> EXPLOSIVE_RESISTANCE_EFFECT = POTION_EFFECT.register("explosiveresisteffect", () -> new ExplosiveFireChargeEffect(EffectType.BENEFICIAL, 4451801));
+    public static final RegistryObject<Effect> EXPLOSIVE_RESISTANCE_EFFECT = POTION_EFFECT.register("explosiveresisteffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 4451801));
     public static final RegistryObject<Effect> HUNGER_RESISTANCE_EFFECT = POTION_EFFECT.register("hungerresisteffect", () -> new HungerResistanceEffect(EffectType.BENEFICIAL, 4321801));
     public static final RegistryObject<Effect> TELEPORTATION_EFFECT = POTION_EFFECT.register("teleportationeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 1253801));
     public static final RegistryObject<Effect> EVOKE_EFFECT = POTION_EFFECT.register("evokeeffect", () -> new EvokeEffect(EffectType.BENEFICIAL, 2513801));
@@ -39,6 +40,8 @@ public class PotionRegistryHandler
     public static final RegistryObject<Effect> SLEEP_EFFECT = POTION_EFFECT.register("sleepeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 2533801));
     public static final RegistryObject<Effect> ARROW_ATTACK_EFFECT = POTION_EFFECT.register("arrowattackeffect", () -> new BowAttackEffect(EffectType.BENEFICIAL, 5513801));
     public static final RegistryObject<Effect> INK_EFFECT = POTION_EFFECT.register("inkeffect", () -> new InkEffect(EffectType.BENEFICIAL, 4413801));
+    public static final RegistryObject<Effect> FROST_WALK_EFFECT = POTION_EFFECT.register("frostwalkeffect", () -> new FrostWalkEffect(EffectType.BENEFICIAL, 4413801));
+    public static final RegistryObject<Effect> WITHER_ATTACK_EFFECT = POTION_EFFECT.register("witherattackeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 4413801));
 
 
     public static void init(IEventBus _iEventBus)

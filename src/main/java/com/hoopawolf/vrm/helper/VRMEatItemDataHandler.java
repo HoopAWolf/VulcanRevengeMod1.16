@@ -29,7 +29,6 @@ import java.util.function.Predicate;
 public class VRMEatItemDataHandler
 {
     public static final VRMEatItemDataHandler INSTANCE = new VRMEatItemDataHandler();
-    public static final String EAT_DATA_LOCATION = Reference.MOD_ID + "_data";
     public static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(ResourceLocation.class, new ResourceLocation.Serializer())
             .create();
@@ -108,14 +107,14 @@ public class VRMEatItemDataHandler
         mods.forEach(mod ->
         {
             String id = mod.getModId();
-            findFiles(mod, String.format("data/%s/%s", id, EAT_DATA_LOCATION), (path) -> Files.exists(path),
+            findFiles(mod, String.format("data/%s/%s", id, Reference.VRM_DATA_LOCATION), (path) -> Files.exists(path),
                     (path, file) ->
                     {
                         if (file.toString().endsWith("eatdata.json"))
                         {
                             String fileStr = file.toString().replaceAll("\\\\", "/");
                             String relPath = fileStr
-                                    .substring(fileStr.indexOf(EAT_DATA_LOCATION) + EAT_DATA_LOCATION.length() + 1);
+                                    .substring(fileStr.indexOf(Reference.VRM_DATA_LOCATION) + Reference.VRM_DATA_LOCATION.length() + 1);
 
                             String assetPath = fileStr.substring(fileStr.indexOf("/data"));
                             ResourceLocation bookId = new ResourceLocation(id, relPath);

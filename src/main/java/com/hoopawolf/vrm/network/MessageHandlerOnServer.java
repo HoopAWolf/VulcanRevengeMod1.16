@@ -64,7 +64,7 @@ public class MessageHandlerOnServer
                 SetPotionEffectMessage _message = (SetPotionEffectMessage) message;
                 Entity _entity = sendingPlayer.world.getEntityByID(_message.getEntityID());
 
-                if (_entity != null && _entity instanceof LivingEntity)
+                if (_entity instanceof LivingEntity)
                 {
                     if (_entity.isAlive())
                     {
@@ -78,7 +78,7 @@ public class MessageHandlerOnServer
                 SetPotionEffectMultipleMessage _message = (SetPotionEffectMultipleMessage) message;
                 Entity _entity = sendingPlayer.world.getEntityByID(_message.getEntityID());
 
-                if (_entity != null && _entity instanceof LivingEntity)
+                if (_entity instanceof LivingEntity)
                 {
                     if (_entity.isAlive())
                     {

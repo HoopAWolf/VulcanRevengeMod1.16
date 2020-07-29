@@ -93,7 +93,7 @@ public class RuneItem extends Item
 
                         for (int i = 1; i <= 180; ++i)
                         {
-                            double yaw = i * 360 / 180;
+                            double yaw = (double) i * 360.D / 180.D;
                             double speed = 0.3;
                             double xSpeed = speed * Math.cos(Math.toRadians(yaw));
                             double zSpeed = speed * Math.sin(Math.toRadians(yaw));
@@ -116,7 +116,7 @@ public class RuneItem extends Item
 
                         for (int i = 1; i <= 180; ++i)
                         {
-                            double yaw = i * 360 / 180;
+                            double yaw = (double) i * 360.D / 180.D;
                             double speed = 0.3;
                             double xSpeed = speed * Math.cos(Math.toRadians(yaw));
                             double zSpeed = speed * Math.sin(Math.toRadians(yaw));
@@ -138,7 +138,7 @@ public class RuneItem extends Item
 
                         for (int i = 1; i <= 180; ++i)
                         {
-                            double yaw = i * 360 / 180;
+                            double yaw = (double) i * 360.D / 180.D;
                             double speed = 0.3;
                             double xSpeed = speed * Math.cos(Math.toRadians(yaw));
                             double zSpeed = speed * Math.sin(Math.toRadians(yaw));
@@ -160,7 +160,7 @@ public class RuneItem extends Item
 
                         for (int i = 1; i <= 180; ++i)
                         {
-                            double yaw = i * 360 / 180;
+                            double yaw = (double) i * 360.D / 180.D;
                             double speed = 0.3;
                             double xSpeed = speed * Math.cos(Math.toRadians(yaw));
                             double zSpeed = speed * Math.sin(Math.toRadians(yaw));

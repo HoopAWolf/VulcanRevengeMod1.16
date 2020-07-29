@@ -128,9 +128,17 @@ public class SinsArmorItem extends ArmorItem
     @Override
     public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected)
     {
-        if (getSin(stack) != sinHolder)
+        if (!worldIn.isRemote)
         {
-            setSin(stack, sinHolder);
+            if (getSin(stack) != sinHolder)
+            {
+                setSin(stack, sinHolder);
+
+                if (sinHolder.equals(SINS.ENVY))
+                {
+                    setFulfilment(stack, maxUse);
+                }
+            }
         }
     }
 
@@ -144,7 +152,18 @@ public class SinsArmorItem extends ArmorItem
                 case ENVY:
                     if (!worldIn.isRemote)
                     {
+                        if (entityIn.ticksExisted % 10 == 0)
+                        {
+                            if (getFulfilment(stack) < maxUse)
+                            {
+                                decreaseFulfilment(stack, 1, maxUse);
+                            }
+                        }
 
+                        if (getDurabilityForDisplay(stack) > 0.99F)
+                        {
+                            entityIn.addPotionEffect(new EffectInstance(Effects.POISON, 50, 0));
+                        }
                     }
                     break;
                 case LUST:

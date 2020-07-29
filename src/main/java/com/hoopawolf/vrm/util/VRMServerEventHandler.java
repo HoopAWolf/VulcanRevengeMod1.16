@@ -2,6 +2,7 @@ package com.hoopawolf.vrm.util;
 
 import com.hoopawolf.vrm.config.ConfigHandler;
 import com.hoopawolf.vrm.data.EatItemData;
+import com.hoopawolf.vrm.data.EnvyEntityData;
 import com.hoopawolf.vrm.entities.SlothPetEntity;
 import com.hoopawolf.vrm.entities.ai.AnimalAttackGoal;
 import com.hoopawolf.vrm.entities.ai.DazedGoal;
@@ -9,6 +10,7 @@ import com.hoopawolf.vrm.entities.ai.FearPanicGoal;
 import com.hoopawolf.vrm.entities.ai.LustSinTemptGoal;
 import com.hoopawolf.vrm.entities.projectiles.PesArrowEntity;
 import com.hoopawolf.vrm.helper.VRMEatItemDataHandler;
+import com.hoopawolf.vrm.helper.VRMEnvyEntityDataHandler;
 import com.hoopawolf.vrm.helper.VRMGreedItemDataHandler;
 import com.hoopawolf.vrm.items.armors.SinsArmorItem;
 import com.hoopawolf.vrm.items.weapons.DeathSwordItem;
@@ -81,7 +83,7 @@ public class VRMServerEventHandler
 
                     for (int i = 1; i <= 180; ++i)
                     {
-                        double yaw = i * 360 / 180;
+                        double yaw = (double) i * 360.D / 180.D;
                         double speed = 0.3;
                         double xSpeed = speed * Math.cos(Math.toRadians(yaw));
                         double zSpeed = speed * Math.sin(Math.toRadians(yaw));
@@ -102,7 +104,7 @@ public class VRMServerEventHandler
                     VRMPacketHandler.packetHandler.sendToDimension(target.world.func_234923_W_(), playVexSoundMessage);
                     for (int i = 1; i <= 180; ++i)
                     {
-                        double yaw = i * 360 / 180;
+                        double yaw = (double) i * 360D / 180D;
                         double speed = 0.7;
                         double xSpeed = speed * Math.cos(Math.toRadians(yaw));
                         double zSpeed = speed * Math.sin(Math.toRadians(yaw));
@@ -186,6 +188,11 @@ public class VRMServerEventHandler
                     if (player.isPotionActive(PotionRegistryHandler.POISON_ATTACK_EFFECT.get()))
                     {
                         event.getEntityLiving().addPotionEffect(new EffectInstance(Effects.POISON, 200, 0));
+                    }
+
+                    if (player.isPotionActive(PotionRegistryHandler.WITHER_ATTACK_EFFECT.get()))
+                    {
+                        event.getEntityLiving().addPotionEffect(new EffectInstance(Effects.WITHER, 200, 0));
                     }
                 }
             }
@@ -491,6 +498,43 @@ public class VRMServerEventHandler
                             VRMPacketHandler.packetHandler.sendToDimension(event.getTarget().world.func_234923_W_(), spawnParticleMessage);
                         }
                     }
+                } else if (event.getPlayer().inventory.armorInventory.get(3).getItem().equals(ArmorRegistryHandler.ENVY_MASK_ARMOR.get()) && SinsArmorItem.isActivated(event.getPlayer().inventory.armorInventory.get(3)))
+                {
+                    if (event.getTarget() instanceof LivingEntity && event.getPlayer().inventory.armorInventory.get(3).getItem().getDurabilityForDisplay(event.getPlayer().inventory.armorInventory.get(3)) > 0.85D)
+                    {
+                        if (VRMEnvyEntityDataHandler.INSTANCE.data.get(event.getTarget().getEntityString()) != null)
+                        {
+                            int milkRemainingDuration = 0;
+
+                            SinsArmorItem.increaseFulfilment(event.getPlayer().inventory.armorInventory.get(3), SinsArmorItem.getSin(event.getPlayer().inventory.armorInventory.get(3)).getMaxUse(), SinsArmorItem.getSin(event.getPlayer().inventory.armorInventory.get(3)).getMaxUse());
+                            EnvyEntityData data = VRMEnvyEntityDataHandler.INSTANCE.data.get(event.getTarget().getEntityString());
+                            PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(event.getPlayer().getEntityId(), 8, 1.0F, 1.0F);
+                            VRMPacketHandler.packetHandler.sendToDimension(event.getPlayer().world.func_234923_W_(), playDingSoundMessage);
+
+                            if (event.getPlayer().isPotionActive(PotionRegistryHandler.MILK_EFFECT.get()))
+                            {
+                                milkRemainingDuration = event.getPlayer().getActivePotionEffect(PotionRegistryHandler.MILK_EFFECT.get()).getDuration();
+                                event.getPlayer().removeActivePotionEffect(PotionRegistryHandler.MILK_EFFECT.get());
+                            }
+
+                            for (String effects : data.getListOfEffects())
+                            {
+                                for (Map.Entry<ResourceLocation, Effect> list : ForgeRegistries.POTIONS.getEntries())
+                                {
+                                    if (list.getKey().toString().equals(effects))
+                                    {
+                                        event.getPlayer().addPotionEffect(new EffectInstance(list.getValue(), (list.getValue().equals(Effects.INSTANT_DAMAGE) || list.getValue().equals(Effects.INSTANT_HEALTH)) ? 1 : 500, data.getAmplifier()));
+                                        break;
+                                    }
+                                }
+                            }
+
+                            if (milkRemainingDuration > 0)
+                            {
+                                event.getPlayer().addPotionEffect(new EffectInstance(PotionRegistryHandler.MILK_EFFECT.get(), milkRemainingDuration, 0));
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -528,9 +572,7 @@ public class VRMServerEventHandler
             if (itemStackIn.isDamageable())
             {
                 itemStackIn.damageItem((int) (itemStackIn.getMaxDamage() * 0.3F), playerIn, (p_220287_1_) ->
-                {
-                    p_220287_1_.sendBreakAnimation(Hand.MAIN_HAND);
-                });
+                        p_220287_1_.sendBreakAnimation(Hand.MAIN_HAND));
             } else
             {
                 itemStackIn.shrink(1);

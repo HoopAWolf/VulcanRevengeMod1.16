@@ -2845,7 +2845,8 @@
     "foodAmount": 5,
     "listOfEffects": [
       "minecraft:bad_omen",
-      "minecraft:night_vision"
+      "minecraft:night_vision",
+      "vrm:flighteffect"
     ]
   },
   {
@@ -2855,7 +2856,8 @@
     "foodAmount": 5,
     "listOfEffects": [
       "minecraft:bad_omen",
-      "minecraft:night_vision"
+      "minecraft:night_vision",
+      "vrm:teleportationeffect"
     ]
   },
   {
@@ -2903,7 +2905,8 @@
     "amplifier": 0,
     "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:fire_resistance"
+      "minecraft:fire_resistance",
+      "vrm:flamechargeeffect"
     ]
   },
   {
