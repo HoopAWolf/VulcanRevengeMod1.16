@@ -43,7 +43,7 @@ public class SwordStoneTileEntity extends TileEntity implements ITickableTileEnt
 
     private static final EntityType[] firePhase =
             {
-                    EntityType.BLAZE,
+                    EntityType.RAVAGER,
                     EntityType.MAGMA_CUBE,
                     EntityType.ZOMBIFIED_PIGLIN
             };

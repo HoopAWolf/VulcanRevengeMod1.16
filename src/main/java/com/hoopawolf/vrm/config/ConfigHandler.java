@@ -33,15 +33,15 @@ public final class ConfigHandler
         public Client(ForgeConfigSpec.Builder builder)
         {
             sinMaskWarningHeightOffset = builder
-                    .comment("Screen Height Offset for sin mask warning text. Use [<] & [>] to change in game")
+                    .translation("config.text.screenheight")
                     .defineInRange("sinmask.warn.height", 0, -Integer.MAX_VALUE, Integer.MAX_VALUE);
 
             sinMaskWarningWidthOffset = builder
-                    .comment("Screen Width Offset for sin mask warning text. Use [;] & ['] to change in game")
+                    .translation("config.text.screenwidth")
                     .defineInRange("sinmask.warn.width", 0, -Integer.MAX_VALUE, Integer.MAX_VALUE);
 
             sinMaskWarning = builder
-                    .comment("Show warning for Sin mask")
+                    .translation("config.text.showwarning")
                     .define("sinmask.warn.show", true);
         }
     }
@@ -56,31 +56,52 @@ public final class ConfigHandler
         public final ForgeConfigSpec.BooleanValue slothMaskTurnDay;
         public final ForgeConfigSpec.BooleanValue greedDoubleDrop;
 
+        public final ForgeConfigSpec.ConfigValue<String> pesBowItem;
+        public final ForgeConfigSpec.ConfigValue<String> warSwordItem;
+        public final ForgeConfigSpec.ConfigValue<String> deathScytheItem;
+        public final ForgeConfigSpec.ConfigValue<String> famineScaleItem;
+
         public Common(ForgeConfigSpec.Builder builder)
         {
             minStructureAway = builder
-                    .comment("Min distance away from chosen spot")
+                    .translation("config.text.minstruct")
                     .defineInRange("structure.spawndist.min", 7, 0, Integer.MAX_VALUE);
 
             maxStructureAway = builder
-                    .comment("Max distance away from chosen spot")
+                    .translation("config.text.maxstruct")
                     .defineInRange("structure.spawndist.max", 12, 0, Integer.MAX_VALUE);
 
             structureSpawnChance = builder
-                    .comment("Structure spawning percentage")
+                    .translation("config.text.structperc")
                     .defineInRange("structure.spawnpercentage", 40, 0, 100);
 
             slothMaskTurnNight = builder
-                    .comment("Sloth Mask allow setting to night when sleep in day")
+                    .translation("config.text.slothmasksleep")
                     .define("sinmask.sloth.changeToNight", true);
 
             slothMaskTurnDay = builder
-                    .comment("Sloth Mask allow setting to day when sleep in night")
+                    .translation("config.text.slothmasksleepday")
                     .define("sinmask.sloth.changeToDay", true);
 
             greedDoubleDrop = builder
-                    .comment("Greed Mask allowed to double drops")
+                    .translation("config.text.greedmaskdouble")
                     .define("sinmask.greed.allowDoubleDrop", true);
+
+            warSwordItem = builder
+                    .translation("config.text.warsworditem")
+                    .define("fourhorseman.war.item", "item.minecraft.diamond_sword");
+
+            pesBowItem = builder
+                    .translation("config.text.pesbowitem")
+                    .define("fourhorseman.pestilence.item", "item.minecraft.bow");
+
+            deathScytheItem = builder
+                    .translation("config.text.deathscytheitem")
+                    .define("fourhorseman.death.item", "item.minecraft.diamond_hoe");
+
+            famineScaleItem = builder
+                    .translation("config.text.faminescaleitem")
+                    .define("fourhorseman.famine.item", "item.minecraft.diamond_pickaxe");
         }
     }
 }

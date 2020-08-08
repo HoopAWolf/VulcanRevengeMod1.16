@@ -2910,688 +2910,653 @@
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.fire_coral",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 2,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance",
+      "minecraft:water_breathing"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.fire_coral_block",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance",
+      "minecraft:water_breathing"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.fire_coral_fan",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance",
+      "minecraft:water_breathing"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.firework_rocket.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:levitation",
+      "minecraft:explosiveresisteffect"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.firework_star.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:levitation",
+      "vrm:explosiveresisteffect"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.fishing_rod.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
       "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:dolphins_grace",
+      "minecraft:luck"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.fletching_table.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.flint.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.flint_and_steel.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.flower_banner_pattern.json",
+    "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.flower_pot.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.furnace.json",
+    "duration": 200,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.furnace_minecart.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance",
+      "minecraft:speed"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.ghast_tear.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance",
+      "vrm:explosiveresisteffect",
+      "vrm:explosivefirechargeeffect",
+      "vrm:flighteffect"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gilded_blackstone.json",
+    "duration": 200,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.glass.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.glass_bottle.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 1,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.glass_pane.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.glistering_melon_slice.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:glowing",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.globe_banner_pattern.json",
+    "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.glowstone.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:glowing"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.glowstone_dust.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 2,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:glowing"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gold_block.json",
+    "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.gold_ingot.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.gold_nugget.json",
+    "duration": 50,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 2,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gold_ore.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_axe.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_boots.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_carrot.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 4,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration",
+      "minecraft:night_vision"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.golden_chestplate.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_helmet.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_hoe.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_horse_armor.json",
+    "duration": 300,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 8,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.golden_leggings.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_pickaxe.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration",
+      "minecraft:haste"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_shovel.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.golden_sword.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration",
+      "minecraft:strength"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.granite.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.granite_slab.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.granite_stairs.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.granite_wall.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.grass.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.grass_block.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.grass_path.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gravel.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gray_banner",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gray_bed",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gray_carpet",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gray_concrete",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.gray_concrete_powder",
+    "duration": 50,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 2,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.gray_dye",
+    "duration": 50,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 2,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gray_glazed_terracotta",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.gray_shulker_box",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:absorption",
+      "minecraft:hunger"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.gray_stained_glass",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gray_stained_glass_pane",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gray_terracotta",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.gray_wool",
+    "duration": 300,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 7,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:slowness",
+      "minecraft:absorption"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.grindstone.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.gunpowder.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:explosiveresisteffect"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.hay_block.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.heart_of_the_sea.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
       "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:dolphins_grace",
+      "minecraft:conduit_power"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.heavy_weighted_pressure_plate.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:slowness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.honey_block.json",
+    "duration": 300,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:haste",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.honey_bottle.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:haste",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.honeycomb.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:haste",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.honeycomb_block.json",
+    "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:haste",
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.hopper.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:hunger"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.hopper_minecart.json",
+    "duration": 300,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:hunger",
+      "minecraft:speed"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.horn_coral.json",
+    "duration": 100,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
@@ -3600,8 +3565,8 @@
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.horn_coral_block.json",
+    "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
@@ -3610,8 +3575,8 @@
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.horn_coral_fan.json",
+    "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
@@ -3620,197 +3585,260 @@
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.ice.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 1,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.infested_chiseled_stone_bricks.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.infested_cobblestone.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.infested_cracked_stone_bricks.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.infested_mossy_stone_bricks.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.ink_sac.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "vrm:inkeffect"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.iron_axe.json",
+    "duration": 300,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.iron_bars.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.iron_block.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.iron_boots.json",
+    "duration": 300,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.iron_chestplate.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.iron_door.json",
+    "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.iron_helmet.json",
+    "duration": 300,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.iron_hoe.json",
+    "duration": 100,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.iron_horse_armor.json",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.iron_ingot.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:strength"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.iron_leggings.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:strength",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.iron_nugget.json",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:strength"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.iron_ore.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:strength",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.iron_pickaxe.json",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:strength"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.iron_shovel.json",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:strength"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.iron_sword.json",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:strength"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.iron_trapdoor.json",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:strength"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.item_frame.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.jack_o_lantern.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:night_vision"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.jukebox.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 8,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.kelp.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:water_breathing"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.knowledge_book.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.ladder.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3820,173 +3848,630 @@
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.lantern.json",
     "duration": 500,
     "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:night_vision"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lapis_block.json",
+    "duration": 300,
+    "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:night_vision"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.lapis_lazuli.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:night_vision"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.lapis_ore.json",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:night_vision",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.large_fern.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.lava_bucket.json",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.lead.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.leather.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:saturation"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.leather_chestplate.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:saturation",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.leather_helmet.json",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:saturation",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.leather_horse_armor.json",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 9,
+    "listOfEffects": [
+      "minecraft:saturation",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.leather_leggings.json",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:saturation",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.lectern.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.lever.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_blue_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_blue_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_blue_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_blue_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.light_blue_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.light_blue_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_blue_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:water_breathing"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.light_blue_shulker_box",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:absorption",
+      "minecraft:hunger"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.light_blue_stained_glass",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_blue_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_blue_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_blue_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_gray_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_gray_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_gray_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_gray_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.light_gray_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.light_gray_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_gray_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.light_gray_shulker_box",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:absorption",
+      "minecraft:hunger"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.light_gray_stained_glass",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_gray_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_gray_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_gray_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.light_weighted_pressure_plate.json",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:speed"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lilac.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lily_of_the_valley.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lily_pad.json",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lime_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lime_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lime_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lime_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.lime_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.lime_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lime_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:luck"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.lime_shulker_box",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:absorption",
+      "minecraft:hunger"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.lime_stained_glass",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lime_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lime_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.lime_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.lodestone.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.loom.json",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.magenta_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:luck"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.magenta_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.magenta_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.magenta_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.magenta_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.magenta_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.magenta_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:luck"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.magenta_shulker_box",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 10,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:absorption",
+      "minecraft:hunger"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.magenta_stained_glass",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.magenta_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.magenta_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.magenta_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
     ]
   },
   {

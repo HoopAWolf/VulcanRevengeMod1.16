@@ -6,7 +6,6 @@ import com.hoopawolf.vrm.structure.piece.SwordStructurePiece;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
@@ -28,15 +27,17 @@ public class StructureRegistryHandler
     public static void generateStructureWorldSpawn()
     {
         Structure.field_236365_a_.put(SWORD_STONE_STRUCTURE.get().getStructureName(), SWORD_STONE_STRUCTURE.get());
-        registerStructureWorldSpawn(SWORD_STONE_STRUCTURE.get().func_236391_a_(NoFeatureConfig.field_236559_b_),
-                new Biome[]{Biomes.FOREST, Biomes.TALL_BIRCH_FOREST, Biomes.TALL_BIRCH_FOREST, Biomes.JUNGLE, Biomes.DARK_FOREST, Biomes.FLOWER_FOREST, Biomes.WOODED_HILLS, Biomes.TAIGA, Biomes.PLAINS});
+        registerStructureWorldSpawn(SWORD_STONE_STRUCTURE.get().func_236391_a_(NoFeatureConfig.field_236559_b_), Biome.TempCategory.MEDIUM);
     }
 
-    protected static void registerStructureWorldSpawn(StructureFeature<?, ?> structureIn, Biome[] biomes)
+    protected static void registerStructureWorldSpawn(StructureFeature<?, ?> structureIn, Biome.TempCategory temp)
     {
-        for (Biome biome : biomes)
+        for (Biome biome : ForgeRegistries.BIOMES)
         {
-            biome.func_235063_a_(structureIn);
+            if (biome.getTempCategory().equals(temp))
+            {
+                biome.func_235063_a_(structureIn);
+            }
         }
     }
 

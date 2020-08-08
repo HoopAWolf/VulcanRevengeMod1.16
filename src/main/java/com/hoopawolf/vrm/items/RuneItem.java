@@ -1,5 +1,6 @@
 package com.hoopawolf.vrm.items;
 
+import com.hoopawolf.vrm.config.ConfigHandler;
 import com.hoopawolf.vrm.network.VRMPacketHandler;
 import com.hoopawolf.vrm.network.packets.client.SpawnParticleMessage;
 import com.hoopawolf.vrm.util.ItemBlockRegistryHandler;
@@ -8,7 +9,6 @@ import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.*;
 import net.minecraft.util.math.vector.Vector3d;
@@ -84,7 +84,7 @@ public class RuneItem extends Item
             {
                 case 1:
                 {
-                    if (playerIn.getHeldItemOffhand().getItem().equals(Items.DIAMOND_HOE))
+                    if (playerIn.getHeldItemOffhand().getTranslationKey().equals(ConfigHandler.COMMON.deathScytheItem.get()))
                     {
                         playerIn.getHeldItemOffhand().shrink(1);
                         playerIn.getHeldItem(handIn).shrink(1);
@@ -107,7 +107,7 @@ public class RuneItem extends Item
 
                 case 2:
                 {
-                    if (playerIn.getHeldItemOffhand().getItem().equals(Items.DIAMOND_SWORD))
+                    if (playerIn.getHeldItemOffhand().getTranslationKey().equals(ConfigHandler.COMMON.warSwordItem.get()))
                     {
                         playerIn.getHeldItemOffhand().shrink(1);
                         playerIn.getHeldItem(handIn).shrink(1);
@@ -129,7 +129,7 @@ public class RuneItem extends Item
                 break;
                 case 3:
                 {
-                    if (playerIn.getHeldItemOffhand().getItem().equals(Items.DIAMOND_PICKAXE))
+                    if (playerIn.getHeldItemOffhand().getTranslationKey().equals(ConfigHandler.COMMON.famineScaleItem.get()))
                     {
                         playerIn.getHeldItemOffhand().shrink(1);
                         playerIn.getHeldItem(handIn).shrink(1);
@@ -151,7 +151,7 @@ public class RuneItem extends Item
                 break;
                 case 4:
                 {
-                    if (playerIn.getHeldItemOffhand().getItem().equals(Items.BOW))
+                    if (playerIn.getHeldItemOffhand().getTranslationKey().equals(ConfigHandler.COMMON.pesBowItem.get()))
                     {
                         playerIn.getHeldItemOffhand().shrink(1);
                         playerIn.getHeldItem(handIn).shrink(1);

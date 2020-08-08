@@ -69,11 +69,11 @@ public class WarSwordItem extends SwordItem
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
     {
-        if (!worldIn.isRemote)
+        if (!playerIn.isCrouching() && handIn.equals(Hand.MAIN_HAND))
         {
-            if (!playerIn.isCrouching() && handIn.equals(Hand.MAIN_HAND))
+            if (getWarCryCoolDown(playerIn.getHeldItem(handIn)) <= 0)
             {
-                if (getWarCryCoolDown(playerIn.getHeldItem(handIn)) <= 0)
+                if (!worldIn.isRemote)
                 {
                     setWarCryCoolDown(playerIn.getHeldItem(handIn), 200);
                     playerIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 150, 3));
@@ -84,16 +84,24 @@ public class WarSwordItem extends SwordItem
                     }
 
                     playerIn.playSound(SoundEvents.ENTITY_ENDER_DRAGON_SHOOT, SoundCategory.BLOCKS, 5.0F, 0.1F);
-                } else
-                {
-                    playerIn.playSound(SoundEvents.BLOCK_NOTE_BLOCK_BASEDRUM, SoundCategory.BLOCKS, 5.0F, 0.1F);
-                    EntityHelper.sendCoolDownMessage(playerIn, getWarCryCoolDown(playerIn.getHeldItem(handIn)));
                 }
             } else
             {
-                if (handIn.equals(Hand.MAIN_HAND))
+                if (!worldIn.isRemote)
                 {
-                    if (getRageCoolDown(playerIn.getHeldItem(handIn)) <= 0)
+                    playerIn.playSound(SoundEvents.BLOCK_NOTE_BLOCK_BASEDRUM, SoundCategory.BLOCKS, 5.0F, 0.1F);
+                } else
+                {
+                    EntityHelper.sendCoolDownMessage(playerIn, getWarCryCoolDown(playerIn.getHeldItem(handIn)));
+                }
+            }
+        } else
+        {
+            if (handIn.equals(Hand.MAIN_HAND))
+            {
+                if (getRageCoolDown(playerIn.getHeldItem(handIn)) <= 0)
+                {
+                    if (!worldIn.isRemote)
                     {
                         setRageCoolDown(playerIn.getHeldItem(handIn), 200);
                         CreatureEntity temp = null;
@@ -131,9 +139,14 @@ public class WarSwordItem extends SwordItem
                         }
 
                         playerIn.playSound(SoundEvents.ENTITY_ENDER_DRAGON_GROWL, SoundCategory.BLOCKS, 5.0F, 0.1F);
-                    } else
+                    }
+                } else
+                {
+                    if (!worldIn.isRemote)
                     {
                         playerIn.playSound(SoundEvents.BLOCK_NOTE_BLOCK_BASEDRUM, SoundCategory.BLOCKS, 5.0F, 0.1F);
+                    } else
+                    {
                         EntityHelper.sendCoolDownMessage(playerIn, getRageCoolDown(playerIn.getHeldItem(handIn)));
                     }
                 }
