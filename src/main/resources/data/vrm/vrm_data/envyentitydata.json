@@ -9,6 +9,16 @@
     ]
   },
   {
+    "entityID": "minecraft:blaze",
+    "amplifier": 0,
+    "listOfEffects": [
+      "vrm:flighteffect",
+      "vrm:flamechargeeffect",
+      "minecraft:slow_falling",
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
     "entityID": "minecraft:cow",
     "amplifier": 0,
     "listOfEffects": [

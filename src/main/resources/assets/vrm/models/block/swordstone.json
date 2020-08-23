@@ -1,11 +1,11 @@
 {
-  "particle": "block/anvil",
   "texture_size": [
     32,
     32
   ],
   "textures": {
-    "1": "vrm:blocks/swordstone"
+    "1": "vrm:blocks/swordstone",
+    "particle": "vrm:blocks/swordstone"
   },
   "elements": [
     {

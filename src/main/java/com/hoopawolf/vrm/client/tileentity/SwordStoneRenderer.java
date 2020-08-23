@@ -77,10 +77,6 @@ public class SwordStoneRenderer extends TileEntityRenderer<SwordStoneTileEntity>
         {
             float f5 = 0.08F;
             float f7 = 0.0F;
-            if (f5 > 0.8F)
-            {
-                f7 = (f5 - 0.8F) / 0.2F;
-            }
 
             IVertexBuilder ivertexbuilder2 = bufferIn.getBuffer(RenderType.getLightning());
             matrixStackIn.push();

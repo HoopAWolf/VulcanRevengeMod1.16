@@ -35,18 +35,21 @@ public class FireChargeEffect extends Effect
             int charge = 3;
             for (LivingEntity entity : EntityHelper.getEntityLivingBaseNearby(entityLivingBaseIn, 10, 5, 10, 10))
             {
-                double d0 = entityLivingBaseIn.getDistanceSq(entity);
-                double d1 = entity.getPosX() - entityLivingBaseIn.getPosX();
-                double d2 = entity.getPosYHeight(0.5D) - entityLivingBaseIn.getPosYHeight(0.5D);
-                double d3 = entity.getPosZ() - entityLivingBaseIn.getPosZ();
-                float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
+                if (entityLivingBaseIn.canEntityBeSeen(entity))
+                {
+                    double d0 = entityLivingBaseIn.getDistanceSq(entity);
+                    double d1 = entity.getPosX() - entityLivingBaseIn.getPosX();
+                    double d2 = entity.getPosYHeight(0.5D) - entityLivingBaseIn.getPosYHeight(0.5D);
+                    double d3 = entity.getPosZ() - entityLivingBaseIn.getPosZ();
+                    float f = MathHelper.sqrt(MathHelper.sqrt(d0)) * 0.5F;
 
-                entityLivingBaseIn.world.playEvent(null, 1018, entityLivingBaseIn.getPosition(), 0);
+                    entityLivingBaseIn.world.playEvent(null, 1018, entityLivingBaseIn.getPosition(), 0);
 
-                SmallFireballEntity smallfireballentity = new SmallFireballEntity(entityLivingBaseIn.world, entityLivingBaseIn, d1 + entityLivingBaseIn.getRNG().nextGaussian() * (double) f, d2, d3 + entityLivingBaseIn.getRNG().nextGaussian() * (double) f);
-                smallfireballentity.setPosition(smallfireballentity.getPosX(), entityLivingBaseIn.getPosYHeight(0.5D) + 0.5D, smallfireballentity.getPosZ());
-                entityLivingBaseIn.world.addEntity(smallfireballentity);
-                --charge;
+                    SmallFireballEntity smallfireballentity = new SmallFireballEntity(entityLivingBaseIn.world, entityLivingBaseIn, d1 + entityLivingBaseIn.getRNG().nextGaussian() * (double) f, d2, d3 + entityLivingBaseIn.getRNG().nextGaussian() * (double) f);
+                    smallfireballentity.setPosition(smallfireballentity.getPosX(), entityLivingBaseIn.getPosYHeight(0.5D) + 0.5D, smallfireballentity.getPosZ());
+                    entityLivingBaseIn.world.addEntity(smallfireballentity);
+                    --charge;
+                }
 
                 if (charge <= 0)
                 {

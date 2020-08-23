@@ -51,6 +51,9 @@ public final class ConfigHandler
         public final ForgeConfigSpec.IntValue minStructureAway;
         public final ForgeConfigSpec.IntValue maxStructureAway;
         public final ForgeConfigSpec.IntValue structureSpawnChance;
+        public final ForgeConfigSpec.IntValue minSinStructureAway;
+        public final ForgeConfigSpec.IntValue maxSinStructureAway;
+        public final ForgeConfigSpec.IntValue structureSinSpawnChance;
 
         public final ForgeConfigSpec.BooleanValue slothMaskTurnNight;
         public final ForgeConfigSpec.BooleanValue slothMaskTurnDay;
@@ -74,6 +77,18 @@ public final class ConfigHandler
             structureSpawnChance = builder
                     .translation("config.text.structperc")
                     .defineInRange("structure.spawnpercentage", 40, 0, 100);
+
+            minSinStructureAway = builder
+                    .translation("config.text.minsinstruct")
+                    .defineInRange("sinstructure.spawndist.min", 7, 0, Integer.MAX_VALUE);
+
+            maxSinStructureAway = builder
+                    .translation("config.text.maxsinstruct")
+                    .defineInRange("sinstructure.spawndist.max", 12, 0, Integer.MAX_VALUE);
+
+            structureSinSpawnChance = builder
+                    .translation("config.text.sinstructperc")
+                    .defineInRange("sinstructure.spawnpercentage", 40, 0, 100);
 
             slothMaskTurnNight = builder
                     .translation("config.text.slothmasksleep")

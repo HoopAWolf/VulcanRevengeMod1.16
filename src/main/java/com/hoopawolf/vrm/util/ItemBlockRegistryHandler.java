@@ -26,6 +26,9 @@ public class ItemBlockRegistryHandler
 
     //BLOCKS
     public static final RegistryObject<Block> SWORD_STONE_BLOCK = BLOCKS.register("swordstone", () -> new SwordStoneBlock(Block.Properties.create(Material.ANVIL).hardnessAndResistance(100)));
+    public static final RegistryObject<Block> PEDESTAL_BLOCK = BLOCKS.register("pedestal", () -> new PedestalBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0F, 6.0F)));
+    public static final RegistryObject<Block> ALTER_BLOCK = BLOCKS.register("alter", () -> new AlterBlock(Block.Properties.create(Material.ANVIL).hardnessAndResistance(100)));
+
     public static final RegistryObject<Block> BLAZE_RUNE_BLOCK = BLOCKS.register("blazerune", () -> new BlazeRuneBlock(Block.Properties.create(Material.ANVIL).hardnessAndResistance(100)));
     public static final RegistryObject<Block> NETHER_RUNE_BLOCK = BLOCKS.register("netherrune", () -> new NetherRuneBlock(Block.Properties.create(Material.ANVIL).hardnessAndResistance(100)));
     public static final RegistryObject<Block> SCUTE_RUNE_BLOCK = BLOCKS.register("scuterune", () -> new ScuteRuneBlock(Block.Properties.create(Material.ANVIL).hardnessAndResistance(100)));
@@ -43,6 +46,11 @@ public class ItemBlockRegistryHandler
 
     public static final RegistryObject<BlockItem> SWORD_STONE = ITEMS.register("swordstone",
             () -> new BlockItem(SWORD_STONE_BLOCK.get(), new Item.Properties().group(VRMItemGroup.instance)));
+    public static final RegistryObject<BlockItem> PEDESTAL = ITEMS.register("pedestal",
+            () -> new BlockItem(PEDESTAL_BLOCK.get(), new Item.Properties().group(VRMItemGroup.instance)));
+    public static final RegistryObject<BlockItem> ALTER = ITEMS.register("alter",
+            () -> new BlockItem(ALTER_BLOCK.get(), new Item.Properties().group(VRMItemGroup.instance)));
+
     public static final RegistryObject<BlockItem> BLAZE_RUNE = ITEMS.register("blazerune",
             () -> new BlockItem(BLAZE_RUNE_BLOCK.get(), new Item.Properties().group(VRMItemGroup.instance)));
     public static final RegistryObject<BlockItem> NETHER_RUNE = ITEMS.register("netherrune",

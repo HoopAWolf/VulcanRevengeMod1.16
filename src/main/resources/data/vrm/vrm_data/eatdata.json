@@ -2940,7 +2940,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.firework_rocket.json",
+    "itemID": "item.minecraft.firework_rocket",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -2950,7 +2950,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.firework_star.json",
+    "itemID": "item.minecraft.firework_star",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -2960,7 +2960,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.fishing_rod.json",
+    "itemID": "item.minecraft.fishing_rod",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -2971,7 +2971,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.fletching_table.json",
+    "itemID": "block.minecraft.fletching_table",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -2979,7 +2979,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.flint.json",
+    "itemID": "item.minecraft.flint",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -2987,7 +2987,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.flint_and_steel.json",
+    "itemID": "item.minecraft.flint_and_steel",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -2996,7 +2996,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.flower_banner_pattern.json",
+    "itemID": "block.minecraft.flower_banner_pattern",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3005,7 +3005,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.flower_pot.json",
+    "itemID": "item.minecraft.flower_pot",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3013,7 +3013,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.furnace.json",
+    "itemID": "block.minecraft.furnace",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3022,7 +3022,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.furnace_minecart.json",
+    "itemID": "item.minecraft.furnace_minecart",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3032,7 +3032,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.ghast_tear.json",
+    "itemID": "item.minecraft.ghast_tear",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3044,7 +3044,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.gilded_blackstone.json",
+    "itemID": "block.minecraft.gilded_blackstone",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3053,7 +3053,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.glass.json",
+    "itemID": "block.minecraft.glass",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3063,7 +3063,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.glass_bottle.json",
+    "itemID": "item.minecraft.glass_bottle",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 1,
@@ -3073,7 +3073,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.glass_pane.json",
+    "itemID": "block.minecraft.glass_pane",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3083,7 +3083,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.glistering_melon_slice.json",
+    "itemID": "item.minecraft.glistering_melon_slice",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3093,7 +3093,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.globe_banner_pattern.json",
+    "itemID": "block.minecraft.globe_banner_pattern",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3101,7 +3101,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.glowstone.json",
+    "itemID": "block.minecraft.glowstone",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3110,7 +3110,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.glowstone_dust.json",
+    "itemID": "item.minecraft.glowstone_dust",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 2,
@@ -3119,7 +3119,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.gold_block.json",
+    "itemID": "block.minecraft.gold_block",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3129,7 +3129,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.gold_ingot.json",
+    "itemID": "item.minecraft.gold_ingot",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3139,7 +3139,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.gold_nugget.json",
+    "itemID": "item.minecraft.gold_nugget",
     "duration": 50,
     "amplifier": 0,
     "foodAmount": 2,
@@ -3149,7 +3149,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.gold_ore.json",
+    "itemID": "block.minecraft.gold_ore",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3159,7 +3159,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_axe.json",
+    "itemID": "item.minecraft.golden_axe",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3168,7 +3168,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_boots.json",
+    "itemID": "item.minecraft.golden_boots",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3178,7 +3178,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_carrot.json",
+    "itemID": "item.minecraft.golden_carrot",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 4,
@@ -3188,7 +3188,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_chestplate.json",
+    "itemID": "item.minecraft.golden_chestplate",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3198,7 +3198,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_helmet.json",
+    "itemID": "item.minecraft.golden_helmet",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3208,7 +3208,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_hoe.json",
+    "itemID": "item.minecraft.golden_hoe",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3217,7 +3217,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_horse_armor.json",
+    "itemID": "item.minecraft.golden_horse_armor",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 8,
@@ -3227,7 +3227,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_leggings.json",
+    "itemID": "item.minecraft.golden_leggings",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3237,7 +3237,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_pickaxe.json",
+    "itemID": "item.minecraft.golden_pickaxe",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3247,7 +3247,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_shovel.json",
+    "itemID": "item.minecraft.golden_shovel",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3256,7 +3256,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.golden_sword.json",
+    "itemID": "item.minecraft.golden_sword",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3266,7 +3266,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.granite.json",
+    "itemID": "block.minecraft.granite",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3275,7 +3275,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.granite_slab.json",
+    "itemID": "block.minecraft.granite_slab",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3284,7 +3284,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.granite_stairs.json",
+    "itemID": "block.minecraft.granite_stairs",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3293,7 +3293,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.granite_wall.json",
+    "itemID": "block.minecraft.granite_wall",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3302,7 +3302,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.grass.json",
+    "itemID": "block.minecraft.grass",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3311,7 +3311,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.grass_block.json",
+    "itemID": "block.minecraft.grass_block",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3320,7 +3320,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.grass_path.json",
+    "itemID": "block.minecraft.grass_path",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3328,7 +3328,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.gravel.json",
+    "itemID": "block.minecraft.gravel",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3449,7 +3449,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.grindstone.json",
+    "itemID": "block.minecraft.grindstone",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3459,7 +3459,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.gunpowder.json",
+    "itemID": "item.minecraft.gunpowder",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3468,7 +3468,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.hay_block.json",
+    "itemID": "block.minecraft.hay_block",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3476,7 +3476,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.heart_of_the_sea.json",
+    "itemID": "item.minecraft.heart_of_the_sea",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3487,7 +3487,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.heavy_weighted_pressure_plate.json",
+    "itemID": "block.minecraft.heavy_weighted_pressure_plate",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3496,7 +3496,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.honey_block.json",
+    "itemID": "block.minecraft.honey_block",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3506,7 +3506,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.honey_bottle.json",
+    "itemID": "item.minecraft.honey_bottle",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3516,7 +3516,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.honeycomb.json",
+    "itemID": "item.minecraft.honeycomb",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3526,7 +3526,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.honeycomb_block.json",
+    "itemID": "block.minecraft.honeycomb_block",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3536,7 +3536,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.hopper.json",
+    "itemID": "block.minecraft.hopper",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3545,7 +3545,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.hopper_minecart.json",
+    "itemID": "item.minecraft.hopper_minecart",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 10,
@@ -3555,7 +3555,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.horn_coral.json",
+    "itemID": "block.minecraft.horn_coral",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3565,7 +3565,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.horn_coral_block.json",
+    "itemID": "block.minecraft.horn_coral_block",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3575,7 +3575,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.horn_coral_fan.json",
+    "itemID": "block.minecraft.horn_coral_fan",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3585,7 +3585,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.ice.json",
+    "itemID": "block.minecraft.ice",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 1,
@@ -3593,7 +3593,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.infested_chiseled_stone_bricks.json",
+    "itemID": "item.minecraft.infested_chiseled_stone_bricks",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3602,7 +3602,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.infested_cobblestone.json",
+    "itemID": "item.minecraft.infested_cobblestone",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3611,7 +3611,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.infested_cracked_stone_bricks.json",
+    "itemID": "item.minecraft.infested_cracked_stone_bricks",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3620,7 +3620,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.infested_mossy_stone_bricks.json",
+    "itemID": "item.minecraft.infested_mossy_stone_bricks",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3629,7 +3629,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.ink_sac.json",
+    "itemID": "item.minecraft.ink_sac",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3638,7 +3638,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_axe.json",
+    "itemID": "item.minecraft.iron_axe",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3647,7 +3647,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.iron_bars.json",
+    "itemID": "block.minecraft.iron_bars",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3656,7 +3656,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.iron_block.json",
+    "itemID": "block.minecraft.iron_block",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3665,7 +3665,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_boots.json",
+    "itemID": "item.minecraft.iron_boots",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3675,7 +3675,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_chestplate.json",
+    "itemID": "item.minecraft.iron_chestplate",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3685,7 +3685,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.iron_door.json",
+    "itemID": "block.minecraft.iron_door",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3694,7 +3694,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_helmet.json",
+    "itemID": "item.minecraft.iron_helmet",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3704,7 +3704,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_hoe.json",
+    "itemID": "item.minecraft.iron_hoe",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3713,7 +3713,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_horse_armor.json",
+    "itemID": "item.minecraft.iron_horse_armor",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 10,
@@ -3722,7 +3722,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_ingot.json",
+    "itemID": "item.minecraft.iron_ingot",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3731,7 +3731,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_leggings.json",
+    "itemID": "item.minecraft.iron_leggings",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3741,7 +3741,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_nugget.json",
+    "itemID": "item.minecraft.iron_nugget",
     "duration": 50,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3750,7 +3750,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_ore.json",
+    "itemID": "item.minecraft.iron_ore",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3760,7 +3760,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_pickaxe.json",
+    "itemID": "item.minecraft.iron_pickaxe",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3769,7 +3769,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_shovel.json",
+    "itemID": "item.minecraft.iron_shovel",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3778,7 +3778,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.iron_sword.json",
+    "itemID": "item.minecraft.iron_sword",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3787,7 +3787,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.iron_trapdoor.json",
+    "itemID": "block.minecraft.iron_trapdoor",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3796,7 +3796,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.item_frame.json",
+    "itemID": "item.minecraft.item_frame",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3804,7 +3804,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.jack_o_lantern.json",
+    "itemID": "block.minecraft.jack_o_lantern",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3813,7 +3813,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.jukebox.json",
+    "itemID": "block.minecraft.jukebox",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 8,
@@ -3821,7 +3821,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.kelp.json",
+    "itemID": "item.minecraft.kelp",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3830,7 +3830,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.knowledge_book.json",
+    "itemID": "item.minecraft.knowledge_book",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3838,7 +3838,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.ladder.json",
+    "itemID": "block.minecraft.ladder",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3848,7 +3848,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.lantern.json",
+    "itemID": "item.minecraft.lantern",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3857,7 +3857,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.lapis_block.json",
+    "itemID": "block.minecraft.lapis_block",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3866,7 +3866,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.lapis_lazuli.json",
+    "itemID": "item.minecraft.lapis_lazuli",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3875,7 +3875,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.lapis_ore.json",
+    "itemID": "block.minecraft.lapis_ore",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3885,7 +3885,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.large_fern.json",
+    "itemID": "item.minecraft.large_fern",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3893,7 +3893,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.lava_bucket.json",
+    "itemID": "item.minecraft.lava_bucket",
     "duration": 300,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3902,7 +3902,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.lead.json",
+    "itemID": "item.minecraft.lead",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3910,7 +3910,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.leather.json",
+    "itemID": "item.minecraft.leather",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3919,7 +3919,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.leather_chestplate.json",
+    "itemID": "item.minecraft.leather_chestplate",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3929,7 +3929,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.leather_helmet.json",
+    "itemID": "item.minecraft.leather_helmet",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 3,
@@ -3939,7 +3939,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.leather_horse_armor.json",
+    "itemID": "item.minecraft.leather_horse_armor",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 9,
@@ -3949,7 +3949,7 @@
     ]
   },
   {
-    "itemID": "item.minecraft.leather_leggings.json",
+    "itemID": "item.minecraft.leather_leggings",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
@@ -3959,7 +3959,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.lectern.json",
+    "itemID": "block.minecraft.lectern",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -3967,7 +3967,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.lever.json",
+    "itemID": "block.minecraft.lever",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -4199,7 +4199,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.light_weighted_pressure_plate.json",
+    "itemID": "block.minecraft.light_weighted_pressure_plate",
     "duration": 200,
     "amplifier": 0,
     "foodAmount": 5,
@@ -4208,7 +4208,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.lilac.json",
+    "itemID": "block.minecraft.lilac",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -4217,7 +4217,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.lily_of_the_valley.json",
+    "itemID": "block.minecraft.lily_of_the_valley",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -4226,7 +4226,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.lily_pad.json",
+    "itemID": "block.minecraft.lily_pad",
     "duration": 100,
     "amplifier": 0,
     "foodAmount": 5,
@@ -4347,7 +4347,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.lodestone.json",
+    "itemID": "block.minecraft.lodestone",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -4355,7 +4355,7 @@
     ]
   },
   {
-    "itemID": "block.minecraft.loom.json",
+    "itemID": "block.minecraft.loom",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 5,
@@ -4475,133 +4475,2855 @@
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.magma_block",
+    "duration": 300,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 7,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance",
+      "minecraft:glowing"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "item.minecraft.magma_cream",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 4,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:fire_resistance",
+      "minecraft:jump_boost"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.map",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 3,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.melon_seeds",
     "duration": 500,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 2,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "item.minecraft.minecart",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:speed",
+      "minecraft:resistance"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.mojang_banner_pattern",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.mossy_cobblestone",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.mossy_cobblestone_slab",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.mossy_cobblestone_stairs",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.mossy_cobblestone_wall",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.mossy_stone_brick_slab",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
-    "duration": 500,
+    "itemID": "block.minecraft.mossy_stone_brick_stairs",
+    "duration": 200,
     "amplifier": 0,
-    "foodAmount": 15,
+    "foodAmount": 5,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:regeneration"
     ]
   },
   {
-    "itemID": "item.minecraft.acacia_boat",
+    "itemID": "block.minecraft.mossy_stone_brick_wall",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.mossy_stone_bricks",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.mycelium",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.name_tag",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.nautilus_shell",
     "duration": 500,
     "amplifier": 0,
     "foodAmount": 15,
     "listOfEffects": [
-      "minecraft:water_breathing",
-      "minecraft:dolphins_grace"
+      "minecraft:conduit_power"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_brick",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_brick_fence",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_brick_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_brick_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_brick_wall",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_bricks",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_brick_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_gold_ore",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_gold_ore",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_quartz_ore",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.nether_star",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "vrm:witherattackeffect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_wart",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.nether_wart_block",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_axe",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:strength",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.netherite_block",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_boots",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_chestplate",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 15,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_helmet",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_hoe",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:strength",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_ingot",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_leggings",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_pickaxe",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:strength",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_scrap",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_shovel",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:strength",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_sword",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:strength",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.netherrack",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.note_block",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.netherite_helmet",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.observer",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.obsidian",
+    "duration": 200,
+    "amplifier": 1,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.orange_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.orange_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_shulker_box",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:absorption",
+      "minecraft:hunger"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_stained_glass",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.orange_tulip",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.oxeye_daisy",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.packed_ice",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:slowness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.painting",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.paper",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.petrified_oak_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.phantom_membrane",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "vrm:flighteffect",
+      "minecraft:night_vision"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.piglin_banner_pattern",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_banner",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.pink_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.pink_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_shulker_box",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:absorption",
+      "minecraft:hunger"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_stained_glass",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:regeneration"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pink_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.piston",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.player_head",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_andesite",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_andesite_slab",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_andesite_stairs",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_basalt",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_brick_slab",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_brick_stairs",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_brick_wall",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_bricks",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_button",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_pressure_plate",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_slab",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_stairs",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:blindness",
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.podzol",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_blackstone_wall",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_diorite",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_diorite_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_diorite_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_granite",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_granite_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.oxeye_daisy",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.polished_granite_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.popped_chorus_fruit",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.poppy",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.powered_rail",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:speed"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.prismarine",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.prismarine_brick_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.prismarine_brick_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.prismarine_bricks",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.prismarine_crystals",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.prismarine_shard",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.prismarine_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.prismarine_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.prismarine_wall",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.pufferfish",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:poison"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.pumpkin",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 6,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.pumpkin_seeds",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.purple_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.purple_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_shulker_box",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:absorption",
+      "minecraft:hunger"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_stained_glass",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purple_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.red_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.red_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_shulker_box",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:absorption",
+      "minecraft:hunger"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_stained_glass",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purpur_block",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purpur_pillar",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purpur_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.purpur_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.quartz",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.quartz_block",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.quartz_bricks",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.quartz_pillar",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.oxeye_daisy",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.quartz_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.quartz_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.rabbit_foot",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.rabbit_hide",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.rail",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_mushroom",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_mushroom_block",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_nether_brick_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_nether_brick_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_nether_brick_wall",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_nether_bricks",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_sand",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_sandstone",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_sandstone_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_sandstone_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_sandstone_wall",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.red_tulip",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.redstone",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.redstone_block",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.redstone_lamp",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.redstone_ore",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.redstone_torch",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.repeater",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.rose_bush",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.saddle",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sand",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sandstone",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sandstone_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sandstone_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sandstone_wall",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.scaffolding",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.scute",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:water_breathing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sea_lantern",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sea_pickle",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.seagrass",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.shears",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.shield",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.shroomlight",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.shulker_box",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.shulker_shell",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.skeleton_skull",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.slime_ball",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.slime_block",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smithing_table",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.oxeye_daisy",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smoker",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_quartz",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_quartz_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_quartz_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_red_sandstone",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_red_sandstone_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_red_sandstone_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_sandstone",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_sandstone_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_sandstone_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_stone",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.smooth_stone_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.snow",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.snow_block",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.snowball",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.soul_campfire",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.soul_lantern",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.soul_sand",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.soul_soil",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.soul_torch",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.spectral_arrow",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:glowing"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sponge",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.stick",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sticky_piston",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "vrm:climb_effect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.stone_axe",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone_brick_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone_brick_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone_brick_wall",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone_bricks",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone_button",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.stone_hoe",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.stone_pickaxe",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone_pressure_plate",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.stone_shovel",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stone_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.stone_sword",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stonecutter",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.string",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_acacia_log",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_acacia_wood",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_birch_log",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_birch_wood",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_crimson_hyphae",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_crimson_stem",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_dark_oak_log",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_dark_oak_wood",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_jungle_log",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_jungle_wood",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_oak_log",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_oak_wood",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_spruce_log",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_spruce_wood",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_warped_hyphae",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.stripped_warped_stem",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.sugar",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:speed"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.sugar_cane",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:speed"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.sunflower",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.tall_grass",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.terracotta",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.tipped_arrow",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.tnt",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "vrm:explosiveresisteffect"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.tnt_minecart",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "vrm:explosiveresisteffect",
+      "minecraft:speed"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.torch",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.totem_of_undying",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.trident",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.tripwire_hook",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.tube_coral",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.tube_coral_block",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.tube_coral_fan",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.turtle_egg",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.turtle_helmet",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.twisting_vines",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.vine",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_button",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_door",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_fence",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_fence_gate",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_fungus",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_fungus_on_a_stick",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_hyphae",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_nylium",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_planks",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_pressure_plate",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_roots",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_sign",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_slab",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_stairs",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_stem",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_trapdoor",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.warped_wart_block",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.water_bucket",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.weeping_vines",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.wet_sponge",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.wheat",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.wheat_seeds",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "vrm:fallresisteffect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "vrm:fallresisteffect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "vrm:fallresisteffect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "vrm:fallresisteffect"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.white_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "vrm:fallresisteffect"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.white_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "vrm:fallresisteffect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "vrm:fallresisteffect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_shulker_box",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:absorption",
+      "minecraft:hunger"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_stained_glass",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "vrm:fallresisteffect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.white_tulip",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.wither_rose",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "vrm:witherattackeffect"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.wither_skeleton_skull",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "vrm:witherattackeffect"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.wooden_axe",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.wooden_hoe",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.wooden_pickaxe",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.wooden_shovel",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.wooden_sword",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.writable_book",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "item.minecraft.written_book",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_banner",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_bed",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_carpet",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_concrete",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.yellow_concrete_powder",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "item.minecraft.yellow_dye",
+    "duration": 50,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_glazed_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_shulker_box",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:absorption",
+      "minecraft:hunger"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_stained_glass",
+    "duration": 500,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_stained_glass_pane",
+    "duration": 200,
+    "amplifier": 0,
+    "foodAmount": 5,
+    "listOfEffects": [
+      "minecraft:instant_damage",
+      "minecraft:weakness"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_terracotta",
+    "duration": 100,
+    "amplifier": 0,
+    "foodAmount": 10,
+    "listOfEffects": [
+      "minecraft:fire_resistance"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_wool",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 7,
+    "listOfEffects": [
+      "minecraft:slowness",
+      "minecraft:absorption"
+    ]
+  },
+  {
+    "itemID": "block.minecraft.yellow_tulip",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 2,
+    "listOfEffects": [
+    ]
+  },
+  {
+    "itemID": "block.minecraft.zombie_head",
+    "duration": 300,
+    "amplifier": 0,
+    "foodAmount": 3,
+    "listOfEffects": [
     ]
   }
 ]

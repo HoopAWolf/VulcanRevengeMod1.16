@@ -1,11 +1,17 @@
 package com.hoopawolf.vrm.util;
 
 import com.hoopawolf.vrm.potion.*;
+import com.hoopawolf.vrm.potion.sin.EnvyTrialEffect;
+import com.hoopawolf.vrm.potion.sin.PrideTrialEffect;
+import com.hoopawolf.vrm.potion.sin.SlothTrialEffect;
+import com.hoopawolf.vrm.potion.sin.WrathTrialEffect;
 import com.hoopawolf.vrm.ref.Reference;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -15,6 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class PotionRegistryHandler
 {
     public static final DeferredRegister<Effect> POTION_EFFECT = DeferredRegister.create(ForgeRegistries.POTIONS, Reference.MOD_ID);
+    public static final DeferredRegister<Potion> POTION = DeferredRegister.create(ForgeRegistries.POTION_TYPES, Reference.MOD_ID);
 
     //EFFECTS
     public static final RegistryObject<Effect> PLAGUE_EFFECT = POTION_EFFECT.register("plagueeffect", () -> new PotionEffectBase(EffectType.HARMFUL, 3035801));
@@ -43,9 +50,25 @@ public class PotionRegistryHandler
     public static final RegistryObject<Effect> FROST_WALK_EFFECT = POTION_EFFECT.register("frostwalkeffect", () -> new FrostWalkEffect(EffectType.BENEFICIAL, 4413801));
     public static final RegistryObject<Effect> WITHER_ATTACK_EFFECT = POTION_EFFECT.register("witherattackeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 4413801));
 
+    public static final RegistryObject<Effect> GLUTTONY_TRIAL_EFFECT = POTION_EFFECT.register("gluttonytrialeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 3035801));
+    public static final RegistryObject<Effect> ENVY_TRIAL_EFFECT = POTION_EFFECT.register("envytrialeffect", () -> new EnvyTrialEffect(EffectType.BENEFICIAL, 1012801));
+    public static final RegistryObject<Effect> LUST_TRIAL_EFFECT = POTION_EFFECT.register("lusttrialeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 4413801));
+    public static final RegistryObject<Effect> GREED_TRIAL_EFFECT = POTION_EFFECT.register("greedtrialeffect", () -> new PotionEffectBase(EffectType.BENEFICIAL, 2513801));
+    public static final RegistryObject<Effect> SLOTH_TRIAL_EFFECT = POTION_EFFECT.register("slothtrialeffect", () -> new SlothTrialEffect(EffectType.BENEFICIAL, 4413801));
+    public static final RegistryObject<Effect> WRATH_TRIAL_EFFECT = POTION_EFFECT.register("wrathtrialeffect", () -> new WrathTrialEffect(EffectType.BENEFICIAL, 1112801));
+    public static final RegistryObject<Effect> PRIDE_TRIAL_EFFECT = POTION_EFFECT.register("pridetrialeffect", () -> new PrideTrialEffect(EffectType.BENEFICIAL, 3442801));
+
+    public static final RegistryObject<Potion> GLUTTONY_TRIAL_POTION = POTION.register("gluttonytrialpotion", () -> new Potion("gluttonytrialpotion", new EffectInstance(GLUTTONY_TRIAL_EFFECT.get(), 30090)));
+    public static final RegistryObject<Potion> ENVY_TRIAL_POTION = POTION.register("envytrialpotion", () -> new Potion("envytrialpotion", new EffectInstance(ENVY_TRIAL_EFFECT.get(), 30090)));
+    public static final RegistryObject<Potion> LUST_TRIAL_POTION = POTION.register("lusttrialpotion", () -> new Potion("lusttrialpotion", new EffectInstance(LUST_TRIAL_EFFECT.get(), 30090)));
+    public static final RegistryObject<Potion> GREED_TRIAL_POTION = POTION.register("greedtrialpotion", () -> new Potion("greedtrialpotion", new EffectInstance(GREED_TRIAL_EFFECT.get(), 30090)));
+    public static final RegistryObject<Potion> SLOTH_TRIAL_POTION = POTION.register("slothtrialpotion", () -> new Potion("slothtrialpotion", new EffectInstance(SLOTH_TRIAL_EFFECT.get(), 30090)));
+    public static final RegistryObject<Potion> WRATH_TRIAL_POTION = POTION.register("wrathtrialpotion", () -> new Potion("wrathtrialpotion", new EffectInstance(WRATH_TRIAL_EFFECT.get(), 30090)));
+    public static final RegistryObject<Potion> PRIDE_TRIAL_POTION = POTION.register("pridetrialpotion", () -> new Potion("pridetrialpotion", new EffectInstance(PRIDE_TRIAL_EFFECT.get(), 30090)));
 
     public static void init(IEventBus _iEventBus)
     {
         POTION_EFFECT.register(_iEventBus);
+        POTION.register(_iEventBus);
     }
 }

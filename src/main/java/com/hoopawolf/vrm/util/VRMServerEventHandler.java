@@ -4,10 +4,7 @@ import com.hoopawolf.vrm.config.ConfigHandler;
 import com.hoopawolf.vrm.data.EatItemData;
 import com.hoopawolf.vrm.data.EnvyEntityData;
 import com.hoopawolf.vrm.entities.SlothPetEntity;
-import com.hoopawolf.vrm.entities.ai.AnimalAttackGoal;
-import com.hoopawolf.vrm.entities.ai.DazedGoal;
-import com.hoopawolf.vrm.entities.ai.FearPanicGoal;
-import com.hoopawolf.vrm.entities.ai.LustSinTemptGoal;
+import com.hoopawolf.vrm.entities.ai.*;
 import com.hoopawolf.vrm.entities.projectiles.PesArrowEntity;
 import com.hoopawolf.vrm.helper.VRMEatItemDataHandler;
 import com.hoopawolf.vrm.helper.VRMEnvyEntityDataHandler;
@@ -23,7 +20,6 @@ import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -149,6 +145,37 @@ public class VRMServerEventHandler
                 event.player.abilities.isFlying = false;
             }
         }
+
+        if (event.player.isPotionActive(PotionRegistryHandler.GLUTTONY_TRIAL_EFFECT.get()))
+        {
+            if (event.player.getFoodStats().getFoodLevel() > 3)
+            {
+                event.player.getFoodStats().setFoodLevel(3);
+                event.player.getFoodStats().addExhaustion(40);
+            }
+
+            if (!event.player.world.isRemote)
+            {
+                event.player.addPotionEffect(new EffectInstance(Effects.HUNGER, 1, 3));
+            }
+        }
+
+        if (!event.player.world.isRemote)
+        {
+            if (event.player.isPotionActive(PotionRegistryHandler.GREED_TRIAL_EFFECT.get()))
+            {
+                int totalItems = 0;
+                for (ItemStack itemstack : event.player.inventory.mainInventory)
+                {
+                    totalItems += itemstack.getCount();
+                }
+
+                float invenSize = ((float) totalItems / (float) (event.player.inventory.mainInventory.size() * 64));
+
+                event.player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 10, (int) (4.0F * (1.0F - invenSize))));
+                event.player.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, 10, (int) (4.0F * (1.0F - invenSize))));
+            }
+        }
     }
 
     @SubscribeEvent
@@ -193,6 +220,19 @@ public class VRMServerEventHandler
                     if (player.isPotionActive(PotionRegistryHandler.WITHER_ATTACK_EFFECT.get()))
                     {
                         event.getEntityLiving().addPotionEffect(new EffectInstance(Effects.WITHER, 200, 0));
+                    }
+
+                    if (player.isPotionActive(PotionRegistryHandler.PRIDE_TRIAL_EFFECT.get()))
+                    {
+                        if (event.getEntityLiving().getPosY() + 1 > player.getPosY())
+                        {
+                            event.setCanceled(true);
+                        }
+                    }
+
+                    if (player.isPotionActive(PotionRegistryHandler.ENVY_TRIAL_EFFECT.get()))
+                    {
+                        event.setAmount(1);
                     }
                 }
             }
@@ -275,11 +315,164 @@ public class VRMServerEventHandler
                     {
                         event.setResult(Event.Result.DENY);
                     }
-                }
 
-                if (event.getEntityLiving().isPotionActive(PotionRegistryHandler.MILK_EFFECT.get()))
+                } else if (event.getPotionEffect().getPotion().equals(PotionRegistryHandler.GLUTTONY_TRIAL_EFFECT.get()) ||
+                        event.getPotionEffect().getPotion().equals(PotionRegistryHandler.ENVY_TRIAL_EFFECT.get()) ||
+                        event.getPotionEffect().getPotion().equals(PotionRegistryHandler.SLOTH_TRIAL_EFFECT.get()) ||
+                        event.getPotionEffect().getPotion().equals(PotionRegistryHandler.WRATH_TRIAL_EFFECT.get()) ||
+                        event.getPotionEffect().getPotion().equals(PotionRegistryHandler.LUST_TRIAL_EFFECT.get()) ||
+                        event.getPotionEffect().getPotion().equals(PotionRegistryHandler.PRIDE_TRIAL_EFFECT.get()) ||
+                        event.getPotionEffect().getPotion().equals(PotionRegistryHandler.GREED_TRIAL_EFFECT.get()))
                 {
-                    event.setResult(Event.Result.DENY);
+                    if (event.getEntityLiving().isPotionActive(PotionRegistryHandler.GLUTTONY_TRIAL_EFFECT.get()) ||
+                            event.getEntityLiving().isPotionActive(PotionRegistryHandler.ENVY_TRIAL_EFFECT.get()) ||
+                            event.getEntityLiving().isPotionActive(PotionRegistryHandler.SLOTH_TRIAL_EFFECT.get()) ||
+                            event.getEntityLiving().isPotionActive(PotionRegistryHandler.WRATH_TRIAL_EFFECT.get()) ||
+                            event.getEntityLiving().isPotionActive(PotionRegistryHandler.LUST_TRIAL_EFFECT.get()) ||
+                            event.getEntityLiving().isPotionActive(PotionRegistryHandler.PRIDE_TRIAL_EFFECT.get()) ||
+                            event.getEntityLiving().isPotionActive(PotionRegistryHandler.GREED_TRIAL_EFFECT.get()))
+                    {
+                        event.setResult(Event.Result.DENY);
+                    }
+                } else if (event.getEntityLiving().isPotionActive(PotionRegistryHandler.MILK_EFFECT.get()))
+                {
+                    if (!event.getPotionEffect().getPotion().equals(PotionRegistryHandler.GLUTTONY_TRIAL_EFFECT.get()) &&
+                            !event.getPotionEffect().getPotion().equals(PotionRegistryHandler.ENVY_TRIAL_EFFECT.get()) &&
+                            !event.getPotionEffect().getPotion().equals(PotionRegistryHandler.SLOTH_TRIAL_EFFECT.get()) &&
+                            !event.getPotionEffect().getPotion().equals(PotionRegistryHandler.WRATH_TRIAL_EFFECT.get()) &&
+                            !event.getPotionEffect().getPotion().equals(PotionRegistryHandler.LUST_TRIAL_EFFECT.get()) &&
+                            !event.getPotionEffect().getPotion().equals(PotionRegistryHandler.PRIDE_TRIAL_EFFECT.get()) &&
+                            !event.getPotionEffect().getPotion().equals(PotionRegistryHandler.GREED_TRIAL_EFFECT.get()))
+                    {
+                        event.setResult(Event.Result.DENY);
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void PotionExpireEvent(PotionEvent.PotionExpiryEvent event)//TODO 1637
+    {
+        if (!event.getEntity().world.isRemote)
+        {
+            if (event.getEntity() instanceof PlayerEntity)
+            {
+                PlayerEntity player = (PlayerEntity) event.getEntity();
+
+                Effect potion = event.getPotionEffect().getPotion();
+                if (PotionRegistryHandler.LUST_TRIAL_EFFECT.get().equals(potion))
+                {
+                    PlaySoundEffectMessage playSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 5, 5.0F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playSoundMessage);
+
+                    for (int i = 1; i <= 180; ++i)
+                    {
+                        double yaw = (double) i * 360.D / 180.D;
+                        double speed = 0.3;
+                        double xSpeed = speed * Math.cos(Math.toRadians(yaw));
+                        double zSpeed = speed * Math.sin(Math.toRadians(yaw));
+
+                        SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(player.getPosX(), player.getPosY() + 0.5F, player.getPosZ()), new Vector3d(xSpeed, 0.0D, zSpeed), 3, 7, 0.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), spawnParticleMessage);
+                    }
+                    player.dropItem(new ItemStack(ArmorRegistryHandler.LUST_MASK_ARMOR.get()), true);
+                } else if (PotionRegistryHandler.GLUTTONY_TRIAL_EFFECT.get().equals(potion))
+                {
+                    PlaySoundEffectMessage playSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 5, 5.0F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playSoundMessage);
+
+                    for (int i = 1; i <= 180; ++i)
+                    {
+                        double yaw = (double) i * 360.D / 180.D;
+                        double speed = 0.3;
+                        double xSpeed = speed * Math.cos(Math.toRadians(yaw));
+                        double zSpeed = speed * Math.sin(Math.toRadians(yaw));
+
+                        SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(player.getPosX(), player.getPosY() + 0.5F, player.getPosZ()), new Vector3d(xSpeed, 0.0D, zSpeed), 3, 6, 0.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), spawnParticleMessage);
+                    }
+                    player.dropItem(new ItemStack(ArmorRegistryHandler.GLUTTONY_MASK_ARMOR.get()), true);
+                } else if (PotionRegistryHandler.ENVY_TRIAL_EFFECT.get().equals(potion))
+                {
+                    PlaySoundEffectMessage playSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 5, 5.0F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playSoundMessage);
+
+                    for (int i = 1; i <= 180; ++i)
+                    {
+                        double yaw = (double) i * 360.D / 180.D;
+                        double speed = 0.3;
+                        double xSpeed = speed * Math.cos(Math.toRadians(yaw));
+                        double zSpeed = speed * Math.sin(Math.toRadians(yaw));
+
+                        SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(player.getPosX(), player.getPosY() + 0.5F, player.getPosZ()), new Vector3d(xSpeed, 0.0D, zSpeed), 3, 11, 0.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), spawnParticleMessage);
+                    }
+                    player.dropItem(new ItemStack(ArmorRegistryHandler.ENVY_MASK_ARMOR.get()), true);
+                } else if (PotionRegistryHandler.GREED_TRIAL_EFFECT.get().equals(potion))
+                {
+                    PlaySoundEffectMessage playSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 5, 5.0F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playSoundMessage);
+
+                    for (int i = 1; i <= 180; ++i)
+                    {
+                        double yaw = (double) i * 360.D / 180.D;
+                        double speed = 0.3;
+                        double xSpeed = speed * Math.cos(Math.toRadians(yaw));
+                        double zSpeed = speed * Math.sin(Math.toRadians(yaw));
+
+                        SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(player.getPosX(), player.getPosY() + 0.5F, player.getPosZ()), new Vector3d(xSpeed, 0.0D, zSpeed), 3, 1, 0.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), spawnParticleMessage);
+                    }
+                    player.dropItem(new ItemStack(ArmorRegistryHandler.GREED_MASK_ARMOR.get()), true);
+                } else if (PotionRegistryHandler.PRIDE_TRIAL_EFFECT.get().equals(potion))
+                {
+                    PlaySoundEffectMessage playSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 5, 5.0F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playSoundMessage);
+
+                    for (int i = 1; i <= 180; ++i)
+                    {
+                        double yaw = (double) i * 360.D / 180.D;
+                        double speed = 0.3;
+                        double xSpeed = speed * Math.cos(Math.toRadians(yaw));
+                        double zSpeed = speed * Math.sin(Math.toRadians(yaw));
+
+                        SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(player.getPosX(), player.getPosY() + 0.5F, player.getPosZ()), new Vector3d(xSpeed, 0.0D, zSpeed), 3, 12, 0.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), spawnParticleMessage);
+                    }
+                    player.dropItem(new ItemStack(ArmorRegistryHandler.PRIDE_MASK_ARMOR.get()), true);
+                } else if (PotionRegistryHandler.SLOTH_TRIAL_EFFECT.get().equals(potion))
+                {
+                    PlaySoundEffectMessage playSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 5, 5.0F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playSoundMessage);
+
+                    for (int i = 1; i <= 180; ++i)
+                    {
+                        double yaw = (double) i * 360.D / 180.D;
+                        double speed = 0.3;
+                        double xSpeed = speed * Math.cos(Math.toRadians(yaw));
+                        double zSpeed = speed * Math.sin(Math.toRadians(yaw));
+
+                        SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(player.getPosX(), player.getPosY() + 0.5F, player.getPosZ()), new Vector3d(xSpeed, 0.0D, zSpeed), 3, 13, 0.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), spawnParticleMessage);
+                    }
+                    player.dropItem(new ItemStack(ArmorRegistryHandler.SLOTH_MASK_ARMOR.get()), true);
+                } else if (PotionRegistryHandler.WRATH_TRIAL_EFFECT.get().equals(potion))
+                {
+                    PlaySoundEffectMessage playSoundMessage = new PlaySoundEffectMessage(player.getEntityId(), 5, 5.0F, 0.1F);
+                    VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), playSoundMessage);
+
+                    for (int i = 1; i <= 180; ++i)
+                    {
+                        double yaw = (double) i * 360.D / 180.D;
+                        double speed = 0.3;
+                        double xSpeed = speed * Math.cos(Math.toRadians(yaw));
+                        double zSpeed = speed * Math.sin(Math.toRadians(yaw));
+
+                        SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(player.getPosX(), player.getPosY() + 0.5F, player.getPosZ()), new Vector3d(xSpeed, 0.0D, zSpeed), 3, 0, 0.0F);
+                        VRMPacketHandler.packetHandler.sendToDimension(player.world.func_234923_W_(), spawnParticleMessage);
+                    }
+                    player.dropItem(new ItemStack(ArmorRegistryHandler.WRATH_MASK_ARMOR.get()), true);
                 }
             }
         }
@@ -351,11 +544,8 @@ public class VRMServerEventHandler
             if (entity instanceof CreatureEntity && !(entity instanceof SlothPetEntity))
             {
                 ((CreatureEntity) entity).goalSelector.addGoal(0, new DazedGoal(((CreatureEntity) entity)));
-            }
-
-            if (entity instanceof MonsterEntity)
-            {
-                ((MonsterEntity) entity).goalSelector.addGoal(0, new FearPanicGoal((MonsterEntity) entity, 1.5D));
+                ((CreatureEntity) entity).goalSelector.addGoal(0, new LustAvoidEntityGoal(((CreatureEntity) entity), PlayerEntity.class, 12.0F, 1.2D, 2.2D));
+                ((CreatureEntity) entity).goalSelector.addGoal(1, new FearPanicGoal((CreatureEntity) entity, 1.5D));
             }
 
             if (entity instanceof AnimalEntity)

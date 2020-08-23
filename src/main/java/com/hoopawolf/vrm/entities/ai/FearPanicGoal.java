@@ -1,10 +1,10 @@
 package com.hoopawolf.vrm.entities.ai;
 
 import com.hoopawolf.vrm.util.PotionRegistryHandler;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
@@ -15,14 +15,14 @@ import java.util.EnumSet;
 
 public class FearPanicGoal extends Goal
 {
-    protected final MonsterEntity creature;
+    protected final CreatureEntity creature;
     protected final double speed;
     protected double randPosX;
     protected double randPosY;
     protected double randPosZ;
     protected boolean running;
 
-    public FearPanicGoal(MonsterEntity creature, double speedIn)
+    public FearPanicGoal(CreatureEntity creature, double speedIn)
     {
         this.creature = creature;
         this.speed = speedIn;

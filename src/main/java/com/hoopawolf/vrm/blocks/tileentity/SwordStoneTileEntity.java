@@ -33,7 +33,7 @@ import java.util.UUID;
 
 public class SwordStoneTileEntity extends TileEntity implements ITickableTileEntity
 {
-    private static final BlockPos[] runePos =
+    private final BlockPos[] runePos =
             {
                     new BlockPos(2, 1, 2),
                     new BlockPos(-2, 1, -2),
@@ -41,36 +41,7 @@ public class SwordStoneTileEntity extends TileEntity implements ITickableTileEnt
                     new BlockPos(2, 1, -2)
             };
 
-    private static final EntityType[] firePhase =
-            {
-                    EntityType.RAVAGER,
-                    EntityType.MAGMA_CUBE,
-                    EntityType.ZOMBIFIED_PIGLIN
-            };
-
-    private static final EntityType[] heavyPhase =
-            {
-                    EntityType.WITCH,
-                    EntityType.VEX,
-                    EntityType.SILVERFISH
-            };
-
-    private static final EntityType[] slowPhase =
-            {
-                    EntityType.ZOMBIE,
-                    EntityType.SKELETON,
-                    EntityType.SPIDER
-            };
-
-    private static final EntityType[] witherPhase =
-            {
-                    EntityType.WITHER_SKELETON,
-                    EntityType.CAVE_SPIDER,
-                    EntityType.VINDICATOR,
-                    EntityType.EVOKER
-            };
-
-    private static final ArrayList<EntityType[]> phraseList = new ArrayList<>();
+    private final ArrayList<EntityType[]> phraseList = new ArrayList<>();
 
     private float timer, degree;
     private boolean activated, activatedDone;
@@ -83,9 +54,33 @@ public class SwordStoneTileEntity extends TileEntity implements ITickableTileEnt
         timer = 0.0F;
         player = null;
 
+        EntityType[] firePhase = {
+                EntityType.RAVAGER,
+                EntityType.MAGMA_CUBE,
+                EntityType.ZOMBIFIED_PIGLIN
+        };
         phraseList.add(firePhase);
+
+        EntityType[] slowPhase = {
+                EntityType.ZOMBIE,
+                EntityType.SKELETON,
+                EntityType.SPIDER
+        };
         phraseList.add(slowPhase);
+
+        EntityType[] heavyPhase = {
+                EntityType.WITCH,
+                EntityType.VEX,
+                EntityType.SILVERFISH
+        };
         phraseList.add(heavyPhase);
+
+        EntityType[] witherPhase = {
+                EntityType.WITHER_SKELETON,
+                EntityType.CAVE_SPIDER,
+                EntityType.VINDICATOR,
+                EntityType.EVOKER
+        };
         phraseList.add(witherPhase);
     }
 

@@ -24,6 +24,12 @@ public class TileEntityRegistryHandler
     public static final RegistryObject<TileEntityType<SwordStoneTileEntity>> SWORD_STONE_TILE_ENTITY = TILE_ENTITIES.register("swordstone", () ->
             TileEntityType.Builder.create(SwordStoneTileEntity::new, ItemBlockRegistryHandler.SWORD_STONE_BLOCK.get()).build(null));
 
+    public static final RegistryObject<TileEntityType<PedestalTileEntity>> PEDESTAL_TILE_ENTITY = TILE_ENTITIES.register("pedestal", () ->
+            TileEntityType.Builder.create(PedestalTileEntity::new, ItemBlockRegistryHandler.PEDESTAL_BLOCK.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<AlterTileEntity>> ALTER_TILE_ENTITY = TILE_ENTITIES.register("alter", () ->
+            TileEntityType.Builder.create(AlterTileEntity::new, ItemBlockRegistryHandler.ALTER_BLOCK.get()).build(null));
+
     public static final RegistryObject<TileEntityType<BlazeRuneTileEntity>> BLAZE_RUNE_TILE_ENTITY = TILE_ENTITIES.register("blazerune", () ->
             TileEntityType.Builder.create(BlazeRuneTileEntity::new, ItemBlockRegistryHandler.BLAZE_RUNE_BLOCK.get()).build(null));
 
@@ -47,6 +53,14 @@ public class TileEntityRegistryHandler
         RenderTypeLookup.setRenderLayer(ItemBlockRegistryHandler.SWORD_STONE_BLOCK.get(), RenderType.getCutoutMipped());
         ClientRegistry.bindTileEntityRenderer(SWORD_STONE_TILE_ENTITY.get(),
                 SwordStoneRenderer::new);
+
+        RenderTypeLookup.setRenderLayer(ItemBlockRegistryHandler.PEDESTAL_BLOCK.get(), RenderType.getCutoutMipped());
+        ClientRegistry.bindTileEntityRenderer(PEDESTAL_TILE_ENTITY.get(),
+                PedestalRenderer::new);
+
+        RenderTypeLookup.setRenderLayer(ItemBlockRegistryHandler.ALTER_BLOCK.get(), RenderType.getCutoutMipped());
+        ClientRegistry.bindTileEntityRenderer(ALTER_TILE_ENTITY.get(),
+                AlterRenderer::new);
 
         ClientRegistry.bindTileEntityRenderer(BLAZE_RUNE_TILE_ENTITY.get(),
                 BlazeRuneRenderer::new);

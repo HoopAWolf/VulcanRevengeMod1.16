@@ -414,6 +414,7 @@ public class SinsArmorItem extends ArmorItem
                             if (entityIn.getFoodStats().getFoodLevel() > 1)
                             {
                                 entityIn.getFoodStats().setFoodLevel(1);
+                                entityIn.getFoodStats().addExhaustion(40);
                             }
                         }
                     }
