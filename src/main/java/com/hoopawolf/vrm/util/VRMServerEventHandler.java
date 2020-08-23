@@ -352,7 +352,7 @@ public class VRMServerEventHandler
     }
 
     @SubscribeEvent
-    public static void PotionExpireEvent(PotionEvent.PotionExpiryEvent event)//TODO 1637
+    public static void PotionExpireEvent(PotionEvent.PotionExpiryEvent event)
     {
         if (!event.getEntity().world.isRemote)
         {
