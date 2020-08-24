@@ -2,12 +2,12 @@
   "type": "crafting_shaped",
   "pattern": [
     "^^^",
-    "^#^",
-    "^^^"
+    "#^#",
+    "###"
   ],
   "key": {
     "#": {
-      "item": "minecraft:red_nether_brick"
+      "item": "minecraft:red_nether_bricks"
     },
     "^": {
       "item": "minecraft:netherrack"
