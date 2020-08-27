@@ -258,7 +258,7 @@ public class VRMServerEventHandler
                     {
                         if (event.getSource().getTrueSource() instanceof CreatureEntity)
                         {
-                            ((CreatureEntity) event.getSource().getTrueSource()).addPotionEffect(new EffectInstance(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 100)));
+                            ((CreatureEntity) event.getSource().getTrueSource()).addPotionEffect(new EffectInstance(PotionRegistryHandler.DAZED_EFFECT.get(), 100));
                             SpawnParticleMessage spawnParticleMessage = new SpawnParticleMessage(new Vector3d(event.getSource().getTrueSource().getPosX(), event.getSource().getTrueSource().getPosY() + 0.5F, event.getSource().getTrueSource().getPosZ()), new Vector3d(0.0F, 0.0D, 0.0F), 3, 9, event.getSource().getTrueSource().getWidth());
                             VRMPacketHandler.packetHandler.sendToDimension(event.getSource().getTrueSource().world.func_234923_W_(), spawnParticleMessage);
                         }
