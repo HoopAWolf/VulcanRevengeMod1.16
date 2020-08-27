@@ -21,7 +21,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.server.ServerWorld;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -194,7 +193,6 @@ public class AlterTileEntity extends TileEntity implements ITickableTileEntity
                     if (!world.isRemote)
                     {
                         world.playSound(null, pos, SoundEvents.BLOCK_END_PORTAL_SPAWN, SoundCategory.BLOCKS, 2.0F, 0.1F);
-                        ((ServerWorld) world.getWorld()).func_241113_a_(0, 6000, true, true);
                     }
                 }
 

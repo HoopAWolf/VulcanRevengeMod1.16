@@ -122,7 +122,7 @@ public class VRMEatItemDataHandler
                         }
 
                         return true;
-                    }, false);
+                    }, true);
         });
 
         foundData.forEach((pair, file) ->

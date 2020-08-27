@@ -124,7 +124,7 @@ public class VRMGreedItemDataHandler
                         }
 
                         return true;
-                    }, false);
+                    }, true);
         });
 
         foundData.forEach((pair, file) ->

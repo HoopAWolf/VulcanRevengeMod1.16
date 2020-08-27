@@ -33,6 +33,7 @@ public class RayTracingHelper
         if (viewpoint == null)
             return;
 
+        assert mc.playerController != null;
         this.target = this.rayTrace(viewpoint, mc.playerController.getBlockReachDistance() * 10, 0);
     }
 

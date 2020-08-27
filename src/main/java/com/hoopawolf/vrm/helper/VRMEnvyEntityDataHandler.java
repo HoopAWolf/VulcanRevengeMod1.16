@@ -122,7 +122,7 @@ public class VRMEnvyEntityDataHandler
                         }
 
                         return true;
-                    }, false);
+                    }, true);
         });
 
         foundData.forEach((pair, file) ->
