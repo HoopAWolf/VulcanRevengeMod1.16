@@ -596,7 +596,7 @@ public class VRMServerEventHandler
 
                                 if (additionalAmount > 0)
                                 {
-                                    PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(event.getPlayer().getEntityId(), 8, 1.0F, 1.0F);
+                                    PlaySoundEffectMessage playDingSoundMessage = new PlaySoundEffectMessage(event.getPlayer().getEntityId(), 8, 0.3F, 1.0F);
                                     VRMPacketHandler.packetHandler.sendToDimension(event.getPlayer().world.func_234923_W_(), playDingSoundMessage);
                                     event.getOriginalEntity().getItem().setCount(event.getOriginalEntity().getItem().getCount() + additionalAmount);
                                 }
