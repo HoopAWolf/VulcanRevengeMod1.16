@@ -1,12 +1,12 @@
 package com.hoopawolf.vrm.blocks.tileentity;
 
+import com.hoopawolf.vrm.config.ConfigHandler;
 import com.hoopawolf.vrm.network.VRMPacketHandler;
 import com.hoopawolf.vrm.network.packets.client.SpawnParticleMessage;
 import com.hoopawolf.vrm.util.PotionRegistryHandler;
 import com.hoopawolf.vrm.util.TileEntityRegistryHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -27,16 +27,16 @@ import java.util.Objects;
 
 class ItemStore
 {
-    private final Item[] storage = new Item[3];
+    private final String[] storage = new String[3];
 
-    public ItemStore(Item first, Item second, Item third)
+    public ItemStore(String first, String second, String third)
     {
         storage[0] = first;
         storage[1] = second;
         storage[2] = third;
     }
 
-    public Item[] getStorage()
+    public String[] getStorage()
     {
         return storage;
     }
@@ -53,13 +53,13 @@ public class AlterTileEntity extends TileEntity implements ITickableTileEntity
 
     private final ItemStore[] sinItems =
             {
-                    new ItemStore(Items.COOKED_BEEF, Items.COOKED_COD, Items.COOKED_RABBIT),
-                    new ItemStore(Items.SLIME_BALL, Items.MAGMA_CREAM, Items.SLIME_BLOCK),
-                    new ItemStore(Items.WHEAT, Items.WHEAT_SEEDS, Items.CARROT),
-                    new ItemStore(Items.DIAMOND, Items.GOLD_INGOT, Items.EMERALD),
-                    new ItemStore(Items.WHITE_BED, Items.BROWN_BED, Items.LIME_BED),
-                    new ItemStore(Items.DIAMOND_SWORD, Items.SHIELD, Items.DIAMOND_CHESTPLATE),
-                    new ItemStore(Items.BOW, Items.GOLDEN_APPLE, Items.ENDER_EYE)
+                    new ItemStore(ConfigHandler.COMMON.gluttonyItemOne.get(), ConfigHandler.COMMON.gluttonyItemTwo.get(), ConfigHandler.COMMON.gluttonyItemThree.get()),
+                    new ItemStore(ConfigHandler.COMMON.envyItemOne.get(), ConfigHandler.COMMON.envyItemTwo.get(), ConfigHandler.COMMON.envyItemThree.get()),
+                    new ItemStore(ConfigHandler.COMMON.lustItemOne.get(), ConfigHandler.COMMON.lustItemTwo.get(), ConfigHandler.COMMON.lustItemThree.get()),
+                    new ItemStore(ConfigHandler.COMMON.greedItemOne.get(), ConfigHandler.COMMON.greedItemTwo.get(), ConfigHandler.COMMON.greedItemThree.get()),
+                    new ItemStore(ConfigHandler.COMMON.slothItemOne.get(), ConfigHandler.COMMON.slothItemTwo.get(), ConfigHandler.COMMON.slothItemThree.get()),
+                    new ItemStore(ConfigHandler.COMMON.wrathItemOne.get(), ConfigHandler.COMMON.wrathItemTwo.get(), ConfigHandler.COMMON.wrathItemThree.get()),
+                    new ItemStore(ConfigHandler.COMMON.prideItemOne.get(), ConfigHandler.COMMON.prideItemTwo.get(), ConfigHandler.COMMON.prideItemThree.get())
             };
 
     private final ItemStack[] sinPotion =
@@ -135,7 +135,7 @@ public class AlterTileEntity extends TileEntity implements ITickableTileEntity
     {
         if (!isDone())
         {
-            ArrayList<Item> tempItems = new ArrayList<>();
+            ArrayList<String> tempItems = new ArrayList<>();
             for (BlockPos pos : runePos)
             {
                 if (world.getBlockState(new BlockPos(getPos().getX() + pos.getX(), getPos().getY() + pos.getY(), getPos().getZ() + pos.getZ())).hasTileEntity() &&
@@ -147,7 +147,7 @@ public class AlterTileEntity extends TileEntity implements ITickableTileEntity
                         break;
                     } else
                     {
-                        tempItems.add(((PedestalTileEntity) Objects.requireNonNull(world.getTileEntity(new BlockPos(getPos().getX() + pos.getX(), getPos().getY() + pos.getY(), getPos().getZ() + pos.getZ())))).getStoredItem().getItem());
+                        tempItems.add(((PedestalTileEntity) Objects.requireNonNull(world.getTileEntity(new BlockPos(getPos().getX() + pos.getX(), getPos().getY() + pos.getY(), getPos().getZ() + pos.getZ())))).getStoredItem().getItem().getTranslationKey());
                     }
                 } else
                 {
@@ -162,7 +162,7 @@ public class AlterTileEntity extends TileEntity implements ITickableTileEntity
                 int type = 0;
                 for (ItemStore store : sinItems)
                 {
-                    for (Item item : store.getStorage())
+                    for (String item : store.getStorage())
                     {
                         tempItems.remove(item);
                     }
